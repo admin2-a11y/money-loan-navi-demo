@@ -1920,6 +1920,52 @@ h2.content3_ttl {
   }
 }
 
+.operation-page {
+  overflow-x: hidden;
+}
+
+.operation-page header,
+.operation-page #headerinner,
+.operation-page .headerLeft {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.operation-page .headerLeft img,
+.operation-page #footer .footerbox > img {
+  width: min(240px, 72vw);
+  max-width: 72vw;
+  height: auto;
+}
+
+.operation-page #contents {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+
+.operation-page .operation_info {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.operation-page #footer,
+.operation-page #footer .footerbox {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+.operation-page #footer ul {
+  padding-left: 1.2em;
+}
+
 .info tbody tr td,
 .info.reco_table td {
   line-height: 1.2;
