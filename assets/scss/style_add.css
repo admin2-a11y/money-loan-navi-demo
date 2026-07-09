@@ -590,6 +590,109 @@ a:focus-visible {
   text-align: center;
 }
 
+/* ==== diagnosis-flow-4: entry branch, female navigator, compact chat ==== */
+.select_modal_body {
+  max-width: 520px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.select_modal_body header {
+  background: #fff !important;
+}
+
+.select_modal_body .select_modal_inner {
+  background: linear-gradient(180deg, #f7fcff 0%, #eaf8ff 100%);
+  padding: 0 20px 22px;
+}
+
+.select_modal_lead {
+  margin: 8px auto 16px;
+  max-width: 360px;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn {
+  max-width: 360px;
+  min-height: 64px;
+  height: auto;
+  margin-bottom: 14px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  line-height: 1.35;
+  box-shadow: 0 5px 0 rgba(0, 82, 138, .28);
+}
+
+.first-modal__option-btn--experienced {
+  background: #1599e8 !important;
+}
+
+.first-modal__option-btn--beginner {
+  background: linear-gradient(180deg, #cfff83 0%, #9de84c 100%) !important;
+  color: #1f4d13 !important;
+  box-shadow: 0 5px 0 rgba(73, 132, 28, .45) !important;
+}
+
+.first-modal__option-btn--beginner span {
+  color: #315e21;
+}
+
+body .chat_admin_img,
+.modal_final_contents .chat_admin_img {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #fff7fb 0%, #ffdce8 100%) !important;
+  background-image: none !important;
+  border-color: #f2a8bf !important;
+  box-shadow: 0 4px 14px rgba(196, 66, 105, .15);
+}
+
+body .chat_admin_img::before,
+.modal_final_contents .chat_admin_img::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  top: 14%;
+  width: 64%;
+  height: 46%;
+  border-radius: 50% 50% 44% 44%;
+  background: #3d2d2a;
+}
+
+body .chat_admin_img::after,
+.modal_final_contents .chat_admin_img::after {
+  content: "ナビ";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 13%;
+  height: 38%;
+  border-radius: 50%;
+  background: #fff1f6;
+  color: #a72d58;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.result-rank-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  min-height: 30px;
+  margin: 0 0 10px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: #174ca1;
+  color: #fff;
+  font-weight: 900;
+  font-size: 16px;
+  letter-spacing: 0;
+}
+
 @media (max-width: 414px) {
   html,
   body {
@@ -626,5 +729,117 @@ a:focus-visible {
   .chat_admin_text,
   .chat_user_text {
     overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 480px) {
+  body .contents_wrapper {
+    padding-top: 72px;
+    padding-bottom: 56px;
+  }
+
+  .select_modal_body {
+    width: min(94vw, 390px);
+  }
+
+  .select_modal_body .select_modal_inner {
+    padding: 0 14px 18px;
+  }
+
+  .select_modal_title {
+    font-size: 21px;
+    line-height: 1.32;
+  }
+
+  .select_modal_lead {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .select_modal_body .select_modal_inner .first-modal__option-btn {
+    max-width: 100%;
+    min-height: 58px;
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+
+  .first-modal__option-btn span {
+    margin-top: 4px;
+    font-size: 12px;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+
+  body .chat_admin {
+    margin-top: 4px;
+    margin-bottom: 16px;
+  }
+
+  body .chat_admin_img {
+    width: 48px;
+    height: 48px;
+  }
+
+  body .chat_admin_info {
+    width: calc(100vw - 76px);
+    padding-left: 10px;
+  }
+
+  body .chat_admin_name {
+    font-size: 11px;
+    margin-left: 3px;
+  }
+
+  body .chat_admin_text {
+    min-height: 0;
+    padding: 9px 11px;
+    font-size: 13px;
+    line-height: 1.5;
+    border-radius: 12px;
+  }
+
+  body .chat_user_text {
+    padding: 9px 12px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  body .admin_chat_options {
+    margin: -8px auto 20px;
+  }
+
+  body .admin_chat_options ul,
+  body .admin_chat_options--radio ul {
+    gap: 8px;
+    padding: 8px;
+  }
+
+  body .admin_chat_options--radio ul li {
+    width: calc(50% - 4px);
+    min-height: 44px;
+    margin: 0;
+  }
+
+  body .admin_chat_options .option,
+  body .admin_chat_options label,
+  body .admin_chat_options--radio ul li .radio_list__item__label,
+  .chat__form-btn {
+    min-height: 44px;
+    padding: 8px 10px;
+    font-size: 14px;
+    line-height: 1.25;
+  }
+
+  body .admin_chat_options--radio ul li .radio_list__item__label-check {
+    width: 18px;
+    height: 18px;
+    margin-right: 7px;
+  }
+
+  body .admin_chat_options--radio ul li .radio_list__item__label-text,
+  body .admin_chat_options .option span {
+    font-size: 14px;
+    line-height: 1.25;
   }
 }

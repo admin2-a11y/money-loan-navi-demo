@@ -1,12 +1,19 @@
 (function () {
   var started = false;
+  var selectedExperience = "experience_no";
+  var renderToken = 0;
+  var messageDelay = 1050;
+  var optionDelay = 650;
+  var resultOrders = {
+    experience_yes: ["mobit", "aiflu", "acom"],
+    experience_no: ["promise", "mobit", "acom"],
+  };
   var fallbackQuestions = {
     q01: {
       id: "q01",
       nextId: "q02",
       questions: [
-        "こんにちは、マネーローンナビです。",
-        "ご希望条件から、比較しやすいキャッシングサービス候補を整理します。",
+        "こんにちは、マネーローンナビです。ご利用状況に合わせて候補を整理します。",
         "まず、年齢を教えてください。",
       ],
       options: {
@@ -129,13 +136,24 @@
     }, 50);
   }
 
+  function normalizeExperience(route) {
+    return route === "experience_yes" ? "experience_yes" : "experience_no";
+  }
+
+  function formatReply(text) {
+    var value = String(text || "").trim();
+    if (!value) return value;
+    if (/(です|ます|ません)$/.test(value)) return value;
+    return value + "です";
+  }
+
   function adminBubble(text) {
     var item = document.createElement("div");
     item.className = "chat_item chat_admin";
     item.innerHTML =
       '<div class="chat_admin_img"></div>' +
       '<div class="chat_admin_info">' +
-      '<div class="chat_admin_name">マネーローンナビ</div>' +
+      '<div class="chat_admin_name">女性ナビゲーター</div>' +
       '<div class="chat_admin_text"><span>' + text + "</span></div>" +
       "</div>";
     return item;
@@ -178,10 +196,58 @@
     });
   }
 
+  function applyResultOrder() {
+    var result = one("#inline-result");
+    if (!result) return;
+    var order = resultOrders[selectedExperience] || resultOrders.experience_no;
+    var cards = all(":scope > .topbox.topboxNew.case", result);
+    var cardMap = {};
+
+    cards.forEach(function (card) {
+      var link = one('a[href*="redirect.html?item="]', card);
+      if (!link) return;
+      var match = link.getAttribute("href").match(/item=([^&#]+)/);
+      if (match) cardMap[match[1]] = card;
+    });
+
+    order.forEach(function (item, index) {
+      var card = cardMap[item];
+      if (!card) return;
+      card.hidden = false;
+      card.style.display = "";
+      card.setAttribute("data-result-rank", String(index + 1));
+      card.setAttribute("data-result-flow", selectedExperience);
+
+      all(".result-rank-label", card).forEach(function (label) { label.remove(); });
+      all('img[src*="rank1_catch"]', card).forEach(function (image) {
+        var wrapper = image.parentElement;
+        if (wrapper) wrapper.style.display = "none";
+      });
+
+      var label = document.createElement("div");
+      label.className = "result-rank-label";
+      label.textContent = (index + 1) + "位";
+      card.insertBefore(label, card.firstChild);
+      result.insertBefore(card, result.querySelector("section"));
+    });
+
+    cards.forEach(function (card) {
+      var link = one('a[href*="redirect.html?item="]', card);
+      var href = link ? link.getAttribute("href") : "";
+      var matched = href.match(/item=([^&#]+)/);
+      var item = matched && matched[1];
+      if (order.indexOf(item) === -1) {
+        card.hidden = true;
+        card.style.display = "none";
+      }
+    });
+  }
+
   function finish() {
     updateProgress("last");
     var result = one("#inline-result");
     if (result) {
+      applyResultOrder();
       result.style.display = "block";
       setTimeout(function () {
         result.scrollIntoView({ block: "start", behavior: "smooth" });
@@ -213,6 +279,7 @@
   function renderQuestion(nextId) {
     var chats = one("#chats");
     if (!chats) return;
+    var token = ++renderToken;
 
     hideOldOptions();
     updateProgress(nextId);
@@ -220,18 +287,29 @@
     var data = getQuestionData(nextId);
     if (!data || !data.id) return;
 
-    (data.questions || []).forEach(function (question) {
-      chats.appendChild(adminBubble(question));
+    var questions = data.questions || [];
+    questions.forEach(function (question, index) {
+      setTimeout(function () {
+        if (token !== renderToken) return;
+        chats.appendChild(adminBubble(question));
+        scrollToLatest();
+      }, messageDelay * (index + 1));
     });
 
     if (data.type === "last") {
-      finish();
-      scrollToLatest();
+      setTimeout(function () {
+        if (token !== renderToken) return;
+        finish();
+        scrollToLatest();
+      }, messageDelay * (questions.length + 1) + optionDelay);
       return;
     }
 
-    chats.appendChild(buildOptions(data));
-    scrollToLatest();
+    setTimeout(function () {
+      if (token !== renderToken) return;
+      chats.appendChild(buildOptions(data));
+      scrollToLatest();
+    }, messageDelay * (questions.length + 1) + optionDelay);
   }
 
   function buildOptions(data) {
@@ -390,19 +468,26 @@
     hideOldOptions();
     appendHidden(itemId, selected);
     appendParameter(itemId, answerId);
-    chats.appendChild(userBubble(itemId, selected));
+    chats.appendChild(userBubble(itemId, formatReply(selected)));
     renderQuestion(nextId);
   }
 
   window.startDiagnosis = function (route) {
     if (started) return;
     started = true;
+    selectedExperience = normalizeExperience(route);
 
     document.body.classList.add("green");
     document.body.classList.add("first-modal-checked");
     document.body.classList.add("diagnosis-started");
-    appendHidden("diagnosis_start", "開始");
+    document.body.setAttribute("data-experience", selectedExperience);
+    appendHidden("diagnosis_start", selectedExperience === "experience_yes" ? "経験あり" : "はじめて");
+    appendHidden("card_loan_experience", selectedExperience === "experience_yes" ? "経験あり" : "はじめて");
     hideModal();
+    var chats = one("#chats");
+    if (chats) {
+      chats.appendChild(userBubble("card_loan_experience", formatReply(selectedExperience === "experience_yes" ? "経験あり" : "はじめて")));
+    }
     renderQuestion("q01");
   };
 

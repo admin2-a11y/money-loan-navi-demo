@@ -9,14 +9,14 @@
   <link href="assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="assets/css/three-dots.css">
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/scss/style_add.css?v=diagnosis-flow-3">
+  <link rel="stylesheet" href="assets/scss/style_add.css?v=diagnosis-flow-4">
   
   <link rel="stylesheet" href="css/layout.css" />
   <script src="assets/libs/jquery-3.6.1.min.js"></script>
   <script src="assets/libs/rangeslider/rangeslider.min.js"></script>
   <script src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-  <script src="assets/js/script.js?v=diagnosis-flow-3"></script>
-  <script src="js/query-keeper.js?v=diagnosis-flow-3"></script>
+  <script src="assets/js/script.js?v=diagnosis-flow-4"></script>
+  <script src="js/query-keeper.js?v=diagnosis-flow-4"></script>
   
   <script>
     (function(w, d, s, l, i) {
@@ -47,10 +47,14 @@
         </header>
         <div class="select_modal_inner">
             <h1 class="select_modal_title">あなたに合うキャッシングサービスは？</h1>
-            <p class="select_modal_lead">ご希望条件をもとに、比較しやすい候補を整理します。</p>
-            <button type="button" class="button select_modal_btn1 first-modal__option-btn" data-itemid="diagnosis_start" data-next="q01" onclick="window.startDiagnosis && window.startDiagnosis('diagnosis_start')">
-                条件を入力して診断する
-                <span>年齢・職業・年収など、6つの項目で候補を整理します</span>
+            <p class="select_modal_lead">まずはカードローンのご利用状況を教えてください。</p>
+            <button type="button" class="button select_modal_btn2 first-modal__option-btn first-modal__option-btn--experienced" data-itemid="experience_yes" data-next="q01" onclick="window.startDiagnosis && window.startDiagnosis('experience_yes')">
+                経験がある
+                <span>カードローンを使ったことがある・使っている</span>
+            </button>
+            <button type="button" class="button select_modal_btn1 first-modal__option-btn first-modal__option-btn--beginner" data-itemid="experience_no" data-next="q01" onclick="window.startDiagnosis && window.startDiagnosis('experience_no')">
+                はじめて
+                <span>カードローンを使ったことがない</span>
             </button>
                     </div>
     </div>
@@ -867,7 +871,7 @@
                 }
             });
         </script>
-        <script src="js/demo-chat-fix.js?v=diagnosis-flow-3"></script>
+        <script src="js/demo-chat-fix.js?v=diagnosis-flow-4"></script>
   
 </body>
 
