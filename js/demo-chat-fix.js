@@ -166,7 +166,7 @@
     item.innerHTML =
       '<div class="chat_admin_img"></div>' +
       '<div class="chat_admin_info">' +
-      '<div class="chat_admin_name">女性ナビゲーター</div>' +
+      '<div class="chat_admin_name">マネーローンナビオペレーター</div>' +
       '<div class="chat_admin_text"><span>' + text + "</span></div>" +
       "</div>";
     return item;

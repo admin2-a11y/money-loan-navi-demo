@@ -670,7 +670,7 @@ function getNext(nextId) {
 function setNextHtml(data) {
   if (data.id === "q06_before") {
     let specialHtml = `
-<div class="chat_item chat_admin"><div class="chat_admin_img"></div><div class="chat_admin_info"><div class="chat_admin_name">マネーローンナビ</div><div class="chat_admin_text"><div class="dot-flashing"></div><span class="late-open">ご希望条件を確認します。</span></div></div>
+<div class="chat_item chat_admin"><div class="chat_admin_img"></div><div class="chat_admin_info"><div class="chat_admin_name">マネーローンナビオペレーター</div><div class="chat_admin_text"><div class="dot-flashing"></div><span class="late-open">ご希望条件を確認します。</span></div></div>
 <div class="note">※この質問は比較候補を整理するためのものであり、審査には影響しません。</div>
 </div>
     `;
@@ -900,7 +900,7 @@ getNext("last");
       QmodalFlg = 0;
       html += '<div class="chat_admin_img"></div>';
       html += '<div class="chat_admin_info">';
-      html += '<div class="chat_admin_name">マネーローンナビ</div>';
+      html += '<div class="chat_admin_name">マネーローンナビオペレーター</div>';
       html += '<div class="chat_admin_text">';
       html += '<div class="dot-flashing"></div>';
       html += '<span class="late-open">' + elem + "</span>";

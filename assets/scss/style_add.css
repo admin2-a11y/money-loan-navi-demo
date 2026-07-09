@@ -183,6 +183,8 @@ body .chat_admin_text {
 }
 body .chat_admin_name {
   color: #737373;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 body .chat_admin_img {
   border: 1px solid #737373;
@@ -590,7 +592,7 @@ a:focus-visible {
   text-align: center;
 }
 
-/* ==== diagnosis-flow-4: entry branch, female navigator, compact chat ==== */
+/* ==== diagnosis-flow-4: entry branch, operator navigator, compact chat ==== */
 .select_modal_body {
   max-width: 520px;
   border-radius: 18px;
@@ -652,7 +654,7 @@ body .chat_admin_img,
   position: relative;
   overflow: hidden;
   background: #fff !important;
-  background-image: url("../img/female-navigator.svg") !important;
+  background-image: url("../img/money-loan-navi-operator.png") !important;
   background-size: cover !important;
   background-position: center !important;
   border-color: #f2a8bf !important;
@@ -779,7 +781,8 @@ body .chat_admin_img::after,
   }
 
   body .chat_admin_name {
-    font-size: 11px;
+    font-size: 10px;
+    line-height: 1.3;
     margin-left: 3px;
   }
 

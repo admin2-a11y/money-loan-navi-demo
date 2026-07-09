@@ -37,3 +37,12 @@
 - Updated the entry lead to `回答に合わせて最適な診断に切り替えます`.
 - Restyled the first choice buttons to match the requested light-blue / light-green button treatment.
 - Bumped cache query strings from `diagnosis-flow-6` to `diagnosis-flow-7`.
+
+## 2026-07-09 Operator Image / Name Update
+
+### Changed
+- Replaced the chat operator avatar with the user-provided operator image.
+- Added optimized chat icon asset: `assets/img/money-loan-navi-operator.png`.
+- Updated chat display name to `マネーローンナビオペレーター`.
+- Updated fallback chat rendering in `assets/js/script.js` to use the same operator name.
+- Bumped cache query strings from `diagnosis-flow-7` to `diagnosis-flow-8`.

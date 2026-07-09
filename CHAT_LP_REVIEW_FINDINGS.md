@@ -43,6 +43,13 @@
   - Clickable HTML buttons remain below the image.
   - No horizontal scroll observed.
   - Console error logs were empty.
+
+## Operator Image / Name Check
+- 375px local preview checked in the in-app browser.
+- After selecting `はじめて`, chat avatar resolved to `assets/img/money-loan-navi-operator.png`.
+- Chat display name showed `マネーローンナビオペレーター`.
+- No horizontal scroll observed.
+- Console error logs were empty.
 - 320px FV checked in the in-app browser:
   - Modal remains inside the viewport.
   - No horizontal scroll observed.
