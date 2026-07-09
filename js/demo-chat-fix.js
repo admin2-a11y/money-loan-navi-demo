@@ -122,6 +122,19 @@
     if (parameter) parameter.value += String(itemId || "") + String(answer || "");
   }
 
+  function hiddenValue(name) {
+    var input = one('#results input[name="' + name + '"]');
+    return input && input.value ? input.value : "";
+  }
+
+  function updateResultOverview() {
+    all("[data-summary-field]").forEach(function (field) {
+      var name = field.getAttribute("data-summary-field");
+      var value = hiddenValue(name);
+      field.textContent = value || "こだわらない";
+    });
+  }
+
   function hideModal() {
     all(".select_modal, .select_modal_body").forEach(function (element) {
       element.classList.remove("active");
@@ -247,6 +260,7 @@
     updateProgress("last");
     var result = one("#inline-result");
     if (result) {
+      updateResultOverview();
       applyResultOrder();
       result.style.display = "block";
       setTimeout(function () {

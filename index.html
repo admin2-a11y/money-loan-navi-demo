@@ -9,14 +9,14 @@
   <link href="assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="assets/css/three-dots.css">
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/scss/style_add.css?v=diagnosis-flow-5">
+  <link rel="stylesheet" href="assets/scss/style_add.css?v=diagnosis-flow-6">
   
   <link rel="stylesheet" href="css/layout.css" />
   <script src="assets/libs/jquery-3.6.1.min.js"></script>
   <script src="assets/libs/rangeslider/rangeslider.min.js"></script>
   <script src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-  <script src="assets/js/script.js?v=diagnosis-flow-5"></script>
-  <script src="js/query-keeper.js?v=diagnosis-flow-5"></script>
+  <script src="assets/js/script.js?v=diagnosis-flow-6"></script>
+  <script src="js/query-keeper.js?v=diagnosis-flow-6"></script>
   
   <script>
     (function(w, d, s, l, i) {
@@ -46,14 +46,21 @@
             <img src="assets/img/money-loan-navi-logo.png?v=1" alt="マネーローンナビ" class="first-modal-logo" width="260" decoding="async">
         </header>
         <div class="select_modal_inner">
+            <div class="first-modal-hero" aria-hidden="true">
+                <div class="first-modal-hero__copy">
+                    <p>あなたに合う候補を</p>
+                    <strong>条件から整理します</strong>
+                </div>
+                <img src="assets/img/female-navigator.svg" alt="" class="first-modal-hero__person" decoding="async">
+            </div>
             <h1 class="select_modal_title">あなたに合うキャッシングサービスは？</h1>
-            <p class="select_modal_lead">まずはカードローンのご利用状況を教えてください。</p>
+            <p class="select_modal_lead">現在のご状況をお選びください。回答に合わせて診断を始めます。</p>
             <button type="button" class="button select_modal_btn2 first-modal__option-btn first-modal__option-btn--experienced" data-itemid="experience_yes" data-next="q01" onclick="window.startDiagnosis && window.startDiagnosis('experience_yes')">
-                経験がある
+                <strong>経験がある</strong>
                 <span>カードローンを使ったことがある・使っている</span>
             </button>
             <button type="button" class="button select_modal_btn1 first-modal__option-btn first-modal__option-btn--beginner" data-itemid="experience_no" data-next="q01" onclick="window.startDiagnosis && window.startDiagnosis('experience_no')">
-                はじめて
+                <strong>はじめて</strong>
                 <span>カードローンを使ったことがない</span>
             </button>
                     </div>
@@ -164,6 +171,23 @@
     </div>
     <div id="inline-result" class="main" style="display:none;">
       <h2 class="visually-hidden">ご希望条件に近いキャッシングサービス</h2>
+      <section class="result-overview" aria-labelledby="result-overview-title">
+        <div class="result-overview__heading" id="result-overview-title">
+          ご希望条件に近いキャッシングサービス <span>3件</span>
+        </div>
+        <p class="result-overview__notice">入力条件に近い候補をおすすめ順で表示しています。</p>
+        <dl class="result-overview__chips">
+          <div><dt>利用状況</dt><dd data-summary-field="card_loan_experience">選択内容を反映</dd></div>
+          <div><dt>年齢</dt><dd data-summary-field="q01">選択内容を反映</dd></div>
+          <div><dt>職業</dt><dd data-summary-field="q02">選択内容を反映</dd></div>
+          <div><dt>年収</dt><dd data-summary-field="q03">選択内容を反映</dd></div>
+          <div><dt>他社借入</dt><dd data-summary-field="q04">選択内容を反映</dd></div>
+          <div><dt>希望額</dt><dd data-summary-field="q05">選択内容を反映</dd></div>
+          <div><dt>希望スピード</dt><dd data-summary-field="q06">選択内容を反映</dd></div>
+        </dl>
+        <a href="#chats" class="result-overview__change">条件を確認する</a>
+        <p class="result-overview__meta">比較対象: アコム / SMBCモビット / プロミス / アイフル</p>
+      </section>
       <div class="topbox topboxNew case">
     
             <div style="text-align: center;"><img src="images/rank1_catch.png" alt="ランキング1位の注目ポイント" decoding="async" loading="lazy"></div>
@@ -871,7 +895,7 @@
                 }
             });
         </script>
-        <script src="js/demo-chat-fix.js?v=diagnosis-flow-5"></script>
+        <script src="js/demo-chat-fix.js?v=diagnosis-flow-6"></script>
   
 </body>
 
