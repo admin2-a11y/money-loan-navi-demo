@@ -36,3 +36,14 @@
 ## Release Check
 - Affiliate links, redirect paths, PR wording, GTM, and existing official/affiliate images were preserved.
 - Final ad wording review is still required by the user.
+
+## Requested FV Image Match Check
+- 375px FV checked in the in-app browser:
+  - Requested FV visual is displayed at the top of the modal.
+  - Clickable HTML buttons remain below the image.
+  - No horizontal scroll observed.
+  - Console error logs were empty.
+- 320px FV checked in the in-app browser:
+  - Modal remains inside the viewport.
+  - No horizontal scroll observed.
+  - Console error logs were empty.

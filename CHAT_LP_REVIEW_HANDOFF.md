@@ -27,3 +27,13 @@
 
 ### Human Check
 - Final advertising wording review remains the user's responsibility.
+
+## 2026-07-09 Requested FV Image Match
+
+### Changed
+- Replaced the custom CSS FV visual with the user-provided FV image style.
+- Added `assets/img/first-view-status-hero.png`, cropped from the provided reference screenshot top visual.
+- Hid the duplicated modal logo/header in the entry modal because the logo is included in the FV image.
+- Updated the entry lead to `回答に合わせて最適な診断に切り替えます`.
+- Restyled the first choice buttons to match the requested light-blue / light-green button treatment.
+- Bumped cache query strings from `diagnosis-flow-6` to `diagnosis-flow-7`.
