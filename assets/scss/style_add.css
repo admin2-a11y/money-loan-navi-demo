@@ -640,41 +640,22 @@ body .chat_admin_img,
 .modal_final_contents .chat_admin_img {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #fff7fb 0%, #ffdce8 100%) !important;
-  background-image: none !important;
+  background: #fff !important;
+  background-image: url("../img/female-navigator.svg") !important;
+  background-size: cover !important;
+  background-position: center !important;
   border-color: #f2a8bf !important;
   box-shadow: 0 4px 14px rgba(196, 66, 105, .15);
 }
 
 body .chat_admin_img::before,
 .modal_final_contents .chat_admin_img::before {
-  content: "";
-  position: absolute;
-  left: 18%;
-  top: 14%;
-  width: 64%;
-  height: 46%;
-  border-radius: 50% 50% 44% 44%;
-  background: #3d2d2a;
+  content: none;
 }
 
 body .chat_admin_img::after,
 .modal_final_contents .chat_admin_img::after {
-  content: "ナビ";
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  bottom: 13%;
-  height: 38%;
-  border-radius: 50%;
-  background: #fff1f6;
-  color: #a72d58;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 800;
-  line-height: 1;
+  content: none;
 }
 
 .result-rank-label {
