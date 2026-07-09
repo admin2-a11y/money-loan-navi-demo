@@ -50,6 +50,20 @@
 - Chat display name showed `マネーローンナビオペレーター`.
 - No horizontal scroll observed.
 - Console error logs were empty.
+
+## Result LPO Reference Check
+- 375px beginner flow checked through final result:
+  - `絞り込み検索結果 4件` displayed.
+  - `診断結果に近いカードローン` displayed.
+  - Four cards displayed in beginner order: プロミス / SMBCモビット / アコム / アイフル.
+  - CTA text displayed as `公式サイトで申込条件を確認する`.
+  - Old extra recommendation section was hidden.
+  - No horizontal scroll observed.
+  - Console error logs were empty.
+- 320px beginner flow checked through final result:
+  - Four cards displayed.
+  - No horizontal scroll observed.
+  - Console error logs were empty.
 - 320px FV checked in the in-app browser:
   - Modal remains inside the viewport.
   - No horizontal scroll observed.

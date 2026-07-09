@@ -46,3 +46,23 @@
 - Updated chat display name to `マネーローンナビオペレーター`.
 - Updated fallback chat rendering in `assets/js/script.js` to use the same operator name.
 - Bumped cache query strings from `diagnosis-flow-7` to `diagnosis-flow-8`.
+
+## 2026-07-10 Result LPO Reference Update
+
+### Changed
+- Reworked the final diagnosis result area to reference the provided `new-lp-v2-demo/result.html` style.
+- Changed the result summary heading to `絞り込み検索結果 4件`.
+- Added the visible section heading `診断結果に近いカードローン`.
+- Result cards now render as compact LPO cards with:
+  - official banner image
+  - `おすすめ順 No.x` badge
+  - company badge
+  - orange bordered recommendation points
+  - spec grid
+  - review example block
+  - countdown-style attention block
+  - orange CTA: `公式サイトで申込条件を確認する`
+- Preserved existing `redirect.html?item=...` affiliate links.
+- Preserved the previous experience-based top order and added the remaining product as No.4.
+- Hid the older extra recommendation section after the main four cards.
+- Bumped cache query strings from `diagnosis-flow-8` to `diagnosis-flow-9`.

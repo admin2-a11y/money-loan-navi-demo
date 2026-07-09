@@ -5,8 +5,90 @@
   var messageDelay = 1050;
   var optionDelay = 650;
   var resultOrders = {
-    experience_yes: ["mobit", "aiflu", "acom"],
-    experience_no: ["promise", "mobit", "acom"],
+    experience_yes: ["mobit", "aiflu", "acom", "promise"],
+    experience_no: ["promise", "mobit", "acom", "aiflu"],
+  };
+  var productMeta = {
+    acom: {
+      name: "アコム",
+      company: "三菱UFJフィナンシャル・グループ",
+      banner: "images/banner_acom2.jpg",
+      bannerAlt: "アコム",
+      points: [
+        "スピードと使いやすさを重視したい方に向いています",
+        "Web申込、来店不要、カードレス契約も選べます",
+        "はじめての契約なら無利息期間も確認できます",
+      ],
+      review: "申込前に条件や必要書類を確認でき、スマホで進めやすかったという声があります。",
+      specs: [
+        ["審査時間", "最短20分※2"],
+        ["融資時間", "最短20分※2"],
+        ["借入限度額", "1万円〜800万円"],
+        ["実質年率", "2.4%〜17.9%"],
+        ["利用可能コンビニ", "セブン / ローソン / E-net"],
+      ],
+      sponsor: "【PR】Sponsored by アコム株式会社",
+    },
+    mobit: {
+      name: "SMBCモビット",
+      company: "三井住友カード株式会社",
+      banner: "images/banner_mobit.jpg",
+      bannerAlt: "SMBCモビット",
+      points: [
+        "WEB完結で進めたい方に向いています",
+        "電話連絡や郵送物を抑えたい場合に確認しやすい候補です",
+        "カードレスで使いたい方も条件を確認できます",
+      ],
+      review: "Webで手続きを進められる点や、郵送物を抑えられる点を重視する声があります。",
+      specs: [
+        ["審査時間", "10秒簡易審査"],
+        ["融資時間", "最短15分※"],
+        ["借入限度額", "最大800万円"],
+        ["実質年率", "3.0%〜18.0%"],
+        ["利用可能コンビニ", "セブン / ローソン / E-net"],
+      ],
+      sponsor: "【PR】Sponsored by 三井住友カード株式会社",
+    },
+    promise: {
+      name: "プロミス",
+      company: "SMBCコンシューマーファイナンス株式会社",
+      banner: "images/banner_promise.jpg",
+      bannerAlt: "プロミス",
+      points: [
+        "スマホからスピード重視で進めたい方に向いています",
+        "郵送物なし、カードレスで進めたい方も確認できます",
+        "30日間無利息の条件も申込前に確認できます",
+      ],
+      review: "スマホで比較しながら、返済額や無利息期間を確認できたという声があります。",
+      specs: [
+        ["審査時間", "最短3分"],
+        ["融資時間", "最短3分"],
+        ["借入限度額", "最大500万円"],
+        ["実質年率", "2.5%〜18.0%"],
+        ["利用可能コンビニ", "セブン / ローソン / E-net"],
+      ],
+      sponsor: "【PR】Sponsored by SMBCコンシューマーファイナンス株式会社",
+    },
+    aiflu: {
+      name: "アイフル",
+      company: "アイフル株式会社",
+      banner: "images/banner_aiful.webp",
+      bannerAlt: "アイフル",
+      points: [
+        "1秒診断で申込前の目安を確認したい方に向いています",
+        "Web申込、来店不要、カードレスで進めたい方も確認できます",
+        "急ぎの借入を検討する前に条件を確認できます",
+      ],
+      review: "申込前に診断で目安を確認でき、条件を比較しやすかったという声があります。",
+      specs: [
+        ["審査時間", "WEBで最短14分※"],
+        ["融資時間", "WEBで最短14分※"],
+        ["借入限度額", "最大800万円"],
+        ["実質年率", "3.0%〜18.0%"],
+        ["利用可能コンビニ", "セブン / ローソン / E-net"],
+      ],
+      sponsor: "【PR】Sponsored by アイフル株式会社",
+    },
   };
   var fallbackQuestions = {
     q01: {
@@ -135,6 +217,51 @@
     });
   }
 
+  function productIdFromCard(card) {
+    var link = one('a[href*="redirect.html?item="]', card);
+    if (!link) return "";
+    var match = link.getAttribute("href").match(/item=([^&#]+)/);
+    return match ? match[1] : "";
+  }
+
+  function buildResultCard(item, rank, card) {
+    var meta = productMeta[item];
+    if (!meta) return null;
+    var link = one('a[href*="redirect.html?item="]', card);
+    var href = link ? link.getAttribute("href") : "redirect.html?item=" + item;
+    var wrap = document.createElement("div");
+    wrap.className = "result-lpo-card";
+
+    var specs = meta.specs.map(function (spec) {
+      return '<div class="result-lpo-spec"><dt>' + spec[0] + '</dt><dd>' + spec[1] + '</dd></div>';
+    }).join("");
+    var points = meta.points.map(function (point) {
+      return '<li>' + point + '</li>';
+    }).join("");
+
+    wrap.innerHTML =
+      '<div class="result-lpo-head">' +
+      '<a class="result-lpo-banner" target="_blank" href="' + href + '">' +
+      '<img src="' + meta.banner + '" alt="' + meta.bannerAlt + '" decoding="async" loading="lazy">' +
+      '</a>' +
+      '<div class="result-lpo-title">' +
+      '<div class="result-rank-label">おすすめ順 No.' + rank + '</div>' +
+      '<h3><a target="_blank" href="' + href + '">' + meta.name + '</a></h3>' +
+      '<p>' + meta.company + '</p>' +
+      '</div>' +
+      '</div>' +
+      '<section class="result-lpo-points" aria-label="' + meta.name + 'のおすすめポイント">' +
+      '<h4>おすすめポイント</h4>' +
+      '<ul>' + points + '</ul>' +
+      '</section>' +
+      '<dl class="result-lpo-specs">' + specs + '</dl>' +
+      '<div class="result-lpo-review"><span>口コミ例</span><p>' + meta.review + '</p></div>' +
+      '<div class="result-lpo-timer"><strong>本日中</strong>に借入をする場合<br><span>残り <b>20</b> 時間 <b>53</b> 分 <b>38</b> 秒</span></div>' +
+      '<a class="result-lpo-cta" target="_blank" href="' + href + '">公式サイトで申込条件を確認する</a>' +
+      '<p class="result-lpo-pr">' + meta.sponsor + '<br>※条件や審査状況によりご希望に添えない場合があります。※一例であり、結果を保証するものではありません。</p>';
+    return wrap;
+  }
+
   function hideModal() {
     all(".select_modal, .select_modal_body").forEach(function (element) {
       element.classList.remove("active");
@@ -228,27 +355,28 @@
       if (!card) return;
       card.hidden = false;
       card.style.display = "";
+      card.classList.add("result-lpo-ready");
       card.setAttribute("data-result-rank", String(index + 1));
       card.setAttribute("data-result-flow", selectedExperience);
 
       all(".result-rank-label", card).forEach(function (label) { label.remove(); });
+      all(".result-lpo-card", card).forEach(function (panel) { panel.remove(); });
       all('img[src*="rank1_catch"]', card).forEach(function (image) {
         var wrapper = image.parentElement;
         if (wrapper) wrapper.style.display = "none";
       });
 
-      var label = document.createElement("div");
-      label.className = "result-rank-label";
-      label.textContent = (index + 1) + "位";
-      card.insertBefore(label, card.firstChild);
-      result.insertBefore(card, result.querySelector("section"));
+      all("details", card).forEach(function (details) {
+        details.open = true;
+      });
+
+      var panel = buildResultCard(item, index + 1, card);
+      if (panel) card.insertBefore(panel, card.firstChild);
+      result.insertBefore(card, one(".result-extra-section", result));
     });
 
     cards.forEach(function (card) {
-      var link = one('a[href*="redirect.html?item="]', card);
-      var href = link ? link.getAttribute("href") : "";
-      var matched = href.match(/item=([^&#]+)/);
-      var item = matched && matched[1];
+      var item = productIdFromCard(card);
       if (order.indexOf(item) === -1) {
         card.hidden = true;
         card.style.display = "none";
