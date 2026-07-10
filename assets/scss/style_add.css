@@ -1580,6 +1580,249 @@ body .chat_admin_img::after,
   }
 }
 
+/* ==== diagnosis-flow-13: distinct Money Loan Navi palette ==== */
+:root {
+  --navi-ink: #1e2f2b;
+  --navi-teal: #1c6b63;
+  --navi-teal-dark: #104a44;
+  --navi-coral: #c74b3c;
+  --navi-coral-dark: #98372d;
+  --navi-gold: #f2c14e;
+  --navi-sage: #e3efeb;
+  --navi-line: #b8cec7;
+  --navi-surface: #f3f6f5;
+}
+
+body.diagnosis-started,
+body.diagnosis-started .contents_wrapper {
+  background: var(--navi-surface);
+}
+
+.select_modal {
+  background: rgba(20, 38, 35, .9);
+}
+
+.select_modal_body,
+.select_modal_body .select_modal_inner {
+  background: var(--navi-surface);
+}
+
+.first-modal-hero {
+  border-bottom: 5px solid var(--navi-coral);
+  background: #fff;
+}
+
+.select_modal_body .select_modal_inner .select_modal_lead {
+  color: var(--navi-ink);
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--experienced {
+  background: var(--navi-teal) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 0 var(--navi-teal-dark) !important;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--experienced span {
+  color: #fff;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--beginner {
+  background: var(--navi-gold) !important;
+  color: var(--navi-ink) !important;
+  box-shadow: 0 8px 0 #a77a18 !important;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--beginner span {
+  color: var(--navi-ink);
+}
+
+.progress-bar {
+  background: #dce8e4;
+}
+
+.progress-bar__fill {
+  background: var(--navi-coral);
+}
+
+.progress-bar__label {
+  color: var(--navi-ink);
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .9);
+  text-shadow: none;
+}
+
+body .chat_admin_name {
+  color: var(--navi-teal-dark);
+}
+
+body .chat_admin_text {
+  border-color: var(--navi-line);
+  color: var(--navi-ink);
+  background: #fff;
+}
+
+body .chat_admin_text::after {
+  border-right-color: var(--navi-line);
+}
+
+body .chat_admin_img,
+.modal_final_contents .chat_admin_img {
+  border-color: var(--navi-coral) !important;
+  box-shadow: 0 4px 14px rgba(152, 55, 45, .18);
+}
+
+body.green .chat_user_text,
+body.blue .chat_user_text {
+  background: var(--navi-teal);
+  color: #fff;
+}
+
+body.green .chat_user_text::after,
+body.blue .chat_user_text::after {
+  border-left-color: var(--navi-teal);
+}
+
+body .chat_user::before,
+body .chat_user_correction {
+  color: var(--navi-teal-dark);
+}
+
+body .admin_chat_options ul,
+body .admin_chat_options--radio ul {
+  background: var(--navi-sage);
+}
+
+body .admin_chat_options .option,
+body .admin_chat_options--radio ul li,
+body .admin_chat_options--multiselect ul li .multi_list__item__label {
+  border-color: var(--navi-line);
+  color: var(--navi-ink);
+  background: #fff;
+}
+
+body .admin_chat_options .option:hover,
+body .admin_chat_options .option.is-selected,
+body .admin_chat_options--radio ul li:hover {
+  border-color: var(--navi-coral);
+  background: #fff0ed;
+}
+
+body .admin_chat_options--multiselect ul li .multi_list__item__label-check {
+  border-color: var(--navi-teal);
+}
+
+body .admin_chat_options--multiselect ul li .multi_list__item__label:has(input[type=checkbox]:checked) {
+  border-color: var(--navi-teal);
+  background: #dceee9;
+}
+
+body .admin_chat_options--multiselect ul li .multi_list__item__label:has(input[type=checkbox]:checked) .multi_list__item__label-check {
+  background-color: var(--navi-teal);
+}
+
+body .admin_chat_options--multiselect .chat_next_btn_wrap button,
+.chat__form-btn {
+  background: var(--navi-coral);
+  color: #fff;
+}
+
+body .admin_chat_options--multiselect .chat_next_btn_wrap button:disabled,
+.chat__form-btn:disabled {
+  background: #aab4b1;
+  color: #fff;
+}
+
+.first-modal__option-btn:focus-visible,
+.admin_chat_options .option:focus-visible,
+.chat__form-btn:focus-visible,
+.modal_close:focus-visible,
+a:focus-visible {
+  outline-color: var(--navi-coral);
+}
+
+#inline-result {
+  background: var(--navi-surface);
+}
+
+#inline-result .result-overview {
+  border-color: var(--navi-line);
+}
+
+#inline-result .result-overview__heading {
+  border-bottom-color: var(--navi-line);
+  background: var(--navi-sage);
+  color: var(--navi-ink);
+}
+
+#inline-result .result-overview__heading span {
+  color: var(--navi-coral-dark);
+}
+
+#inline-result .result-overview__chips div,
+#inline-result .result-overview__chips dt {
+  color: var(--navi-teal-dark);
+}
+
+#inline-result .result-overview__chips dd {
+  color: var(--navi-ink);
+}
+
+.result-section-heading {
+  border-left-color: var(--navi-coral);
+  color: var(--navi-ink);
+}
+
+#inline-result > .topbox.topboxNew.case.result-lpo-ready {
+  border-color: #d7b45f;
+  background: #fff;
+}
+
+.result-lpo-title .result-rank-label {
+  background: var(--navi-coral);
+}
+
+.result-lpo-title p,
+.result-lpo-review span {
+  background: var(--navi-teal);
+}
+
+.result-lpo-points {
+  border-color: #d7a92f;
+}
+
+.result-lpo-points h4 {
+  background: var(--navi-gold);
+  color: var(--navi-ink);
+}
+
+.result-lpo-points li::before {
+  border-left-color: var(--navi-teal);
+  border-bottom-color: var(--navi-teal);
+}
+
+.result-lpo-timer {
+  border-color: var(--navi-coral);
+  background: #fff3f0;
+}
+
+.result-lpo-timer strong {
+  color: var(--navi-coral-dark);
+}
+
+.result-lpo-cta {
+  background: linear-gradient(180deg, var(--navi-coral) 0%, #b84335 100%);
+  box-shadow: 0 5px 0 var(--navi-coral-dark);
+}
+
+.result-lpo-cta::after {
+  color: var(--navi-coral);
+}
+
+footer {
+  background: var(--navi-teal-dark) !important;
+}
+
 @media (max-width: 360px) {
   .result-section-heading {
     font-size: 19px;

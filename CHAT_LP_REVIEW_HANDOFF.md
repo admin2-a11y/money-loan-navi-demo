@@ -96,3 +96,20 @@
 ### Preserved
 - Entry choice and experience-based result ordering.
 - Affiliate links, redirect paths, GTM, PR labels, notes, and official product banners.
+
+## 2026-07-10 Distinct Color Palette Update
+
+### Changed
+- Replaced the page-level light-blue / lime treatment with a distinct Money Loan Navi palette:
+  - deep teal for trust and selected answers
+  - coral for progress and primary actions
+  - gold for the secondary entry choice and recommendation labels
+  - cool light gray for page surfaces
+- Applied the palette consistently to the entry choices, progress bar, chat bubbles, option states, result summary, result cards, CTAs, and footer.
+- Added a coral divider below the existing first-view image to visually connect it to the new interface palette.
+- Bumped cache query strings from `diagnosis-flow-12` to `diagnosis-flow-13`.
+
+### Preserved
+- Existing first-view image content and operator image.
+- Official affiliate banners and product images.
+- Affiliate links, redirect paths, GTM, PR labels, notes, and result ordering.

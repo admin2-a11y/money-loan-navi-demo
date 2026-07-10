@@ -93,3 +93,12 @@
   - New answer values appeared in the result summary.
 - 320px and 375px checks found no horizontal overflow.
 - Console error logs were empty.
+
+## Distinct Color Palette Check
+- Removed the light-blue / lime pairing from the interactive UI and introduced teal / coral / gold roles.
+- The first-view image remains unchanged; only its surrounding UI and divider use the new palette.
+- Official affiliate banners and product images were not edited.
+- Checked the entry, chat, and result states at 375px; all new color roles rendered as intended.
+- Checked 320px and 1280px result layouts; no horizontal overflow was found.
+- Core text contrast ratios meet WCAG AA for normal text: white/teal 6.30, white/coral 4.67, ink/gold 8.36.
+- Console error logs were empty.
