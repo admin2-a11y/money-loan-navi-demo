@@ -2495,3 +2495,20 @@ body .chat_admin_text::before,
   border-bottom-color: #1b211e;
   border-left-color: #1b211e;
 }
+
+/* ==== diagnosis-flow-32: blue experienced entry option ==== */
+.select_modal_body .select_modal_inner .first-modal__option-btn--experienced {
+  color: #050505 !important;
+  background: #a9dcfb !important;
+  box-shadow: 0 8px 0 #608c96 !important;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--experienced span {
+  color: #050505;
+}
+
+@media (max-width: 480px) {
+  .select_modal_body .select_modal_inner .first-modal__option-btn--experienced {
+    box-shadow: 0 6px 0 #608c96 !important;
+  }
+}

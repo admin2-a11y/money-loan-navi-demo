@@ -276,3 +276,10 @@
 - The question-bubble fill remains white.
 - P0: none found.
 - P1: none found.
+
+## Blue Experienced Entry Option Check
+- The first-view `経験がある` option uses `#A9DCFB` with a `#608C96` lower shadow and dark text.
+- The neighboring `はじめて` option remains LINE light green.
+- Verified the 390x844 first view with no horizontal overflow.
+- P0: none found.
+- P1: none found.

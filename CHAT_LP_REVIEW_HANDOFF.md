@@ -329,3 +329,14 @@
 
 ### Preserved
 - White question-bubble fill, operator image, cloud background, answer colors, option cards, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Blue Experienced Entry Option Update
+
+### Changed
+- Changed the first-view `経験がある` option to reference blue `#A9DCFB` with dark text.
+- Applied the reference blue-gray lower shadow `#608C96`.
+- Bumped cache query strings from `diagnosis-flow-31` to `diagnosis-flow-32`.
+
+### Preserved
+- The `はじめて` option remains LINE light green.
+- First-view artwork, chat colors, operator framing, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
