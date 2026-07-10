@@ -213,3 +213,14 @@
 
 ### Preserved
 - First-view image file, question copy, entry branching, chat flow, ranking logic, affiliate links, redirects, PR labels, and tracking.
+
+## 2026-07-10 Operator Speech Bubble Update
+
+### Changed
+- Replaced the large two-layer speech-bubble arrow with a compact integrated tail.
+- Added a light outline and restrained shadow to unify the tail and bubble body.
+- Made the operator information area flexible so the avatar and bubble stay horizontally aligned through the tablet breakpoint.
+- Bumped cache query strings from `diagnosis-flow-21` to `diagnosis-flow-22`.
+
+### Preserved
+- Operator image and name, question copy, response timing, diagnosis flow, ranking logic, affiliate links, redirects, PR labels, and tracking.

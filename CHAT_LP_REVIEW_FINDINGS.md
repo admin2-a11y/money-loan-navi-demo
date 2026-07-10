@@ -182,3 +182,13 @@
 - Console error logs were empty.
 - P0: none found.
 - P1: none found.
+
+## Operator Speech Bubble Check
+- Replaced the oversized double-triangle tail with a single 10px integrated tail.
+- Added a subtle border and shadow so the bubble reads as one surface without a detached arrow.
+- Kept a 10-12px gap between the operator image and bubble content; the tail occupies that gap without overlapping the image.
+- Changed the operator information column to flexible width so it remains beside the avatar at the 768px breakpoint instead of wrapping below it.
+- Checked 320 / 375 / 390 / 414 / 768 / 1280px with the avatar and bubble on the same row and no horizontal overflow.
+- Console error logs were empty.
+- P0: none found.
+- P1: none found.
