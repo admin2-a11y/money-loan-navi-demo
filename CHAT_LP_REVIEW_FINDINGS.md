@@ -165,3 +165,20 @@
 - Console error logs were empty.
 - P0: none found.
 - P1: none found.
+
+## Reference First-View Color / Edge Check
+- Sampled the supplied reference image and matched the first-view colors exactly:
+  - page background: `#DBFEFF`
+  - experienced option: `#A9DCFB`
+  - experienced shadow: `#608C96`
+  - beginner option: `#B7F98F`
+  - beginner shadow: `#47733D`
+  - lead text: `#76746D`
+- Removed the coral separator below the first-view image.
+- Cropped the source image's black top-edge pixels at render time without editing the image file.
+- Made the active entry modal and document background opaque aqua so the underlying header, footer, and dark overlay cannot show through.
+- Removed competing wrapper corner radii and aligned the hero image to both viewport edges on mobile.
+- Checked 320 / 375 / 390 / 414 / 768 / 1280px without horizontal overflow.
+- Console error logs were empty.
+- P0: none found.
+- P1: none found.

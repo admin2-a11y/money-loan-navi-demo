@@ -1961,3 +1961,96 @@ footer {
     font-size: 15px;
   }
 }
+
+/* ==== diagnosis-flow-21: reference FV colors and clean edges ==== */
+html:has(body:not(.first-modal-checked)),
+body:not(.first-modal-checked) {
+  min-height: 100%;
+  background: #dbfeff;
+}
+
+.select_modal,
+.select_modal.active {
+  align-items: flex-start;
+  padding: 0;
+  background: #dbfeff;
+}
+
+.select_modal_body,
+.select_modal_body .select_modal_inner {
+  background: #dbfeff;
+}
+
+.select_modal_body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.select_modal_body .select_modal_inner {
+  width: 100%;
+  max-width: none;
+  min-height: 100svh;
+  box-sizing: border-box;
+}
+
+.first-modal-hero {
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: #dbfeff;
+  line-height: 0;
+}
+
+.first-modal-hero__image {
+  margin-top: -2px;
+  background: #dbfeff;
+}
+
+.select_modal_body .select_modal_inner .select_modal_lead {
+  color: #76746d;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn {
+  overflow: hidden;
+  border: 0;
+  border-radius: 14px;
+  background-clip: padding-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--experienced {
+  color: #050505 !important;
+  background: #a9dcfb !important;
+  box-shadow: 0 8px 0 #608c96 !important;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--experienced span {
+  color: #050505;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--beginner {
+  color: #050505 !important;
+  background: #b7f98f !important;
+  box-shadow: 0 8px 0 #47733d !important;
+}
+
+.select_modal_body .select_modal_inner .first-modal__option-btn--beginner span {
+  color: #050505;
+}
+
+@media (max-width: 480px) {
+  .select_modal_body .select_modal_inner .first-modal__option-btn {
+    border-radius: 10px;
+  }
+
+  .select_modal_body .select_modal_inner .first-modal__option-btn--experienced {
+    box-shadow: 0 6px 0 #608c96 !important;
+  }
+
+  .select_modal_body .select_modal_inner .first-modal__option-btn--beginner {
+    box-shadow: 0 6px 0 #47733d !important;
+  }
+}

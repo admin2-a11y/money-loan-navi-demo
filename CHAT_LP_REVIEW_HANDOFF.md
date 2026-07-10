@@ -200,3 +200,16 @@
 
 ### Preserved
 - Official banner files, ranking logic, match-score calculation, affiliate links, redirects, PR labels, notes, and tracking.
+
+## 2026-07-10 Reference First-View Color / Edge Update
+
+### Changed
+- Matched the supplied first-view background, option fills, option shadows, and lead-text color using sampled hex values.
+- Changed the active entry overlay to an opaque aqua surface and extended it through the full viewport.
+- Removed the coral image separator and redundant wrapper corner clipping.
+- Cropped the two-pixel black top edge embedded in the custom first-view image at render time.
+- Expanded the inner wrapper and hero image to the full mobile viewport width.
+- Bumped cache query strings from `diagnosis-flow-20` to `diagnosis-flow-21`.
+
+### Preserved
+- First-view image file, question copy, entry branching, chat flow, ranking logic, affiliate links, redirects, PR labels, and tracking.
