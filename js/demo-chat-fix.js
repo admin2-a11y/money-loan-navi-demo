@@ -92,6 +92,19 @@
     },
   };
   var fallbackQuestions = {
+    q00: {
+      id: "q00",
+      nextId: "q01",
+      questions: ["これまでに利用したことがあるカードローンを教えてください。（複数選択可）"],
+      options: {
+        "アコム": "usedAcom",
+        "プロミス": "usedPromise",
+        "SMBCモビット": "usedMobit",
+        "アイフル": "usedAiflu",
+        "その他・覚えていない": "usedOther",
+      },
+      type: "multiselect",
+    },
     q01: {
       id: "q01",
       nextId: "q02",
@@ -315,6 +328,9 @@
       var value = hiddenValue(name);
       field.textContent = value || "こだわらない";
     });
+
+    var experienceLenders = one("[data-experience-lenders]");
+    if (experienceLenders) experienceLenders.hidden = !hiddenValue("q00");
   }
 
   function productIdFromCard(card) {
@@ -481,11 +497,6 @@
   }
 
   function updateProgress(nextId) {
-    if (typeof window.updateProgressBar === "function") {
-      window.updateProgressBar(nextId);
-      return;
-    }
-
     var bar = one("#progress-bar");
     if (!bar) return;
     if (nextId === "last") {
@@ -494,8 +505,12 @@
     }
     var match = String(nextId).match(/^q(\d+)$/);
     if (!match) return;
-    var total = 7;
-    var position = Math.min(parseInt(match[1], 10), total);
+    var total = selectedExperience === "experience_yes" ? 8 : 7;
+    var questionNumber = parseInt(match[1], 10);
+    var position = questionNumber === 0
+      ? 1
+      : questionNumber + (selectedExperience === "experience_yes" ? 1 : 0);
+    position = Math.min(position, total);
     var remaining = Math.max(0, total - position);
     var fill = one(".progress-bar__fill", bar);
     var label = one(".progress-bar__label", bar);
@@ -781,7 +796,7 @@
       chats.appendChild(answer);
       scrollToLatest(answer);
     }
-    renderQuestion("q01");
+    renderQuestion(selectedExperience === "experience_yes" ? "q00" : "q01");
   };
 
   function resumeBlankStartedState() {

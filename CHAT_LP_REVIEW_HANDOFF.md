@@ -396,3 +396,17 @@
 
 ### Preserved
 - The robot avatar, cloud background, white question bubbles, light question option cards, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Experience-Branch Lender Question Update
+
+### Changed
+- Added an experience-only question immediately after the `経験がある` entry selection: `これまでに利用したことがあるカードローンを教えてください。（複数選択可）`.
+- Added multi-select options for アコム, プロミス, SMBCモビット, アイフル, and その他・覚えていない.
+- Kept the beginner route unchanged; it starts directly with the existing priority question.
+- Added the selected lender experience to the result summary for experienced users.
+- Updated progress to 8 questions for the experience route and retained 7 questions for the beginner route.
+- Bumped cache query strings from `diagnosis-flow-39` to `diagnosis-flow-40`.
+
+### Preserved
+- Existing result ranking logic remains based on experience route, priority, timing, and method; selected prior lenders do not artificially change ranking.
+- Chat copy, question order after the branch, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

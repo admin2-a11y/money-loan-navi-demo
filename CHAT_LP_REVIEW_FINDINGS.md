@@ -320,3 +320,12 @@
 - Verified at 390px with no horizontal overflow.
 - P0: none found.
 - P1: none found.
+
+## Experience-Branch Lender Question Check
+- Experience users receive a multi-select prior-lender question before the existing priority question.
+- Beginner users skip the new question and continue directly into the existing flow.
+- The selected prior lenders appear in the result summary only when the experience route is used.
+- Completed the experience route at 390px: selected `アコム、プロミス` appeared in the result summary, and progress changed from `あと7問` to `あと6問` after the branch question.
+- Verified the beginner route begins with the priority question, displays `あと6問`, and has no horizontal overflow.
+- P0: none found.
+- P1: none found.
