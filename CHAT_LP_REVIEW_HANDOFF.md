@@ -249,3 +249,14 @@
 
 ### Preserved
 - Question copy, response timing, ranking logic, result display, affiliate links, redirects, PR labels, notes, and tracking.
+
+## 2026-07-10 Question Option Timing Update
+
+### Changed
+- Kept the 1.05-second typing pause before each operator message.
+- Reduced the delay between a completed question and its answer options from about 1.7 seconds to 0.18 seconds.
+- Kept the longer final-result preparation delay so the diagnosis completion still feels deliberate.
+- Bumped cache query strings from `diagnosis-flow-24` to `diagnosis-flow-25`.
+
+### Preserved
+- Question copy, auto-scroll behavior, ranking logic, affiliate links, redirects, PR labels, notes, and tracking.

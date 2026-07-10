@@ -3,7 +3,8 @@
   var selectedExperience = "experience_no";
   var renderToken = 0;
   var messageDelay = 1050;
-  var optionDelay = 650;
+  var optionRevealDelay = 180;
+  var resultDelay = 650;
   var resultOrders = {
     experience_yes: ["mobit", "aiflu", "acom", "promise"],
     experience_no: ["promise", "mobit", "acom", "aiflu"],
@@ -594,7 +595,7 @@
       setTimeout(function () {
         if (token !== renderToken) return;
         finish();
-      }, messageDelay * (questions.length + 1) + optionDelay);
+      }, messageDelay * (questions.length + 1) + resultDelay);
       return;
     }
 
@@ -603,7 +604,7 @@
       var options = buildOptions(data);
       chats.appendChild(options);
       scrollToLatest(options);
-    }, messageDelay * (questions.length + 1) + optionDelay);
+    }, messageDelay * questions.length + optionRevealDelay);
   }
 
   function buildOptions(data) {

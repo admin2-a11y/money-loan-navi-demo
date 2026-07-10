@@ -214,3 +214,11 @@
 - `prefers-reduced-motion` changes animated scrolling to immediate scrolling.
 - P0: none found.
 - P1: none found.
+
+## Question Option Timing Check
+- Operator messages retain the existing typing pause to preserve the conversational feel.
+- Answer options now appear 0.18 seconds after the question text instead of waiting through another full message interval plus the former option delay.
+- The first two-message introduction reaches its options in about 2.28 seconds; subsequent single-message questions reach theirs in about 1.23 seconds.
+- Final-result preparation timing remains unchanged.
+- P0: none found.
+- P1: none found.
