@@ -222,3 +222,12 @@
 - Final-result preparation timing remains unchanged.
 - P0: none found.
 - P1: none found.
+
+## Age Range Check
+- Age choices are now `〜19歳`, `20〜29歳`, `30〜39歳`, `40〜49歳`, `50〜59歳`, and `60歳以上`.
+- Each age range writes a distinct value to the diagnosis parameter.
+- At 320px, all six choices fit in a 172px option panel, auto-scroll keeps the panel visible, and no horizontal overflow occurs.
+- Selecting `40〜49歳` recorded `q05a43` and displayed the selected range correctly.
+- Console error logs were empty.
+- P0: none found.
+- P1: none found.

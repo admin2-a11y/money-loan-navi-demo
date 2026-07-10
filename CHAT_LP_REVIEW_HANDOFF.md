@@ -260,3 +260,14 @@
 
 ### Preserved
 - Question copy, auto-scroll behavior, ranking logic, affiliate links, redirects, PR labels, notes, and tracking.
+
+## 2026-07-10 Age Range Update
+
+### Changed
+- Split the former `30〜69歳` and `70歳以上` choices into `30〜39歳`, `40〜49歳`, `50〜59歳`, and `60歳以上`.
+- Kept `〜19歳` and `20〜29歳`, resulting in six age choices.
+- Assigned distinct diagnosis values to each newly separated range.
+- Bumped cache query strings from `diagnosis-flow-25` to `diagnosis-flow-26`.
+
+### Preserved
+- Question order, chat timing, auto-scroll, ranking logic, affiliate links, redirects, PR labels, notes, and tracking.
