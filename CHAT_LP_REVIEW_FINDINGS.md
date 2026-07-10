@@ -283,3 +283,11 @@
 - Verified the 390x844 first view with no horizontal overflow.
 - P0: none found.
 - P1: none found.
+
+## Light Question Option Card Check
+- Question options use white cards with dark text on a pale-green panel.
+- Option markers and interaction states remain LINE green.
+- User answer bubbles remain charcoal and are unaffected by this change.
+- Verified at 390x844 with no horizontal overflow.
+- P0: none found.
+- P1: none found.

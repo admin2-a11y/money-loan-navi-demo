@@ -340,3 +340,15 @@
 ### Preserved
 - The `はじめて` option remains LINE light green.
 - First-view artwork, chat colors, operator framing, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Light Question Option Card Update
+
+### Changed
+- Restored question option cards from charcoal to white with dark text.
+- Restored the option-panel background to pale green with a subtle green border and shadow.
+- Kept LINE green for option markers, focus, hover, and selected states.
+- Bumped cache query strings from `diagnosis-flow-32` to `diagnosis-flow-33`.
+
+### Preserved
+- User answer bubbles remain charcoal, while the initial experience answer remains LINE light green.
+- Operator framing, cloud background, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

@@ -2512,3 +2512,41 @@ body .chat_admin_text::before,
     box-shadow: 0 6px 0 #608c96 !important;
   }
 }
+
+/* ==== diagnosis-flow-33: restore light question option cards ==== */
+body .admin_chat_options ul,
+body .admin_chat_options--radio ul {
+  border-color: #c7e8cf;
+  background: #e9f8e8;
+  box-shadow: 0 5px 14px rgba(6, 120, 53, .1);
+}
+
+body .admin_chat_options li,
+body .admin_chat_options .option,
+body .admin_chat_options--radio ul li,
+body .admin_chat_options--multiselect ul li .multi_list__item__label {
+  border-color: #c7e8cf;
+  color: #142817;
+  background: #fff;
+}
+
+body .admin_chat_options .option span,
+body .admin_chat_options--radio ul li .radio_list__item__label-text,
+body .admin_chat_options--multiselect ul li .multi_list__item__label-text {
+  color: #142817;
+}
+
+body .admin_chat_options .option:hover,
+body .admin_chat_options .option.is-selected,
+body .admin_chat_options--radio ul li:hover,
+body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=radio]:checked),
+body .admin_chat_options--multiselect ul li .multi_list__item__label:has(input[type=checkbox]:checked) {
+  border-color: #06c755;
+  color: #142817;
+  background: #dff7e5;
+  box-shadow: 0 0 0 2px rgba(6, 199, 85, .16);
+}
+
+body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=radio]:checked) .radio_list__item__label-text {
+  color: #142817;
+}
