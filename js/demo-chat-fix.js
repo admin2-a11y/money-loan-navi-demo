@@ -369,11 +369,35 @@
     });
   }
 
-  function scrollToLatest() {
-    setTimeout(function () {
+  var scrollTimer = 0;
+
+  function scrollToLatest(target) {
+    window.clearTimeout(scrollTimer);
+    scrollTimer = window.setTimeout(function () {
       var chats = one("#chats");
-      if (chats) chats.scrollIntoView({ block: "end", behavior: "smooth" });
-    }, 50);
+      var latest = target && target.isConnected ? target : chats && chats.lastElementChild;
+      if (!latest) return;
+
+      window.requestAnimationFrame(function () {
+        var rect = latest.getBoundingClientRect();
+        var viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+        var topSafe = 16;
+        var bottomSafe = 24;
+
+        if (rect.top >= topSafe && rect.bottom <= viewportHeight - bottomSafe) return;
+
+        var availableHeight = viewportHeight - topSafe - bottomSafe;
+        var destination = rect.height <= availableHeight
+          ? window.scrollY + rect.bottom - viewportHeight + bottomSafe
+          : window.scrollY + rect.top - topSafe;
+        var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        window.scrollTo({
+          top: Math.max(0, destination),
+          behavior: reduceMotion ? "auto" : "smooth",
+        });
+      });
+    }, 90);
   }
 
   function normalizeExperience(route) {
@@ -550,18 +574,19 @@
     var questions = data.questions || [];
     var typing = typingBubble();
     chats.appendChild(typing);
-    scrollToLatest();
+    scrollToLatest(typing);
 
     questions.forEach(function (question, index) {
       setTimeout(function () {
         if (token !== renderToken) return;
         if (typing.parentNode) typing.remove();
-        chats.appendChild(adminBubble(question));
+        var message = adminBubble(question);
+        chats.appendChild(message);
         if (index < questions.length - 1) {
           typing = typingBubble();
           chats.appendChild(typing);
         }
-        scrollToLatest();
+        scrollToLatest(index < questions.length - 1 ? typing : message);
       }, messageDelay * (index + 1));
     });
 
@@ -569,15 +594,15 @@
       setTimeout(function () {
         if (token !== renderToken) return;
         finish();
-        scrollToLatest();
       }, messageDelay * (questions.length + 1) + optionDelay);
       return;
     }
 
     setTimeout(function () {
       if (token !== renderToken) return;
-      chats.appendChild(buildOptions(data));
-      scrollToLatest();
+      var options = buildOptions(data);
+      chats.appendChild(options);
+      scrollToLatest(options);
     }, messageDelay * (questions.length + 1) + optionDelay);
   }
 
@@ -679,7 +704,9 @@
     hideOldOptions();
     appendHidden(itemId, selected);
     appendParameter(itemId, answerId);
-    chats.appendChild(userBubble(itemId, formatReply(selected)));
+    var answer = userBubble(itemId, formatReply(selected));
+    chats.appendChild(answer);
+    scrollToLatest(answer);
     renderQuestion(nextId);
   }
 
@@ -697,7 +724,9 @@
     hideModal();
     var chats = one("#chats");
     if (chats) {
-      chats.appendChild(userBubble("card_loan_experience", formatReply(selectedExperience === "experience_yes" ? "経験あり" : "はじめて")));
+      var answer = userBubble("card_loan_experience", formatReply(selectedExperience === "experience_yes" ? "経験あり" : "はじめて"));
+      chats.appendChild(answer);
+      scrollToLatest(answer);
     }
     renderQuestion("q01");
   };

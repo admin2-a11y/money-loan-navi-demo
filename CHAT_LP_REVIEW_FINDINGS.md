@@ -205,3 +205,12 @@
 - Console error logs were empty.
 - P0: none found.
 - P1: none found.
+
+## Chat Auto-Scroll Check
+- Auto-scroll now follows the newest typing indicator, operator message, user response, and answer options instead of targeting the bottom edge of the entire chat container.
+- The destination is calculated from `visualViewport.height` on supported mobile browsers, with top and bottom safe spacing.
+- Repeated delayed messages share one pending scroll request, preventing older animation calls from overriding the latest target.
+- Content already fully visible in the viewport does not trigger unnecessary movement.
+- `prefers-reduced-motion` changes animated scrolling to immediate scrolling.
+- P0: none found.
+- P1: none found.

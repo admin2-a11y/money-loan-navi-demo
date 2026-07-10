@@ -237,3 +237,15 @@
 
 ### Preserved
 - First-view image, operator image, official product banners, question copy, ranking logic, affiliate links, redirects, PR labels, notes, and tracking.
+
+## 2026-07-10 Chat Auto-Scroll Update
+
+### Changed
+- Replaced container-level `scrollIntoView` calls with latest-message targeting based on the current visual viewport.
+- Added automatic follow behavior after typing indicators, operator messages, answer bubbles, and option panels are inserted.
+- Debounced consecutive scroll requests so delayed chat messages do not interrupt one another.
+- Kept already-visible content stationary and respected the user's reduced-motion preference.
+- Bumped cache query strings from `diagnosis-flow-23` to `diagnosis-flow-24`.
+
+### Preserved
+- Question copy, response timing, ranking logic, result display, affiliate links, redirects, PR labels, notes, and tracking.
