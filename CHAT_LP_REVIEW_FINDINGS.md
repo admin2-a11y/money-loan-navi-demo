@@ -298,3 +298,10 @@
 - Verified at 320px, 390px, and 541px; each subtitle remained one line with no horizontal overflow.
 - P0: none found.
 - P1: none found.
+
+## Agent Terminology Check
+- The entry lead and first chat greeting now use agent-led guidance language.
+- Product-specific wording inside official lender content was preserved.
+- Verified the entry and chat start at 390px with no horizontal overflow.
+- P0: none found.
+- P1: none found.

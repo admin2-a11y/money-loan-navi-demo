@@ -362,3 +362,15 @@
 
 ### Preserved
 - Entry option colors, headings, button heights, first-view artwork, chat flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Agent Terminology Update
+
+### Changed
+- Replaced the entry lead with `回答に合わせてエージェントがご案内します`.
+- Replaced the first chat greeting with `早速、エージェントによるご案内を始めましょう！`.
+- Replaced the internal exit-modal wording from diagnosis-result language to guidance-result language.
+- Bumped cache query strings from `diagnosis-flow-34` to `diagnosis-flow-35`.
+
+### Preserved
+- Official lender product copy, including product-specific diagnostic terminology, was not edited.
+- The entry layout, chat flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
