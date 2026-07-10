@@ -231,3 +231,14 @@
 - Console error logs were empty.
 - P0: none found.
 - P1: none found.
+
+## Result Analysis Animation Check
+- Added a short analysis state between the final operator message and automatic result display.
+- Status text progresses through condition organization, service comparison, candidate selection, and completion.
+- The animation uses the existing LINE-green palette and respects `prefers-reduced-motion`.
+- Auto-scroll accounts for the fixed footer height and leaves 12px of additional clearance.
+- No extra CTA was introduced; results continue automatically after completion.
+- At 320px, the 151px analysis bubble remained fully visible with a measured 12px gap above the fixed footer and no horizontal overflow.
+- Console error logs were empty through the complete flow.
+- P0: none found.
+- P1: none found.

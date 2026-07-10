@@ -4,7 +4,7 @@
   var renderToken = 0;
   var messageDelay = 1050;
   var optionRevealDelay = 180;
-  var resultDelay = 650;
+  var analysisStageDelay = 850;
   var resultOrders = {
     experience_yes: ["mobit", "aiflu", "acom", "promise"],
     experience_no: ["promise", "mobit", "acom", "aiflu"],
@@ -385,7 +385,11 @@
         var rect = latest.getBoundingClientRect();
         var viewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
         var topSafe = 16;
-        var bottomSafe = 24;
+        var footer = one("footer");
+        var footerHeight = footer && window.getComputedStyle(footer).position === "fixed"
+          ? footer.getBoundingClientRect().height
+          : 0;
+        var bottomSafe = Math.max(24, footerHeight + 12);
 
         if (rect.top >= topSafe && rect.bottom <= viewportHeight - bottomSafe) return;
 
@@ -440,6 +444,32 @@
       "</div>" +
       "</div>";
     return item;
+  }
+
+  function analysisBubble() {
+    var item = document.createElement("div");
+    item.className = "chat_item chat_admin chat_admin--analysis";
+    item.setAttribute("role", "status");
+    item.setAttribute("aria-live", "polite");
+    item.innerHTML =
+      '<div class="chat_admin_img"></div>' +
+      '<div class="chat_admin_info">' +
+      '<div class="chat_admin_name">マネーローンナビオペレーター</div>' +
+      '<div class="chat_admin_text chat_analysis">' +
+      '<div class="chat_analysis__title">いただいた内容をもとに、最適なカードローンを分析中です' +
+      '<span class="chat_analysis__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>' +
+      '<div class="chat_analysis__track" aria-hidden="true"><span></span></div>' +
+      '<div class="chat_analysis__status">ご希望条件を整理しています…</div>' +
+      "</div></div>";
+    return item;
+  }
+
+  function setAnalysisStage(item, text, complete) {
+    if (!item || !item.isConnected) return;
+    var status = one(".chat_analysis__status", item);
+    if (status) status.textContent = text;
+    if (complete) item.classList.add("is-complete");
+    scrollToLatest(item);
   }
 
   function userBubble(itemId, text) {
@@ -594,10 +624,30 @@
     });
 
     if (data.type === "last") {
+      var analysisStart = messageDelay * questions.length + 450;
+      var analysis;
+      setTimeout(function () {
+        if (token !== renderToken) return;
+        analysis = analysisBubble();
+        chats.appendChild(analysis);
+        scrollToLatest(analysis);
+      }, analysisStart);
+      setTimeout(function () {
+        if (token !== renderToken) return;
+        setAnalysisStage(analysis, "サービスの特徴を比較しています…", false);
+      }, analysisStart + analysisStageDelay);
+      setTimeout(function () {
+        if (token !== renderToken) return;
+        setAnalysisStage(analysis, "条件に近い候補を選定しています…", false);
+      }, analysisStart + analysisStageDelay * 2);
+      setTimeout(function () {
+        if (token !== renderToken) return;
+        setAnalysisStage(analysis, "分析が完了しました。", true);
+      }, analysisStart + analysisStageDelay * 3);
       setTimeout(function () {
         if (token !== renderToken) return;
         finish();
-      }, messageDelay * (questions.length + 1) + resultDelay);
+      }, analysisStart + analysisStageDelay * 3 + 450);
       return;
     }
 

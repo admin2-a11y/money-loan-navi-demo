@@ -271,3 +271,16 @@
 
 ### Preserved
 - Question order, chat timing, auto-scroll, ranking logic, affiliate links, redirects, PR labels, notes, and tracking.
+
+## 2026-07-10 Result Analysis Animation Update
+
+### Changed
+- Added an operator analysis bubble after the final chat message and before result display.
+- Added three short stages: organizing requested conditions, comparing service features, and selecting close candidates.
+- Added animated dots and a progress bar, followed by an analysis-complete state.
+- Auto-scroll now reserves space for the fixed footer so the analysis status remains fully visible.
+- Results still appear automatically without an additional button.
+- Bumped cache query strings from `diagnosis-flow-26` to `diagnosis-flow-27`.
+
+### Preserved
+- Answers, ranking calculation, result cards, affiliate links, redirects, PR labels, notes, and tracking.
