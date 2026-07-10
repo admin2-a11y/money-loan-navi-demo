@@ -1582,15 +1582,15 @@ body .chat_admin_img::after,
 
 /* ==== diagnosis-flow-13: distinct Money Loan Navi palette ==== */
 :root {
-  --navi-ink: #1e2f2b;
-  --navi-teal: #1c6b63;
-  --navi-teal-dark: #104a44;
+  --navi-ink: #2b3d2c;
+  --navi-teal: #477f4d;
+  --navi-teal-dark: #315f3b;
   --navi-coral: #c74b3c;
   --navi-coral-dark: #98372d;
-  --navi-gold: #f2c14e;
-  --navi-sage: #e3efeb;
-  --navi-line: #b8cec7;
-  --navi-surface: #f3f6f5;
+  --navi-gold: #d9e76f;
+  --navi-sage: #eef5dc;
+  --navi-line: #bdd2ad;
+  --navi-surface: #f8faef;
 }
 
 body.diagnosis-started,
@@ -1599,7 +1599,7 @@ body.diagnosis-started .contents_wrapper {
 }
 
 .select_modal {
-  background: rgba(20, 38, 35, .9);
+  background: rgba(52, 76, 45, .58);
 }
 
 .select_modal_body,
@@ -1629,7 +1629,7 @@ body.diagnosis-started .contents_wrapper {
 .select_modal_body .select_modal_inner .first-modal__option-btn--beginner {
   background: var(--navi-gold) !important;
   color: var(--navi-ink) !important;
-  box-shadow: 0 8px 0 #a77a18 !important;
+  box-shadow: 0 8px 0 #95a843 !important;
 }
 
 .select_modal_body .select_modal_inner .first-modal__option-btn--beginner span {
@@ -1637,7 +1637,7 @@ body.diagnosis-started .contents_wrapper {
 }
 
 .progress-bar {
-  background: #dce8e4;
+  background: #eaf2dc;
 }
 
 .progress-bar__fill {
@@ -1820,7 +1820,7 @@ a:focus-visible {
 }
 
 footer {
-  background: var(--navi-teal-dark) !important;
+  background: var(--navi-teal) !important;
 }
 
 /* ==== diagnosis-flow-14: answer-linked recommendation reasons ==== */

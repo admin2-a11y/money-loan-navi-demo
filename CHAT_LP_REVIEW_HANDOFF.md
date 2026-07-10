@@ -143,3 +143,17 @@
 
 ### Preserved
 - Affiliate links, redirect paths, GTM, PR labels, notes, operator identity, official banners, and product images.
+
+## 2026-07-10 Friendly Green Palette Update
+
+### Changed
+- Lightened the deep teal palette to a medium leaf green.
+- Shifted the secondary entry choice from gold to a soft yellow-green.
+- Changed page surfaces and option panels to pale mint / yellow-green tones.
+- Reduced the darkness of the entry-modal backdrop.
+- Lightened the footer from dark teal to medium green.
+- Kept coral for progress and primary result actions so CTA hierarchy remains clear.
+- Bumped cache query strings from `diagnosis-flow-14` to `diagnosis-flow-15`.
+
+### Preserved
+- Seven-question flow, ranking weights, match reasons, affiliate links, redirect paths, GTM, PR labels, official banners, and product images.

@@ -129,3 +129,12 @@
 - Console error logs were empty for both ranking flows.
 - P0: none found.
 - P1: none found.
+
+## Friendly Green Palette Check
+- Replaced deep teal surfaces with medium leaf green and pale yellow-green.
+- Coral remains limited to progress, ranking emphasis, and primary CTAs.
+- Official affiliate banners and product images were not edited.
+- Entry and first-question chat states were visually checked at 375px.
+- Contrast ratios: white/leaf green 4.76, ink/yellow-green 8.64, ink/surface 11.02.
+- Checked 320 / 768 / 1280px with no horizontal overflow.
+- Console error logs were empty.
