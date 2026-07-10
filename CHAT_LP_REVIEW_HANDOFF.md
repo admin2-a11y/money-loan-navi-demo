@@ -352,3 +352,13 @@
 ### Preserved
 - User answer bubbles remain charcoal, while the initial experience answer remains LINE light green.
 - Operator framing, cloud background, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Entry Subtitle Wrapping Update
+
+### Changed
+- Prevented the entry-option subtitles from breaking onto an isolated final character.
+- Added fixed responsive subtitle sizes for 320-600px viewports and kept each subtitle on one line.
+- Bumped cache query strings from `diagnosis-flow-33` to `diagnosis-flow-34`.
+
+### Preserved
+- Entry option colors, headings, button heights, first-view artwork, chat flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

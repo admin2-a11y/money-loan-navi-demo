@@ -2328,6 +2328,31 @@ body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=ra
   color: #142817;
 }
 
+/* ==== diagnosis-flow-34: stable entry subtitle wrapping ==== */
+.select_modal_body .select_modal_inner .first-modal__option-btn span {
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .select_modal_body .select_modal_inner .first-modal__option-btn span {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .select_modal_body .select_modal_inner .first-modal__option-btn span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .select_modal_body .select_modal_inner .first-modal__option-btn span {
+    font-size: 11px;
+  }
+}
+
 #inline-result {
   background: #effaf2;
 }

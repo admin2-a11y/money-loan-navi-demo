@@ -291,3 +291,10 @@
 - Verified at 390x844 with no horizontal overflow.
 - P0: none found.
 - P1: none found.
+
+## Entry Subtitle Wrapping Check
+- Entry-option subtitles use fixed breakpoint sizes instead of growing with the viewport.
+- The full experienced-user subtitle is kept on one line to prevent a final-character orphan.
+- Verified at 320px, 390px, and 541px; each subtitle remained one line with no horizontal overflow.
+- P0: none found.
+- P1: none found.
