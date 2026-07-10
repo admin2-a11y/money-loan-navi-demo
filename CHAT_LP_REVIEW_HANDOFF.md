@@ -179,3 +179,24 @@
 ### Preserved
 - Official banner files were not edited, resized, or replaced.
 - Affiliate links, redirects, ranking logic, match scores, PR labels, and tracking remain unchanged.
+
+## 2026-07-10 Reference Result Card Format Update
+
+### Changed
+- Reworked all four result cards to follow the provided `new-lp-v2-demo` format:
+  - banner and ranked title header
+  - crown icon for ranks 1 to 3
+  - company badge and answer-linked match score
+  - orange recommendation-point panel
+  - comparison specification grid
+  - review example panel
+  - single-row / wrapping countdown panel
+  - large orange CTA and PR note
+- Moved match percentage from the recommendation-panel heading into the product header.
+- Kept the three answer-linked reasons inside the recommendation-point panel.
+- Added responsive 38% mobile / 32% desktop banner columns.
+- Expanded result cards into the outer mobile gutters at 320-480px so the denser reference layout remains readable.
+- Bumped cache query strings from `diagnosis-flow-17` to `diagnosis-flow-20`.
+
+### Preserved
+- Official banner files, ranking logic, match-score calculation, affiliate links, redirects, PR labels, notes, and tracking.

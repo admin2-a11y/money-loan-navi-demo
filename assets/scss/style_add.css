@@ -1307,9 +1307,9 @@ body .chat_admin_img::after,
 
 .result-lpo-head {
   display: grid;
-  grid-template-columns: 42% minmax(0, 1fr);
-  gap: 10px;
-  align-items: start;
+  grid-template-columns: 38% minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
 }
 
 .result-lpo-banner {
@@ -1346,6 +1346,9 @@ body .chat_admin_img::after,
 }
 
 .result-lpo-title h3 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   margin: 0 0 8px;
   color: #1a1a1a;
   font-size: 22px;
@@ -1367,6 +1370,51 @@ body .chat_admin_img::after,
   font-size: 11px;
   font-weight: 900;
   line-height: 1.25;
+}
+
+.result-crown {
+  display: inline-block;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.result-crown--1 {
+  background-image: url("../img/icon/icon_crown-gold.png");
+}
+
+.result-crown--2 {
+  background-image: url("../img/icon/icon_crown-silver.png");
+}
+
+.result-crown--3 {
+  background-image: url("../img/icon/icon_crown-bronze.png");
+}
+
+.result-crown--4 {
+  display: none;
+}
+
+.result-match-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--navi-sage);
+  color: var(--navi-ink);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.result-match-score strong {
+  color: var(--navi-coral-dark);
+  font-size: 14px;
 }
 
 .result-lpo-points {
@@ -1501,6 +1549,11 @@ body .chat_admin_img::after,
 }
 
 .result-lpo-timer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 8px;
   margin: 0 0 12px;
   padding: 12px 10px;
   border: 1px solid #ff9d3a;
@@ -1827,13 +1880,8 @@ footer {
 
 /* ==== diagnosis-flow-14: answer-linked recommendation reasons ==== */
 .result-match h4 {
-  width: min(260px, calc(100% - 24px));
+  width: min(210px, calc(100% - 24px));
   white-space: nowrap;
-}
-
-.result-match h4 strong {
-  color: var(--navi-coral-dark);
-  font-size: 18px;
 }
 
 .result-match-note {
@@ -1849,6 +1897,50 @@ footer {
 /* Keep the shared recommendation heading clear of every product banner. */
 .result-lpo-points {
   margin-top: 30px;
+}
+
+/* ==== diagnosis-flow-18: reference result-card format ==== */
+#inline-result > .topbox.topboxNew.case.result-lpo-ready {
+  padding: 12px;
+  border-color: #f0ad43;
+  border-radius: 8px;
+  background: #fffef2;
+}
+
+.result-lpo-title .result-rank-label {
+  background: #ff9d3a;
+}
+
+.result-lpo-points {
+  border-color: #ff930f;
+}
+
+.result-lpo-points h4 {
+  background: #ff9d3a;
+  color: #fff;
+}
+
+.result-lpo-points li::before {
+  border-left-color: #f39a20;
+  border-bottom-color: #f39a20;
+}
+
+@media (min-width: 600px) {
+  .result-lpo-head {
+    grid-template-columns: 32% minmax(0, 1fr);
+    gap: 24px;
+    padding: 0 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  #inline-result > .topbox.topboxNew.case.result-lpo-ready {
+    width: calc(100% + 32px);
+    margin-right: -16px;
+    margin-left: -16px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
 }
 
 @media (max-width: 360px) {

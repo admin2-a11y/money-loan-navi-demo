@@ -328,6 +328,7 @@
     var href = link ? link.getAttribute("href") : "redirect.html?item=" + item;
     var wrap = document.createElement("div");
     wrap.className = "result-lpo-card";
+    var crownClass = rank <= 3 ? " result-crown--" + rank : " result-crown--4";
 
     var specs = meta.specs.map(function (spec) {
       return '<div class="result-lpo-spec"><dt>' + spec[0] + '</dt><dd>' + spec[1] + '</dd></div>';
@@ -343,18 +344,19 @@
       '</a>' +
       '<div class="result-lpo-title">' +
       '<div class="result-rank-label">おすすめ順 No.' + rank + '</div>' +
-      '<h3><a target="_blank" href="' + href + '">' + meta.name + '</a></h3>' +
+      '<h3><span class="result-crown' + crownClass + '" aria-hidden="true"></span><a target="_blank" href="' + href + '">' + meta.name + '</a></h3>' +
       '<p>' + meta.company + '</p>' +
+      '<div class="result-match-score">希望条件との一致度 <strong>' + matchScore + '%</strong></div>' +
       '</div>' +
       '</div>' +
       '<section class="result-lpo-points result-match" aria-label="' + meta.name + 'が希望条件に合う理由">' +
-      '<h4>希望条件との一致度 <strong>' + matchScore + '%</strong></h4>' +
+      '<h4>おすすめポイント</h4>' +
       '<ul>' + points + '</ul>' +
       '<p class="result-match-note">入力条件に基づく比較上の目安です。審査結果を示すものではありません。</p>' +
       '</section>' +
       '<dl class="result-lpo-specs">' + specs + '</dl>' +
       '<div class="result-lpo-review"><span>口コミ例</span><p>' + meta.review + '</p></div>' +
-      '<div class="result-lpo-timer"><strong>本日中</strong>に借入をする場合<br><span>残り <b>20</b> 時間 <b>53</b> 分 <b>38</b> 秒</span></div>' +
+      '<div class="result-lpo-timer"><span><strong>本日中</strong>に借入をする場合</span><span>残り <b>20</b> 時間 <b>53</b> 分 <b>38</b> 秒</span></div>' +
       '<a class="result-lpo-cta" target="_blank" href="' + href + '">公式サイトで申込条件を確認する</a>' +
       '<p class="result-lpo-pr">' + meta.sponsor + '<br>※条件や審査状況によりご希望に添えない場合があります。※一例であり、結果を保証するものではありません。</p>';
     return wrap;

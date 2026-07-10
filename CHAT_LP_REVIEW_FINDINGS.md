@@ -151,3 +151,17 @@
 - At 375px, all four source images reported `300 x 250` natural dimensions and a `1.2` aspect ratio.
 - All four rendered images reported the same `1.2` aspect ratio with `object-fit: contain` and `aspect-ratio: auto`.
 - No horizontal overflow or console errors were found.
+
+## Reference Result Card Format Check
+- Applied the shared reference-format structure to all four generated result cards.
+- Match scores and answer-linked reasons remain present.
+- Official banner files were not edited or replaced.
+- Completed the seven-question beginner speed-priority flow at 320px and 375px.
+- Verified four ranked cards, four match scores, 12 answer-linked reasons, 20 specification cells, four review blocks, four timers, four CTAs, and four PR notes.
+- All four banner sources loaded at `300 x 250` with `object-fit: contain`.
+- Added a result-only mobile width override so the reference-format cards use more of the 320-414px viewport.
+- Checked 320 / 375 / 390 / 414 / 768 / 1280px without horizontal overflow.
+- CTA height remained at least 54px across the checked widths.
+- Console error logs were empty.
+- P0: none found.
+- P1: none found.
