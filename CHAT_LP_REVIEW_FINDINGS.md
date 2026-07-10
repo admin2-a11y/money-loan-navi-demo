@@ -79,3 +79,17 @@
   - Four result cards appeared automatically.
   - No horizontal overflow observed.
   - Console error logs were empty.
+
+## Requested Question Flow Check
+- Question flow changed to the requested nine-step structure.
+- The first question supports multiple selections and retains a dedicated next action.
+- Questions two through nine continue on selection; the ninth answer triggers the final message and automatic results.
+- Result summary labels now match the new nine answers.
+- At 375px, the first six concern choices use a compact two-column layout with 48px minimum tap targets.
+- Completed the requested beginner answer path at 375px:
+  - `金利が高くないか / 21〜30万円 / 1時間以内 / 口座振込 / まだ決めていない / 余裕があるときに返したい / 20〜29歳 / 121〜300万円 / 公務員`.
+  - Final recommendation introduction displayed exactly as requested.
+  - Four result cards displayed automatically in the preserved beginner order.
+  - New answer values appeared in the result summary.
+- 320px and 375px checks found no horizontal overflow.
+- Console error logs were empty.

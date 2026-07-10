@@ -79,3 +79,20 @@
 ### Preserved
 - Experience-based result ordering.
 - Affiliate links, redirect paths, GTM, PR labels, notes, and official product banners.
+
+## 2026-07-10 Requested Question Flow Update
+
+### Changed
+- Replaced the six-question condition flow with the requested nine-question conversational flow.
+- Questions now cover concerns, desired amount, desired timing, borrowing method, borrowing style, repayment pace, age, income, and occupation.
+- Restored the opening guidance messages and the requested final recommendation introduction.
+- Updated the progress bar from six to nine questions.
+- Updated the result summary fields to match the new answers.
+- Preserved the typing indicator and automatic result display.
+- Bumped cache query strings from `diagnosis-flow-10` to `diagnosis-flow-11`.
+- Compacted the six concern choices into a two-column mobile layout so the next action stays closer to the first viewport.
+- Bumped the final cache query strings to `diagnosis-flow-12` after the mobile layout adjustment.
+
+### Preserved
+- Entry choice and experience-based result ordering.
+- Affiliate links, redirect paths, GTM, PR labels, notes, and official product banners.

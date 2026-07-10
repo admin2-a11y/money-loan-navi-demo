@@ -828,6 +828,54 @@ body .chat_admin_img::after,
     margin-left: 3px;
   }
 
+  body .admin_chat_options--multiselect ul {
+    padding: 7px;
+  }
+
+  body .admin_chat_options--multiselect ul li.option {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    padding: 0;
+    background: transparent;
+  }
+
+  body .admin_chat_options--multiselect ul li:has(input[type=checkbox]:checked) {
+    background: transparent;
+  }
+
+  body .admin_chat_options--multiselect ul li .multi_list__item__label {
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 5px 6px;
+    border: 1px solid #d8e5ed;
+    border-radius: 6px;
+    background: #fff;
+  }
+
+  body .admin_chat_options--multiselect ul li .multi_list__item__label:has(input[type=checkbox]:checked) {
+    border-color: #039cfc;
+    background: #ccebff;
+  }
+
+  body .admin_chat_options--multiselect ul li .multi_list__item__label-check {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+  }
+
+  body .admin_chat_options--multiselect ul li .multi_list__item__label-text {
+    min-width: 0;
+    font-size: 13px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  body .admin_chat_options--multiselect .chat_next_btn_wrap {
+    margin-top: 8px;
+  }
+
   body .chat_admin_text {
     min-height: 0;
     padding: 9px 11px;

@@ -650,7 +650,7 @@ function updateProgressBar(nextId) {
   }
   const match = String(nextId).match(/^q(\d+)$/);
   if (!match) return;
-  const total = 6;
+  const total = 9;
   const position = Math.min(parseInt(match[1], 10), total);
   const percent = Math.min(100, (position / total) * 100);
   const remaining = Math.max(0, total - position);
