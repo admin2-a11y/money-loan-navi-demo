@@ -269,3 +269,10 @@
 - Its speech-bubble tail uses the same green, while later answers remain charcoal.
 - P0: none found.
 - P1: none found.
+
+## Dark Operator Frame Check
+- Operator names use near-black text.
+- Avatar rings, white bubble outlines, and bubble-tail outlines use charcoal for a consistent frame.
+- The question-bubble fill remains white.
+- P0: none found.
+- P1: none found.

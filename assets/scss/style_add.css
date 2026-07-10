@@ -2471,3 +2471,27 @@ body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=ra
 body .admin_chat_options .option:focus-visible {
   outline-color: #85e249;
 }
+
+/* ==== diagnosis-flow-31: dark operator framing ==== */
+body .chat_admin_name,
+.modal_final_contents .chat_admin_name {
+  color: #151a18;
+}
+
+body .chat_admin_img,
+.modal_final_contents .chat_admin_img {
+  border-color: #1b211e !important;
+  box-shadow: 0 4px 14px rgba(9, 14, 11, .16);
+}
+
+body .chat_admin_text,
+.modal_final_contents .chat_admin_text {
+  border-color: #1b211e;
+  box-shadow: 0 3px 10px rgba(9, 14, 11, .1);
+}
+
+body .chat_admin_text::before,
+.modal_final_contents .chat_admin_text::before {
+  border-bottom-color: #1b211e;
+  border-left-color: #1b211e;
+}

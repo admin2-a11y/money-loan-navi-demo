@@ -318,3 +318,14 @@
 
 ### Preserved
 - Operator bubbles, cloud background, question flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Dark Operator Frame Update
+
+### Changed
+- Changed the operator name from green to near-black `#151A18`.
+- Changed the operator avatar border to charcoal `#1B211E`.
+- Changed the white question bubble border and integrated tail outline to the same charcoal.
+- Bumped cache query strings from `diagnosis-flow-30` to `diagnosis-flow-31`.
+
+### Preserved
+- White question-bubble fill, operator image, cloud background, answer colors, option cards, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
