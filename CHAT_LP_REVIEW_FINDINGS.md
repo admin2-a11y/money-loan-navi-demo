@@ -138,3 +138,9 @@
 - Contrast ratios: white/leaf green 4.76, ink/yellow-green 8.64, ink/surface 11.02.
 - Checked 320 / 768 / 1280px with no horizontal overflow.
 - Console error logs were empty.
+
+## Result Card Spacing Check
+- Increased the shared recommendation-section top margin to 30px for all four product cards.
+- Official product banners were not edited.
+- At 375px, the measured gap from each product header bottom to the recommendation heading top was 17px for プロミス / アコム / SMBCモビット / アイフル.
+- No horizontal overflow or console errors were found.

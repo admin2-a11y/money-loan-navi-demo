@@ -1844,6 +1844,11 @@ footer {
   line-height: 1.5;
 }
 
+/* Keep the shared recommendation heading clear of every product banner. */
+.result-lpo-points {
+  margin-top: 30px;
+}
+
 @media (max-width: 360px) {
   .result-section-heading {
     font-size: 19px;

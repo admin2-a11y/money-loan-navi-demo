@@ -157,3 +157,14 @@
 
 ### Preserved
 - Seven-question flow, ranking weights, match reasons, affiliate links, redirect paths, GTM, PR labels, official banners, and product images.
+
+## 2026-07-10 Result Card Spacing Update
+
+### Changed
+- Increased the shared gap between every product banner/header and the recommendation-points heading.
+- Changed `.result-lpo-points` top margin from the effective 12px layout to 30px.
+- Applied through the shared result-card class, covering all four consumer-finance cards.
+- Bumped cache query strings from `diagnosis-flow-15` to `diagnosis-flow-16`.
+
+### Preserved
+- Official banner images, result copy, ranking logic, match scores, affiliate links, redirects, PR labels, and tracking.
