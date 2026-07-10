@@ -242,3 +242,14 @@
 - Console error logs were empty through the complete flow.
 - P0: none found.
 - P1: none found.
+
+## Cloud Chat Background Check
+- Added `images/chat-sky-clouds-v1.webp` as a custom low-contrast chat background.
+- The central reading area is mostly clear blue; soft clouds remain concentrated near the lower and side edges.
+- The image is 768x1218 and 6.9 KB in WebP format.
+- The first-view artwork and official lender banners were not edited.
+- Verified the active chat at 320px, 390px, and 1280px with no horizontal overflow.
+- The background remains viewport-fixed while the chat content scrolls, and the chat wrapper stays transparent.
+- Console error logs were empty.
+- P0: none found.
+- P1: none found.

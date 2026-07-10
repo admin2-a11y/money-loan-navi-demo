@@ -2213,6 +2213,19 @@ body {
   background: #f3fbf5;
 }
 
+body.diagnosis-started {
+  background-color: #a9c5e8;
+  background-image: url("../../images/chat-sky-clouds-v1.webp");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.diagnosis-started .contents_wrapper {
+  background: transparent;
+}
+
 html:has(body:not(.first-modal-checked)),
 body:not(.first-modal-checked),
 .select_modal,

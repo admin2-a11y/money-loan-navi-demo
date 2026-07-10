@@ -284,3 +284,15 @@
 
 ### Preserved
 - Answers, ranking calculation, result cards, affiliate links, redirects, PR labels, notes, and tracking.
+
+## 2026-07-10 Cloud Chat Background Update
+
+### Changed
+- Added a custom pale-blue sky and cloud background generated for the chat experience.
+- Kept the center low-contrast for message readability and concentrated clouds near the lower edge.
+- Applied the image only after diagnosis starts; the first-view presentation remains unchanged.
+- Optimized the project asset to a 768x1218 WebP at 6.9 KB and preloaded it from `index.html`.
+- Bumped cache query strings from `diagnosis-flow-27` to `diagnosis-flow-28`.
+
+### Preserved
+- First-view artwork, operator image, chat copy, answer flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking.
