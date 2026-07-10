@@ -2396,3 +2396,66 @@ footer {
     box-shadow: 0 6px 0 #4c9c38 !important;
   }
 }
+
+/* ==== diagnosis-flow-29: dark respondent and option cards ==== */
+body.green .chat_user_text,
+body.blue .chat_user_text {
+  color: #fff;
+  background: #1b211e;
+  box-shadow: 0 3px 10px rgba(9, 14, 11, .18);
+}
+
+body.green .chat_user_text::after,
+body.blue .chat_user_text::after {
+  border-left-color: #1b211e;
+}
+
+body .chat_user::before,
+body .chat_user_correction {
+  color: #26332c;
+}
+
+body .admin_chat_options ul,
+body .admin_chat_options--radio ul {
+  border: 1px solid rgba(255, 255, 255, .14);
+  background: rgba(17, 22, 19, .9);
+  box-shadow: 0 6px 18px rgba(11, 17, 13, .14);
+}
+
+body .admin_chat_options li,
+body .admin_chat_options .option,
+body .admin_chat_options--radio ul li,
+body .admin_chat_options--multiselect ul li .multi_list__item__label {
+  border-color: #424d47;
+  color: #fff;
+  background: #1b211e;
+}
+
+body .admin_chat_options .option span,
+body .admin_chat_options--radio ul li .radio_list__item__label-text,
+body .admin_chat_options--multiselect ul li .multi_list__item__label-text {
+  color: #fff;
+}
+
+body .admin_chat_options--radio li span::before {
+  border-color: #85e249;
+}
+
+body .admin_chat_options .option:hover,
+body .admin_chat_options .option.is-selected,
+body .admin_chat_options--radio ul li:hover,
+body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=radio]:checked),
+body .admin_chat_options--multiselect ul li .multi_list__item__label:has(input[type=checkbox]:checked) {
+  border-color: #85e249;
+  color: #fff;
+  background: #29332e;
+  box-shadow: 0 0 0 2px rgba(133, 226, 73, .2);
+}
+
+body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=radio]:checked) .radio_list__item__label-text {
+  color: #fff;
+}
+
+body .admin_chat_options .option:focus-visible {
+  outline-color: #85e249;
+}

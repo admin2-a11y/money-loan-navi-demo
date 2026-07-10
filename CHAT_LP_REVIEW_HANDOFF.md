@@ -296,3 +296,15 @@
 
 ### Preserved
 - First-view artwork, operator image, chat copy, answer flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking.
+
+## 2026-07-10 Dark Answer / Option Card Update
+
+### Changed
+- Changed user-answer bubbles from bright green to charcoal `#1B211E` with white text.
+- Changed chat option panels and selectable cards to a charcoal palette with white labels.
+- Kept LINE green as the option marker, focus, hover, and selected-state accent.
+- Bumped cache query strings from `diagnosis-flow-28` to `diagnosis-flow-29`.
+
+### Preserved
+- Operator question bubbles remain white.
+- Result product cards, official banners, first-view choices, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

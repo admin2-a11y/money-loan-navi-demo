@@ -253,3 +253,13 @@
 - Console error logs were empty.
 - P0: none found.
 - P1: none found.
+
+## Dark Answer / Option Card Check
+- Operator question bubbles remain white against the sky background.
+- User responses use `#1B211E` with white text and a matching speech-bubble tail.
+- Option panels and selectable cards use dark charcoal surfaces with white labels and green interaction accents.
+- Replaced the remaining orange radio markers with light-green markers.
+- Result lender cards and official banners were not changed.
+- Verified at 320px and 390px with no horizontal overflow; console error logs were empty.
+- P0: none found.
+- P1: none found.
