@@ -192,3 +192,16 @@
 - Console error logs were empty.
 - P0: none found.
 - P1: none found.
+
+## LINE Green Palette Check
+- Applied LINE green `#06C755` as the primary interface color.
+- Sampled the supplied reference image and used `#85E249` for user-answer bubbles.
+- Recolored entry choices, progress, operator accents, option states, form actions, result headings, recommendation panels, timers, CTAs, and footer.
+- Replaced the previous coral/orange emphasis colors with LINE green and dark green.
+- Used pale mint `#F3FBF5` for the page background and extended it through the full viewport to prevent dark gaps below short chat states.
+- Official affiliate banners and the custom first-view image were not edited.
+- Completed the seven-question beginner flow and verified all four result cards use the new palette.
+- Checked 320 / 375 / 390 / 414 / 768 / 1280px without horizontal overflow; CTA height remained at least 54px.
+- Console error logs were empty.
+- P0: none found.
+- P1: none found.

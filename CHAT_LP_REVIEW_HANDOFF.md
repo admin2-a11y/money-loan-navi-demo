@@ -224,3 +224,16 @@
 
 ### Preserved
 - Operator image and name, question copy, response timing, diagnosis flow, ranking logic, affiliate links, redirects, PR labels, and tracking.
+
+## 2026-07-10 LINE Green Palette Update
+
+### Changed
+- Set LINE green `#06C755` as the primary interface color.
+- Set user-answer bubbles to the sampled reference color `#85E249` with dark text.
+- Recolored entry options, progress, chat accents, option states, result cards, CTAs, and footer.
+- Replaced coral/orange emphasis with green and dark-green roles.
+- Extended the pale mint page background through the viewport to remove dark empty areas.
+- Bumped cache query strings from `diagnosis-flow-22` to `diagnosis-flow-23`.
+
+### Preserved
+- First-view image, operator image, official product banners, question copy, ranking logic, affiliate links, redirects, PR labels, notes, and tracking.
