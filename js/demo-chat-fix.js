@@ -96,7 +96,7 @@
       id: "q01",
       nextId: "q02",
       questions: [
-        "早速、エージェントによるご案内を始めましょう！",
+        "早速、診断を始めましょう！",
         "カードローン選びで、最も重視することを教えてください。",
       ],
       options: {
@@ -424,7 +424,7 @@
     item.innerHTML =
       '<div class="chat_admin_img"></div>' +
       '<div class="chat_admin_info">' +
-      '<div class="chat_admin_name">マネーローンナビオペレーター</div>' +
+      '<div class="chat_admin_name">マネーローンナビ</div>' +
       '<div class="chat_admin_text"><span>' + text + "</span></div>" +
       "</div>";
     return item;
@@ -434,11 +434,11 @@
     var item = document.createElement("div");
     item.className = "chat_item chat_admin chat_admin--typing";
     item.setAttribute("role", "status");
-    item.setAttribute("aria-label", "マネーローンナビオペレーターが入力中です");
+    item.setAttribute("aria-label", "マネーローンナビが入力中です");
     item.innerHTML =
       '<div class="chat_admin_img"></div>' +
       '<div class="chat_admin_info">' +
-      '<div class="chat_admin_name">マネーローンナビオペレーター</div>' +
+      '<div class="chat_admin_name">マネーローンナビ</div>' +
       '<div class="chat_admin_text chat_admin_typing" aria-hidden="true">' +
       '<span></span><span></span><span></span>' +
       "</div>" +
@@ -454,7 +454,7 @@
     item.innerHTML =
       '<div class="chat_admin_img"></div>' +
       '<div class="chat_admin_info">' +
-      '<div class="chat_admin_name">マネーローンナビオペレーター</div>' +
+      '<div class="chat_admin_name">マネーローンナビ</div>' +
       '<div class="chat_admin_text chat_analysis">' +
       '<div class="chat_analysis__title">いただいた内容をもとに、最適なカードローンを分析中です' +
       '<span class="chat_analysis__dots" aria-hidden="true"><i></i><i></i><i></i></span></div>' +

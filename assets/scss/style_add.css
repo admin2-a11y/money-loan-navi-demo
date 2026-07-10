@@ -831,9 +831,9 @@ body .chat_admin_img,
   position: relative;
   overflow: hidden;
   background: #fff !important;
-  background-image: url("../img/money-loan-navi-operator.png") !important;
-  background-size: cover !important;
-  background-position: center !important;
+  background-image: url("../../images/money-loan-navi-bot.webp") !important;
+  background-size: 205% !important;
+  background-position: center 28% !important;
   border-color: #f2a8bf !important;
   box-shadow: 0 4px 14px rgba(196, 66, 105, .15);
 }

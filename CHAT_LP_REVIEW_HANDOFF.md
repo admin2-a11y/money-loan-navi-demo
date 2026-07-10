@@ -374,3 +374,15 @@
 ### Preserved
 - Official lender product copy, including product-specific diagnostic terminology, was not edited.
 - The entry layout, chat flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Navigator Identity Update
+
+### Changed
+- Restored the entry and chat copy from agent-led wording to the prior diagnosis wording.
+- Changed the chat navigator label from `マネーローンナビオペレーター` to `マネーローンナビ`.
+- Replaced the former woman navigator image with the supplied robot image, cropped for the circular avatar.
+- Added the optimized `images/money-loan-navi-bot.webp` asset (512px square, 9.1 KB).
+- Bumped cache query strings from `diagnosis-flow-35` to `diagnosis-flow-36`.
+
+### Preserved
+- Chat flow, question copy other than the restored opening sentence, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

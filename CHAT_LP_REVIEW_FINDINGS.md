@@ -305,3 +305,11 @@
 - Verified the entry and chat start at 390px with no horizontal overflow.
 - P0: none found.
 - P1: none found.
+
+## Navigator Identity Check
+- Entry and opening chat copy were restored from agent-led wording to diagnosis wording.
+- The navigator label is now `マネーローンナビ` without the operator suffix.
+- The supplied robot image is used for the circular navigator avatar.
+- Verified the entry and chat start at 390px with no horizontal overflow.
+- P0: none found.
+- P1: none found.
