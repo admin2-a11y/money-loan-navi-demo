@@ -1823,6 +1823,27 @@ footer {
   background: var(--navi-teal-dark) !important;
 }
 
+/* ==== diagnosis-flow-14: answer-linked recommendation reasons ==== */
+.result-match h4 {
+  width: min(260px, calc(100% - 24px));
+  white-space: nowrap;
+}
+
+.result-match h4 strong {
+  color: var(--navi-coral-dark);
+  font-size: 18px;
+}
+
+.result-match-note {
+  margin: 8px 0 0;
+  padding-top: 7px;
+  border-top: 1px solid #dce8e4;
+  color: #5e6d69;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 @media (max-width: 360px) {
   .result-section-heading {
     font-size: 19px;

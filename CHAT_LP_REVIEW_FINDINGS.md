@@ -2,7 +2,8 @@
 
 ## Design / CVR Review
 - FV now follows the referenced structure more closely: logo, visual diagnosis hero, clear usage-status question, and two large choices.
-- Result intro now gives users a clear "selected conditions -> recommended order" bridge before product cards.
+- The diagnosis now uses seven focused questions instead of nine.
+- Result cards connect the selected answers to the ranking through a match percentage and three reasons.
 
 ## Banner / Image Review
 - Used the existing original female navigator asset.
@@ -10,32 +11,37 @@
 
 ## QA Check
 - Checked local preview at `http://127.0.0.1:8127/`.
-- 375px beginner flow completed:
-  - Result summary reflected selected answers.
-  - Beginner ranking remained `1位 プロミス / 2位 SMBCモビット / 3位 アコム`.
-  - No horizontal scroll observed.
-- 320px / 414px FV checked after fix:
-  - Modal appears within the viewport.
-  - No horizontal scroll observed.
-  - Console error logs were empty in the in-app browser check.
+- Checked 320 / 375 / 390 / 414 / 768 / 1280px.
+- No horizontal overflow was found.
+- Two complete ranking flows reached four result cards without console errors.
+- Result CTA heights were 70px at 390/414px and 54px at 768px.
+- Existing redirect destinations remained present for all four products.
 
 ## Accessibility Review
 - Entry buttons remain `button` elements and keep large tap targets.
 - Result condition summary uses `dl`, `dt`, and `dd`.
 - Decorative FV navigator image is `alt=""`.
+- Question buttons use a 52px minimum height and 16px text.
+- Result CTAs use a 54px minimum height.
+- Chat updates remain in an `aria-live="polite"` region.
+- Match percentage includes text explaining that it is not a screening result.
 
 ## Performance / SEO Review
 - No new remote assets added.
-- Cache query strings updated to `diagnosis-flow-6`.
+- No new image assets or third-party scripts added.
+- Cache query strings updated to `diagnosis-flow-14`.
 
 ## Final Review
 - P0: none found.
-- P1: fixed 320px FV offscreen issue.
-- P2: the female navigator is an original illustration rather than a photo-style FV image.
+- P1: none found.
+- P2: ranking weights and match-percentage wording should be reviewed against production performance after release.
 
 ## Release Check
 - Affiliate links, redirect paths, PR wording, GTM, and existing official/affiliate images were preserved.
+- No TODO/FIXME/placeholder markers were found in the changed production files.
+- Rollback point before this change: commit `47823c0`.
 - Final ad wording review is still required by the user.
+- Human review should confirm the ranking weights, match-percentage wording, and product comparison statements.
 
 ## Requested FV Image Match Check
 - 375px FV checked in the in-app browser:
@@ -102,3 +108,24 @@
 - Checked 320px and 1280px result layouts; no horizontal overflow was found.
 - Core text contrast ratios meet WCAG AA for normal text: white/teal 6.30, white/coral 4.67, ink/gold 8.36.
 - Console error logs were empty.
+
+## Seven-Question Ranking Check
+- Diagnosis length reduced from nine questions to seven.
+- Borrowing style and repayment pace were removed.
+- Ranking now changes using the entry experience choice, primary priority, desired timing, and borrowing method.
+- Result cards now explain three answer-linked reasons and show a comparison match percentage.
+- Match percentage includes a visible note that it is not a screening result.
+- Amount, age, occupation, and income are not used to imply approval eligibility.
+- Completed a 375px beginner speed-priority flow:
+  - answers: `融資スピード / 21〜30万円 / 1時間以内 / 口座振込 / 20〜29歳 / 公務員 / 121〜300万円`
+  - order: `プロミス 94% / アコム 85% / SMBCモビット 82% / アイフル 80%`
+  - each result card displayed three answer-linked reasons
+- Completed a 320px beginner privacy-priority flow:
+  - order: `SMBCモビット 94% / プロミス 93% / アコム 80% / アイフル 80%`
+  - no horizontal overflow was found
+- Checked the result layout at 1280px; match headings were not clipped.
+- All four result CTAs retained their existing `redirect.html?item=...` destinations.
+- All four PR notes and official banner paths remained present.
+- Console error logs were empty for both ranking flows.
+- P0: none found.
+- P1: none found.

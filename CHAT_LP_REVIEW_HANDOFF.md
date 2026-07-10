@@ -113,3 +113,33 @@
 - Existing first-view image content and operator image.
 - Official affiliate banners and product images.
 - Affiliate links, redirect paths, GTM, PR labels, notes, and result ordering.
+
+## 2026-07-10 Seven-Question Ranking Update
+
+### Changed
+- Reduced the diagnosis from nine questions to seven:
+  1. most important comparison point
+  2. desired amount
+  3. desired timing
+  4. borrowing method
+  5. age
+  6. occupation
+  7. annual income
+- Removed borrowing style and repayment pace questions.
+- Changed the first question from a broad concern checklist to one primary comparison priority.
+- Added answer-linked ranking scores using:
+  - entry experience choice as the base order
+  - primary comparison priority
+  - desired timing
+  - borrowing method
+- Added a calculated `希望条件との一致度` to every result card.
+- Replaced generic recommendation bullets with three answer-linked reasons.
+- Added a note clarifying that the match percentage is a comparison guide and not a screening result.
+- Updated the result summary and progress bar for seven questions.
+- Bumped cache query strings from `diagnosis-flow-13` to `diagnosis-flow-14`.
+
+### Not Used For Approval Decisions
+- Desired amount, age, occupation, and income are displayed as selected conditions but do not infer loan approval.
+
+### Preserved
+- Affiliate links, redirect paths, GTM, PR labels, notes, operator identity, official banners, and product images.

@@ -96,18 +96,15 @@
       nextId: "q02",
       questions: [
         "早速、診断を始めましょう！",
-        "まず、あなたの希望についてお伺いします。",
-        "カードローン選びにおいて、不安な点はありますか？（複数選択可）",
+        "カードローン選びで、最も重視することを教えてください。",
       ],
       options: {
-        "審査に通るか": "a01",
-        "職場や家族にバレないか": "a02",
-        "金利が高くないか": "a03",
-        "返済ペース": "a04",
-        "融資スピード": "a05",
-        "上記全て": "a06",
+        "金利・無利息期間": "priorityInterest",
+        "融資スピード": "prioritySpeed",
+        "周囲への知られにくさ": "priorityPrivacy",
+        "申込みやすさ": "priorityEase",
       },
-      type: "multiselect",
+      type: "radio",
     },
     q02: {
       id: "q02",
@@ -149,28 +146,6 @@
     q05: {
       id: "q05",
       nextId: "q06",
-      questions: ["希望する借入スタイルはどれですか？"],
-      options: {
-        "一度にまとめて借りたい": "a20",
-        "必要なときに少しずつ借りたい": "a21",
-        "まだ決めていない": "a22",
-      },
-      type: "radio",
-    },
-    q06: {
-      id: "q06",
-      nextId: "q07",
-      questions: ["返済の希望ペースはありますか？"],
-      options: {
-        "ボーナス時にまとめて返したい": "a23",
-        "毎月コツコツ返したい": "a24",
-        "余裕があるときに返したい": "a25",
-      },
-      type: "radio",
-    },
-    q07: {
-      id: "q07",
-      nextId: "q08",
       questions: [
         "ありがとうございます！次はあなた自身について教えてください。",
         "現在の年齢を教えてください。",
@@ -183,22 +158,9 @@
       },
       type: "radio",
     },
-    q08: {
-      id: "q08",
-      nextId: "q09",
-      questions: ["現在の年収を教えてください。"],
-      options: {
-        "120万円未満": "a30",
-        "121〜300万円": "a31",
-        "301〜500万円": "a32",
-        "501〜700万円": "a33",
-        "701万円以上": "a34",
-      },
-      type: "radio",
-    },
-    q09: {
-      id: "q09",
-      nextId: "last",
+    q06: {
+      id: "q06",
+      nextId: "q07",
       questions: ["現在の職業を教えてください。"],
       options: {
         "正社員": "a35",
@@ -209,6 +171,19 @@
         "専業主婦": "a40",
         "学生": "a41",
         "無職": "a42",
+      },
+      type: "radio",
+    },
+    q07: {
+      id: "q07",
+      nextId: "last",
+      questions: ["現在の年収を教えてください。"],
+      options: {
+        "120万円未満": "a30",
+        "121〜300万円": "a31",
+        "301〜500万円": "a32",
+        "501〜700万円": "a33",
+        "701万円以上": "a34",
       },
       type: "final",
     },
@@ -251,6 +226,86 @@
     return input && input.value ? input.value : "";
   }
 
+  function escapeHtml(value) {
+    return String(value || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function addScores(target, weights) {
+    Object.keys(target).forEach(function (item) {
+      target[item] += weights && weights[item] ? weights[item] : 0;
+    });
+  }
+
+  function calculateRanking() {
+    var baseOrder = resultOrders[selectedExperience] || resultOrders.experience_no;
+    var scores = { acom: 0, mobit: 0, promise: 0, aiflu: 0 };
+    var priorityWeights = {
+      "金利・無利息期間": { acom: 22, promise: 20, aiflu: 15, mobit: 10 },
+      "融資スピード": { promise: 22, acom: 16, aiflu: 14, mobit: 10 },
+      "周囲への知られにくさ": { mobit: 22, promise: 17, aiflu: 14, acom: 10 },
+      "申込みやすさ": { promise: 20, mobit: 18, aiflu: 16, acom: 14 },
+    };
+    var timingWeights = {
+      "1時間以内": { promise: 14, acom: 11, aiflu: 9, mobit: 6 },
+      "当日中": { promise: 11, acom: 10, aiflu: 9, mobit: 8 },
+      "3日以内": { promise: 8, acom: 8, aiflu: 8, mobit: 8 },
+      "1週間以内": { promise: 7, acom: 7, aiflu: 7, mobit: 7 },
+      "こだわらない": { promise: 6, acom: 6, aiflu: 6, mobit: 6 },
+    };
+    var methodWeights = {
+      "コンビニATM": { acom: 7, aiflu: 6, promise: 6, mobit: 5 },
+      "口座振込": { mobit: 7, promise: 7, acom: 6, aiflu: 5 },
+      "どちらでも": { promise: 5, mobit: 5, acom: 5, aiflu: 5 },
+    };
+
+    baseOrder.forEach(function (item, index) {
+      scores[item] += (baseOrder.length - index) * 4;
+    });
+    addScores(scores, priorityWeights[hiddenValue("q01")]);
+    addScores(scores, timingWeights[hiddenValue("q03")]);
+    addScores(scores, methodWeights[hiddenValue("q04")]);
+
+    var order = Object.keys(scores).sort(function (a, b) {
+      if (scores[b] !== scores[a]) return scores[b] - scores[a];
+      return baseOrder.indexOf(a) - baseOrder.indexOf(b);
+    });
+    var values = order.map(function (item) { return scores[item]; });
+    var max = Math.max.apply(Math, values);
+    var min = Math.min.apply(Math, values);
+    var matches = {};
+    order.forEach(function (item) {
+      var ratio = max === min ? 0.5 : (scores[item] - min) / (max - min);
+      matches[item] = 80 + Math.round(ratio * 14);
+    });
+    return { order: order, scores: scores, matches: matches };
+  }
+
+  function matchReasons(item) {
+    var meta = productMeta[item];
+    var priority = hiddenValue("q01");
+    var amount = hiddenValue("q02");
+    var timing = hiddenValue("q03");
+    var method = hiddenValue("q04");
+    var priorityReason = {
+      "金利・無利息期間": meta.name + "の金利・無利息期間の条件を優先して比較",
+      "融資スピード": meta.name + "の融資スピードを優先して比較",
+      "周囲への知られにくさ": meta.name + "のWeb申込・郵送物などの条件を優先して比較",
+      "申込みやすさ": meta.name + "のWeb申込・カードレス条件を優先して比較",
+    }[priority] || meta.name + "の申込条件を総合的に比較";
+    var timingReason = timing === "こだわらない"
+      ? "希望額「" + amount + "」の利用条件を確認"
+      : "希望時期「" + timing + "」に近いスピード条件を比較";
+    var methodReason = method === "どちらでも"
+      ? (selectedExperience === "experience_yes" ? "利用経験がある方の使いやすさを比較" : "初めて利用する場合の条件を比較")
+      : "「" + method + "」で利用する際の条件を比較";
+    return [priorityReason, timingReason, methodReason];
+  }
+
   function updateResultOverview() {
     all("[data-summary-field]").forEach(function (field) {
       var name = field.getAttribute("data-summary-field");
@@ -266,7 +321,7 @@
     return match ? match[1] : "";
   }
 
-  function buildResultCard(item, rank, card) {
+  function buildResultCard(item, rank, card, matchScore) {
     var meta = productMeta[item];
     if (!meta) return null;
     var link = one('a[href*="redirect.html?item="]', card);
@@ -277,8 +332,8 @@
     var specs = meta.specs.map(function (spec) {
       return '<div class="result-lpo-spec"><dt>' + spec[0] + '</dt><dd>' + spec[1] + '</dd></div>';
     }).join("");
-    var points = meta.points.map(function (point) {
-      return '<li>' + point + '</li>';
+    var points = matchReasons(item).map(function (point) {
+      return '<li>' + escapeHtml(point) + '</li>';
     }).join("");
 
     wrap.innerHTML =
@@ -292,9 +347,10 @@
       '<p>' + meta.company + '</p>' +
       '</div>' +
       '</div>' +
-      '<section class="result-lpo-points" aria-label="' + meta.name + 'のおすすめポイント">' +
-      '<h4>おすすめポイント</h4>' +
+      '<section class="result-lpo-points result-match" aria-label="' + meta.name + 'が希望条件に合う理由">' +
+      '<h4>希望条件との一致度 <strong>' + matchScore + '%</strong></h4>' +
       '<ul>' + points + '</ul>' +
+      '<p class="result-match-note">入力条件に基づく比較上の目安です。審査結果を示すものではありません。</p>' +
       '</section>' +
       '<dl class="result-lpo-specs">' + specs + '</dl>' +
       '<div class="result-lpo-review"><span>口コミ例</span><p>' + meta.review + '</p></div>' +
@@ -379,7 +435,7 @@
     }
     var match = String(nextId).match(/^q(\d+)$/);
     if (!match) return;
-    var total = 9;
+    var total = 7;
     var position = Math.min(parseInt(match[1], 10), total);
     var remaining = Math.max(0, total - position);
     var fill = one(".progress-bar__fill", bar);
@@ -397,7 +453,8 @@
   function applyResultOrder() {
     var result = one("#inline-result");
     if (!result) return;
-    var order = resultOrders[selectedExperience] || resultOrders.experience_no;
+    var ranking = calculateRanking();
+    var order = ranking.order;
     var cards = all(":scope > .topbox.topboxNew.case", result);
     var cardMap = {};
 
@@ -416,6 +473,7 @@
       card.classList.add("result-lpo-ready");
       card.setAttribute("data-result-rank", String(index + 1));
       card.setAttribute("data-result-flow", selectedExperience);
+      card.setAttribute("data-match-score", String(ranking.matches[item]));
 
       all(".result-rank-label", card).forEach(function (label) { label.remove(); });
       all(".result-lpo-card", card).forEach(function (panel) { panel.remove(); });
@@ -428,7 +486,7 @@
         details.open = true;
       });
 
-      var panel = buildResultCard(item, index + 1, card);
+      var panel = buildResultCard(item, index + 1, card, ranking.matches[item]);
       if (panel) card.insertBefore(panel, card.firstChild);
       result.insertBefore(card, one(".result-extra-section", result));
     });
