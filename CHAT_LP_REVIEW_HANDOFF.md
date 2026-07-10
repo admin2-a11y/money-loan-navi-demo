@@ -168,3 +168,14 @@
 
 ### Preserved
 - Official banner images, result copy, ranking logic, match scores, affiliate links, redirects, PR labels, and tracking.
+
+## 2026-07-10 Full Banner Display Update
+
+### Changed
+- Removed the fixed `4 / 3` crop from result-card banner images.
+- Changed all four result banners from `object-fit: cover` to natural-ratio `height: auto` / `object-fit: contain` rendering.
+- Bumped cache query strings from `diagnosis-flow-16` to `diagnosis-flow-17`.
+
+### Preserved
+- Official banner files were not edited, resized, or replaced.
+- Affiliate links, redirects, ranking logic, match scores, PR labels, and tracking remain unchanged.

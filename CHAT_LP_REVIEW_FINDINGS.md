@@ -144,3 +144,10 @@
 - Official product banners were not edited.
 - At 375px, the measured gap from each product header bottom to the recommendation heading top was 17px for プロミス / アコム / SMBCモビット / アイフル.
 - No horizontal overflow or console errors were found.
+
+## Full Banner Display Check
+- Removed the forced 4:3 crop from all four result-card banners.
+- Banner source files were not edited or replaced.
+- At 375px, all four source images reported `300 x 250` natural dimensions and a `1.2` aspect ratio.
+- All four rendered images reported the same `1.2` aspect ratio with `object-fit: contain` and `aspect-ratio: auto`.
+- No horizontal overflow or console errors were found.
