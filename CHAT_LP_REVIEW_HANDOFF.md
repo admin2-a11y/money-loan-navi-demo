@@ -308,3 +308,13 @@
 ### Preserved
 - Operator question bubbles remain white.
 - Result product cards, official banners, first-view choices, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Entry Answer LINE Color Update
+
+### Changed
+- Restored the first `はじめてです` / `経験ありです` chat answer to LINE light green `#85E249` with dark text.
+- Kept all subsequent user answers and selectable cards in the charcoal palette.
+- Bumped cache query strings from `diagnosis-flow-29` to `diagnosis-flow-30`.
+
+### Preserved
+- Operator bubbles, cloud background, question flow, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

@@ -263,3 +263,9 @@
 - Verified at 320px and 390px with no horizontal overflow; console error logs were empty.
 - P0: none found.
 - P1: none found.
+
+## Entry Answer LINE Color Check
+- The initial experience answer uses LINE light green `#85E249` and dark text.
+- Its speech-bubble tail uses the same green, while later answers remain charcoal.
+- P0: none found.
+- P1: none found.
