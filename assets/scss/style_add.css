@@ -2575,3 +2575,41 @@ body .admin_chat_options--multiselect ul li .multi_list__item__label:has(input[t
 body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=radio]:checked) .radio_list__item__label-text {
   color: #142817;
 }
+
+/* ==== diagnosis-flow-39: final light chat frame override ==== */
+body.green .chat_user_text,
+body.blue .chat_user_text {
+  color: #142817;
+  background: #85e249;
+  box-shadow: 0 3px 10px rgba(54, 119, 35, .2);
+}
+
+body.green .chat_user_text::after,
+body.blue .chat_user_text::after {
+  border-left-color: #85e249;
+}
+
+body .chat_user::before,
+body .chat_user_correction,
+body .chat_admin_name,
+.modal_final_contents .chat_admin_name {
+  color: #037f37;
+}
+
+body .chat_admin_img,
+.modal_final_contents .chat_admin_img {
+  border-color: #06c755 !important;
+  box-shadow: 0 4px 14px rgba(6, 199, 85, .16);
+}
+
+body .chat_admin_text,
+.modal_final_contents .chat_admin_text {
+  border-color: #c7e8cf;
+  box-shadow: 0 2px 8px rgba(6, 120, 53, .07);
+}
+
+body .chat_admin_text::before,
+.modal_final_contents .chat_admin_text::before {
+  border-bottom-color: #c7e8cf;
+  border-left-color: #c7e8cf;
+}

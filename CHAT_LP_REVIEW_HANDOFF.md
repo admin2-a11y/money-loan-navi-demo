@@ -386,3 +386,13 @@
 
 ### Preserved
 - Chat flow, question copy other than the restored opening sentence, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-10 Light Chat Frame Cleanup
+
+### Changed
+- Removed remaining charcoal styling from user-answer bubbles, operator labels, avatar frames, question-bubble outlines, and bubble tails.
+- Restored LINE light green user replies, green avatar frames, dark-green labels, and pale-green question outlines.
+- Bumped cache query strings from `diagnosis-flow-36` to `diagnosis-flow-39`.
+
+### Preserved
+- The robot avatar, cloud background, white question bubbles, light question option cards, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

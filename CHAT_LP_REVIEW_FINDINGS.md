@@ -313,3 +313,10 @@
 - Verified the entry and chat start at 390px with no horizontal overflow.
 - P0: none found.
 - P1: none found.
+
+## Light Chat Frame Cleanup Check
+- User answers use LINE light green instead of charcoal.
+- Operator labels, avatar frames, question-bubble outlines, and bubble tails use the green palette with no remaining charcoal frame styling.
+- Verified at 390px with no horizontal overflow.
+- P0: none found.
+- P1: none found.
