@@ -444,6 +444,48 @@ body .last_before img {
   left: -27px;
 }
 
+.chat_admin_typing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 68px;
+  min-height: 44px;
+  padding: 0 16px;
+}
+
+.chat_admin_typing > span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #a8aaad;
+  animation: operator-typing 1.25s infinite ease-in-out;
+}
+
+.chat_admin_typing > span:nth-child(2) {
+  animation-delay: .16s;
+}
+
+.chat_admin_typing > span:nth-child(3) {
+  animation-delay: .32s;
+}
+
+@keyframes operator-typing {
+  0%, 60%, 100% {
+    opacity: .45;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat_admin_typing > span {
+    animation: none;
+  }
+}
+
 .chat_result_btn {
   font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
   filter: drop-shadow(4px 5px 4px rgba(0, 0, 0, 0.25));

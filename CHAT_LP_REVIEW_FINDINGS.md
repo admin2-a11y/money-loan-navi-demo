@@ -68,3 +68,14 @@
   - Modal remains inside the viewport.
   - No horizontal scroll observed.
   - Console error logs were empty.
+
+## Automatic Result / Typing Check
+- Final speed choice now proceeds directly without a separate result button.
+- Operator typing indicator is shown during the response delay.
+- Final sequence is `ご希望条件に近いサービスを確認しています。` followed by `あなたにぴったりのカードローンサービスが見つかりました。`, then the result list.
+- 375px beginner flow completed in the in-app browser:
+  - Result button count: 0.
+  - Typing indicator appeared immediately after the last selection.
+  - Four result cards appeared automatically.
+  - No horizontal overflow observed.
+  - Console error logs were empty.

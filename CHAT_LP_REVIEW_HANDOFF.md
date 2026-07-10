@@ -66,3 +66,16 @@
 - Preserved the previous experience-based top order and added the remaining product as No.4.
 - Hid the older extra recommendation section after the main four cards.
 - Bumped cache query strings from `diagnosis-flow-8` to `diagnosis-flow-9`.
+
+## 2026-07-10 Automatic Result / Typing Update
+
+### Changed
+- Removed the final `この条件で診断結果を見る` action from the diagnosis flow.
+- Selecting the final speed option now starts result processing automatically.
+- Added an operator typing indicator before chat responses to create a short thinking interval.
+- Added the final bridge message `あなたにぴったりのカードローンサービスが見つかりました。` before displaying results.
+- Bumped cache query strings from `diagnosis-flow-9` to `diagnosis-flow-10`.
+
+### Preserved
+- Experience-based result ordering.
+- Affiliate links, redirect paths, GTM, PR labels, notes, and official product banners.

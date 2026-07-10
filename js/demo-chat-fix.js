@@ -172,7 +172,10 @@
     },
     last: {
       id: "last",
-      questions: ["ご希望条件に近いサービスを確認しています。"],
+      questions: [
+        "ご希望条件に近いサービスを確認しています。",
+        "あなたにぴったりのカードローンサービスが見つかりました。",
+      ],
       type: "last",
     },
   };
@@ -295,6 +298,22 @@
       '<div class="chat_admin_info">' +
       '<div class="chat_admin_name">マネーローンナビオペレーター</div>' +
       '<div class="chat_admin_text"><span>' + text + "</span></div>" +
+      "</div>";
+    return item;
+  }
+
+  function typingBubble() {
+    var item = document.createElement("div");
+    item.className = "chat_item chat_admin chat_admin--typing";
+    item.setAttribute("role", "status");
+    item.setAttribute("aria-label", "マネーローンナビオペレーターが入力中です");
+    item.innerHTML =
+      '<div class="chat_admin_img"></div>' +
+      '<div class="chat_admin_info">' +
+      '<div class="chat_admin_name">マネーローンナビオペレーター</div>' +
+      '<div class="chat_admin_text chat_admin_typing" aria-hidden="true">' +
+      '<span></span><span></span><span></span>' +
+      "</div>" +
       "</div>";
     return item;
   }
@@ -430,10 +449,19 @@
     if (!data || !data.id) return;
 
     var questions = data.questions || [];
+    var typing = typingBubble();
+    chats.appendChild(typing);
+    scrollToLatest();
+
     questions.forEach(function (question, index) {
       setTimeout(function () {
         if (token !== renderToken) return;
+        if (typing.parentNode) typing.remove();
         chats.appendChild(adminBubble(question));
+        if (index < questions.length - 1) {
+          typing = typingBubble();
+          chats.appendChild(typing);
+        }
         scrollToLatest();
       }, messageDelay * (index + 1));
     });
@@ -456,7 +484,7 @@
 
   function buildOptions(data) {
     if (data.type === "multiselect") return buildMultiOptions(data);
-    if (data.type === "final") return buildFinalOptions(data);
+    if (data.type === "final") return buildSingleOptions(data);
     return buildSingleOptions(data);
   }
 
@@ -491,64 +519,6 @@
     });
 
     wrap.appendChild(ul);
-    return wrap;
-  }
-
-  function buildFinalOptions(data) {
-    var wrap = document.createElement("div");
-    var optionCount = Object.keys(data.options || {}).length;
-    wrap.className =
-      "chat_item chat_options admin_chat_options" +
-      (optionCount === 2 ? " admin_chat_options--half" : " admin_chat_options--radio");
-
-    var ul = document.createElement("ul");
-    ul.className = "option_list";
-    ul.setAttribute("data-itemid", data.id);
-
-    var submit = document.createElement("button");
-    submit.type = "button";
-    submit.className = "chat__form-btn";
-    submit.textContent = "この条件で診断結果を見る";
-    submit.disabled = true;
-
-    var selected = null;
-    Object.keys(data.options || {}).forEach(function (label) {
-      var answerId = data.options[label];
-      var li = document.createElement("li");
-      var option = document.createElement("button");
-      option.type = "button";
-      option.className = "option demo-option";
-      option.setAttribute("data-selected", label);
-      option.setAttribute("data-answer", answerId);
-      option.innerHTML = "<span>" + label + "</span>";
-      option.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-        selected = {
-          label: option.getAttribute("data-selected"),
-          answer: option.getAttribute("data-answer"),
-        };
-        all(".demo-option", wrap).forEach(function (item) {
-          item.classList.remove("is-selected");
-        });
-        option.classList.add("is-selected");
-        submit.disabled = false;
-      });
-      li.appendChild(option);
-      ul.appendChild(li);
-    });
-
-    wrap.appendChild(ul);
-
-    var btnWrap = document.createElement("div");
-    btnWrap.className = "chat_next_btn_wrap";
-    btnWrap.appendChild(submit);
-    wrap.appendChild(btnWrap);
-
-    submit.addEventListener("click", function () {
-      if (!selected) return;
-      selectAnswer(data.id, selected.label, selected.answer, data.nextId || "last");
-    });
     return wrap;
   }
 
