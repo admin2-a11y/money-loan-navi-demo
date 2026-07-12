@@ -422,3 +422,14 @@
 ### Preserved
 - Existing result ranking logic remains based on experience route, priority, timing, and method; selected prior lenders do not artificially change ranking.
 - Chat copy, question order after the branch, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-12 Prior-Lender Selection Palette Cleanup
+
+### Changed
+- Replaced the mixed mint/white/gray multiselect palette with a neutral white and blue-gray surface.
+- Standardized lender choices as equal-width cards, with pale green used only for selected choices.
+- Changed the enabled `次に進む` button to LINE green and the disabled state to neutral gray.
+- Bumped cache query strings from `diagnosis-flow-42` to `diagnosis-flow-43`.
+
+### Preserved
+- The experience-only branch, answer values, result summary, ranking logic, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.

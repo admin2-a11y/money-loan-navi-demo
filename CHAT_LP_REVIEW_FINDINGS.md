@@ -337,3 +337,10 @@
 - The fixed mobile footer is compressed while retaining the `運営会社` link and copyright text.
 - P0: none found.
 - P1: none found.
+
+## Design / CVR Review - Prior-Lender Selection
+- The multiselect now uses a calm white and blue-gray base instead of stacked mint and gray surfaces.
+- Green is reserved for checkbox emphasis, selected cards, and the enabled next-step CTA.
+- Equal-width cards improve scanning, and the final long option spans the full row.
+- P0: none found.
+- P1: none found.
