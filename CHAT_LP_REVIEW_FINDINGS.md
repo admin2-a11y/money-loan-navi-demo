@@ -329,3 +329,10 @@
 - Verified the beginner route begins with the priority question, displays `あと6問`, and has no horizontal overflow.
 - P0: none found.
 - P1: none found.
+
+## Mobile Header and Navigator Frame Check
+- The navigator name and robot avatar frame use near-black styling for both experience routes.
+- The mobile header logo is constrained to `min(180px, 48vw)` and the header padding is reduced.
+- The fixed mobile footer is compressed while retaining the `運営会社` link and copyright text.
+- P0: none found.
+- P1: none found.

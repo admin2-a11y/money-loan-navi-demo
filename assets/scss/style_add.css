@@ -2304,6 +2304,18 @@ body .chat_admin_text::before,
   border-left-color: #c7e8cf;
 }
 
+/* ==== diagnosis-flow-41: navigator black identity must win over legacy LINE frame ==== */
+body .chat_admin_name,
+.modal_final_contents .chat_admin_name {
+  color: #151a18 !important;
+}
+
+body .chat_admin_img,
+.modal_final_contents .chat_admin_img {
+  border-color: #1b211e !important;
+  box-shadow: 0 3px 10px rgba(9, 14, 11, .14) !important;
+}
+
 body .admin_chat_options ul,
 body .admin_chat_options--radio ul {
   background: #e9f8e8;
@@ -2410,6 +2422,26 @@ body .admin_chat_options--radio ul li .radio_list__item__label:has(input[type=ra
 
 footer {
   background: #049844 !important;
+}
+
+@media (max-width: 480px) {
+  .head-center {
+    padding: 4px 8px;
+  }
+
+  .head-center .logo img {
+    width: min(180px, 48vw);
+    height: auto;
+  }
+
+  footer {
+    padding: 3px 0 !important;
+    line-height: 1.15;
+  }
+
+  footer .container {
+    line-height: 1.15;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2612,4 +2644,16 @@ body .chat_admin_text::before,
 .modal_final_contents .chat_admin_text::before {
   border-bottom-color: #c7e8cf;
   border-left-color: #c7e8cf;
+}
+
+/* ==== diagnosis-flow-41: final black navigator identity ==== */
+body .chat_admin_name,
+.modal_final_contents .chat_admin_name {
+  color: #151a18 !important;
+}
+
+body .chat_admin_img,
+.modal_final_contents .chat_admin_img {
+  border: 1px solid #1b211e !important;
+  box-shadow: 0 3px 10px rgba(9, 14, 11, .14) !important;
 }

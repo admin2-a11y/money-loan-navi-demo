@@ -397,6 +397,17 @@
 ### Preserved
 - The robot avatar, cloud background, white question bubbles, light question option cards, result cards, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
 
+## 2026-07-12 Mobile Header and Navigator Frame Cleanup
+
+### Changed
+- Unified the navigator name and robot image frame to a near-black treatment for both experienced and beginner routes.
+- Reduced the mobile chat header logo to `min(180px, 48vw)` and tightened its surrounding padding.
+- Reduced the fixed mobile footer padding and line height while retaining the operator link and copyright notice.
+- Bumped cache query strings from `diagnosis-flow-40` to `diagnosis-flow-41`.
+
+### Preserved
+- The entry choices, branching questions, result ranking, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
 ## 2026-07-10 Experience-Branch Lender Question Update
 
 ### Changed
