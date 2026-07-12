@@ -332,7 +332,8 @@
 
 ## Mobile Header and Navigator Frame Check
 - The navigator name and robot avatar frame use near-black styling for both experience routes.
-- The mobile header logo is constrained to `min(180px, 48vw)` and the header padding is reduced.
+- The mobile header logo is constrained to `min(150px, 42vw)` and the header padding is reduced.
+- The mobile progress bar is 18px high and the chat content begins at a 60px top offset.
 - The fixed mobile footer is compressed while retaining the `運営会社` link and copyright text.
 - P0: none found.
 - P1: none found.

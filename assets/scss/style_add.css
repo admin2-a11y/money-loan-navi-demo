@@ -2426,12 +2426,20 @@ footer {
 
 @media (max-width: 480px) {
   .head-center {
-    padding: 4px 8px;
+    padding: 1px 4px;
   }
 
   .head-center .logo img {
-    width: min(180px, 48vw);
+    width: min(150px, 42vw);
     height: auto;
+  }
+
+  .progress-bar {
+    height: 18px;
+  }
+
+  body .contents_wrapper {
+    padding-top: 60px;
   }
 
   footer {
@@ -2646,7 +2654,7 @@ body .chat_admin_text::before,
   border-left-color: #c7e8cf;
 }
 
-/* ==== diagnosis-flow-41: final black navigator identity ==== */
+/* ==== diagnosis-flow-42: final black navigator identity ==== */
 body .chat_admin_name,
 .modal_final_contents .chat_admin_name {
   color: #151a18 !important;

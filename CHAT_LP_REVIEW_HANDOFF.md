@@ -401,9 +401,10 @@
 
 ### Changed
 - Unified the navigator name and robot image frame to a near-black treatment for both experienced and beginner routes.
-- Reduced the mobile chat header logo to `min(180px, 48vw)` and tightened its surrounding padding.
+- Reduced the mobile chat header logo to `min(150px, 42vw)` and tightened its surrounding padding.
+- Reduced the mobile progress bar to 18px and moved the chat content upward with a 60px top offset.
 - Reduced the fixed mobile footer padding and line height while retaining the operator link and copyright notice.
-- Bumped cache query strings from `diagnosis-flow-40` to `diagnosis-flow-41`.
+- Bumped cache query strings from `diagnosis-flow-41` to `diagnosis-flow-42`.
 
 ### Preserved
 - The entry choices, branching questions, result ranking, official banners, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
