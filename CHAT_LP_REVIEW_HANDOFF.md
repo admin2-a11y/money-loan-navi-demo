@@ -447,3 +447,15 @@
 ### Preserved
 - All chat questions and answer storage remain intact.
 - Existing `redirect.html` routing, query retention, PR labels, sponsor names, notes, and tracking remain unchanged.
+
+## 2026-07-15 Final Mobit Recommendation Placement
+
+### Changed
+- Removed the standalone Mobit recommendation shown before the ranking.
+- Enabled the latest V4 final-pick section after No.3 プロミス.
+- The final section repeats the full SMBCモビット card with the orange `おすすめ` introduction from the supplied `beginner_result_v2.html` reference.
+- Bumped chat cache query strings from `diagnosis-flow-44` to `diagnosis-flow-45`.
+
+### Preserved
+- The fixed No.1 SMBCモビット / No.2 アイフル / No.3 プロミス order remains unchanged.
+- Latest card assets, redirect routes, PR labels, sponsor names, notes, and tracking remain unchanged.

@@ -354,3 +354,10 @@
 - Verified 320/375/390/414/768/1280px with no horizontal overflow, all card images loaded, details toggled, and CTA links retained `redirect.html?item=...`.
 - P0: none found.
 - P1: none found.
+
+## Final Mobit Recommendation Review
+- The result now presents No.1 through No.3 first, followed by the V4 orange final-recommendation introduction and a repeated full SMBCモビット card.
+- The earlier recommendation block before the ranking was removed to avoid duplicate emphasis before the comparison.
+- Verified the final Mobit section at 320/375/390/414/768/1280px with no horizontal overflow; its CTA remains `redirect.html?item=mobit`.
+- P0: none found.
+- P1: none found.
