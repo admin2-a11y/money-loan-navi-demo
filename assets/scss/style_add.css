@@ -1334,6 +1334,19 @@ body .chat_admin_img::after,
   margin-top: 8px;
 }
 
+/* ==== diagnosis-flow-46: center the final Mobit recommendation intro ==== */
+#inline-result .v4-final-pick .v4-recommend-intro,
+#inline-result .v4-final-pick .v4-recommend-intro-label,
+#inline-result .v4-final-pick .v4-recommend-intro h2,
+#inline-result .v4-final-pick .v4-recommend-intro h2 span,
+#inline-result .v4-final-pick .v4-recommend-intro > p:last-child {
+  text-align: center !important;
+}
+
+#inline-result .v4-final-pick .v4-recommend-intro h2 span {
+  width: 100%;
+}
+
 /* ==== diagnosis-flow-9: result page LPO cards ==== */
 #inline-result {
   background: #eef8ff;

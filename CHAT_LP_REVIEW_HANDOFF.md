@@ -459,3 +459,10 @@
 ### Preserved
 - The fixed No.1 SMBCモビット / No.2 アイフル / No.3 プロミス order remains unchanged.
 - Latest card assets, redirect routes, PR labels, sponsor names, notes, and tracking remain unchanged.
+
+## 2026-07-15 Final Recommendation Center Alignment
+
+### Changed
+- Center-aligned the final recommendation label, orange two-line heading, and supporting three-line copy.
+- Scoped the alignment to the final recommendation introduction so the Mobit card body remains unchanged.
+- Bumped chat cache query strings from `diagnosis-flow-45` to `diagnosis-flow-46`.

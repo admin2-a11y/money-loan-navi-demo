@@ -361,3 +361,9 @@
 - Verified the final Mobit section at 320/375/390/414/768/1280px with no horizontal overflow; its CTA remains `redirect.html?item=mobit`.
 - P0: none found.
 - P1: none found.
+
+## Final Recommendation Alignment Check
+- The `おすすめ` label, orange heading, and supporting copy are centered independently of the lender-card body.
+- Verified at 320/375/390/414/768/1280px with no horizontal overflow.
+- P0: none found.
+- P1: none found.
