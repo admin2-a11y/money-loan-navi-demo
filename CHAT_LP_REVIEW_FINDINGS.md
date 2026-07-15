@@ -344,3 +344,13 @@
 - Equal-width cards improve scanning, and the final long option spans the full row.
 - P0: none found.
 - P1: none found.
+
+## Fixed Ranking / Latest Card Review
+- All routes use the fixed order: No.1 SMBCモビット, No.2 アイフル, No.3 プロミス.
+- The result lead explicitly identifies SMBCモビット as the recommendation.
+- The V4 card files and supporting images match the latest 2026-07-15 versions from the supplied project folder.
+- Legacy cards are hidden when the V4 cards are available; redirect and disclosure contracts are preserved.
+- Completed both experienced and beginner flows with contrasting answers; both produced the fixed three-card order.
+- Verified 320/375/390/414/768/1280px with no horizontal overflow, all card images loaded, details toggled, and CTA links retained `redirect.html?item=...`.
+- P0: none found.
+- P1: none found.

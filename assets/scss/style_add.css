@@ -1319,6 +1319,54 @@ body .chat_admin_img::after,
   }
 }
 
+/* ==== diagnosis-flow-44: fixed Mobit recommendation with latest V4 cards ==== */
+.result-fixed-pick {
+  margin: 14px 0 10px;
+  padding: 14px 12px;
+  border: 2px solid #1769aa;
+  border-radius: 8px;
+  background: #eef7ff;
+  text-align: center;
+}
+
+.result-fixed-pick p {
+  margin: 0 0 3px;
+  color: #31485c;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.result-fixed-pick h2 {
+  margin: 0;
+  color: #123f70;
+  font-size: clamp(24px, 7vw, 32px);
+  line-height: 1.25;
+}
+
+#inline-result > .topbox.topboxNew.case,
+#inline-result > .result-extra-section {
+  display: none !important;
+}
+
+#inline-result [data-v4-result-cards] {
+  width: 100%;
+}
+
+#inline-result .v4-result-cards {
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  .result-fixed-pick {
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .result-fixed-pick p {
+    font-size: 12px;
+  }
+}
+
 /* ==== diagnosis-flow-9: result page LPO cards ==== */
 #inline-result {
   background: #eef8ff;

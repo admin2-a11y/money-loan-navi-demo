@@ -6,8 +6,8 @@
   var optionRevealDelay = 180;
   var analysisStageDelay = 850;
   var resultOrders = {
-    experience_yes: ["mobit", "aiflu", "acom", "promise"],
-    experience_no: ["promise", "mobit", "acom", "aiflu"],
+    experience_yes: ["mobit", "aiflu", "promise"],
+    experience_no: ["mobit", "aiflu", "promise"],
   };
   var productMeta = {
     acom: {
@@ -258,47 +258,11 @@
   }
 
   function calculateRanking() {
-    var baseOrder = resultOrders[selectedExperience] || resultOrders.experience_no;
-    var scores = { acom: 0, mobit: 0, promise: 0, aiflu: 0 };
-    var priorityWeights = {
-      "金利・無利息期間": { acom: 22, promise: 20, aiflu: 15, mobit: 10 },
-      "融資スピード": { promise: 22, acom: 16, aiflu: 14, mobit: 10 },
-      "周囲への知られにくさ": { mobit: 22, promise: 17, aiflu: 14, acom: 10 },
-      "申込みやすさ": { promise: 20, mobit: 18, aiflu: 16, acom: 14 },
+    return {
+      order: ["mobit", "aiflu", "promise"],
+      scores: { mobit: 3, aiflu: 2, promise: 1 },
+      matches: { mobit: 95, aiflu: 88, promise: 82 },
     };
-    var timingWeights = {
-      "1時間以内": { promise: 14, acom: 11, aiflu: 9, mobit: 6 },
-      "当日中": { promise: 11, acom: 10, aiflu: 9, mobit: 8 },
-      "3日以内": { promise: 8, acom: 8, aiflu: 8, mobit: 8 },
-      "1週間以内": { promise: 7, acom: 7, aiflu: 7, mobit: 7 },
-      "こだわらない": { promise: 6, acom: 6, aiflu: 6, mobit: 6 },
-    };
-    var methodWeights = {
-      "コンビニATM": { acom: 7, aiflu: 6, promise: 6, mobit: 5 },
-      "口座振込": { mobit: 7, promise: 7, acom: 6, aiflu: 5 },
-      "どちらでも": { promise: 5, mobit: 5, acom: 5, aiflu: 5 },
-    };
-
-    baseOrder.forEach(function (item, index) {
-      scores[item] += (baseOrder.length - index) * 4;
-    });
-    addScores(scores, priorityWeights[hiddenValue("q01")]);
-    addScores(scores, timingWeights[hiddenValue("q03")]);
-    addScores(scores, methodWeights[hiddenValue("q04")]);
-
-    var order = Object.keys(scores).sort(function (a, b) {
-      if (scores[b] !== scores[a]) return scores[b] - scores[a];
-      return baseOrder.indexOf(a) - baseOrder.indexOf(b);
-    });
-    var values = order.map(function (item) { return scores[item]; });
-    var max = Math.max.apply(Math, values);
-    var min = Math.min.apply(Math, values);
-    var matches = {};
-    order.forEach(function (item) {
-      var ratio = max === min ? 0.5 : (scores[item] - min) / (max - min);
-      matches[item] = 80 + Math.round(ratio * 14);
-    });
-    return { order: order, scores: scores, matches: matches };
   }
 
   function matchReasons(item) {
@@ -527,6 +491,14 @@
   function applyResultOrder() {
     var result = one("#inline-result");
     if (!result) return;
+    var latestCards = one("[data-v4-result-cards] .v4-lender-card", result);
+    if (latestCards) {
+      all(":scope > .topbox.topboxNew.case", result).forEach(function (card) {
+        card.hidden = true;
+        card.style.display = "none";
+      });
+      return;
+    }
     var ranking = calculateRanking();
     var order = ranking.order;
     var cards = all(":scope > .topbox.topboxNew.case", result);

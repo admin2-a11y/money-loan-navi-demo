@@ -433,3 +433,17 @@
 
 ### Preserved
 - The experience-only branch, answer values, result summary, ranking logic, affiliate links, redirects, PR labels, notes, and tracking remain unchanged.
+
+## 2026-07-15 Fixed Mobit Recommendation and Latest V4 Cards
+
+### Changed
+- Fixed both experience routes and every survey-answer combination to the same ranking: SMBCモビット, アイフル, プロミス.
+- Added `あなたへのおすすめは… SMBCモビット` before the ranking.
+- Imported the latest `result-cards-v2.css` and `result-cards-v2.js` from `new-lp-v2-fixes-20260713` (updated 2026-07-15).
+- Imported the matching latest Mobit, Aiful, and Promise banners, review images, and convenience-store logo strip.
+- Hid the legacy result cards and retained them only as an internal fallback.
+- Bumped chat cache query strings from `diagnosis-flow-43` to `diagnosis-flow-44`.
+
+### Preserved
+- All chat questions and answer storage remain intact.
+- Existing `redirect.html` routing, query retention, PR labels, sponsor names, notes, and tracking remain unchanged.
