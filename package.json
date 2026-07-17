@@ -1,0 +1,10 @@
+{
+  "name": "money-loan-navi-static-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/site-audit.mjs",
+    "lint": "node --check js/app.js && node --check js/redirect.js",
+    "test": "node --test tests/site.test.mjs"
+  }
+}

@@ -1,369 +1,169 @@
-# CHAT LP Review Findings
+# Final Status
 
-## Design / CVR Review
-- FV now follows the referenced structure more closely: logo, visual diagnosis hero, clear usage-status question, and two large choices.
-- The diagnosis now uses seven focused questions instead of nine.
-- Result cards connect the selected answers to the ranking through a match percentage and three reasons.
+CONDITIONAL PASS
 
-## Banner / Image Review
-- Used the existing original female navigator asset.
-- Official product banners and review images were not edited or replaced.
+The runtime implementation, responsive behavior and three technical re-audits pass. The result is conditional because an approved brand/domain/asset allowlist was not supplied, retained image rights cannot be established from code, and GTM loads downstream providers that require owner or contract confirmation. This is a technical audit and is not a legal non-infringement opinion.
 
-## QA Check
-- Checked local preview at `http://127.0.0.1:8127/`.
-- Checked 320 / 375 / 390 / 414 / 768 / 1280px.
-- No horizontal overflow was found.
-- Two complete ranking flows reached four result cards without console errors.
-- Result CTA heights were 70px at 390/414px and 54px at 768px.
-- Existing redirect destinations remained present for all four products.
+# Scope
 
-## Accessibility Review
-- Entry buttons remain `button` elements and keep large tap targets.
-- Result condition summary uses `dl`, `dt`, and `dd`.
-- Decorative FV navigator image is `alt=""`.
-- Question buttons use a 52px minimum height and 16px text.
-- Result CTAs use a 54px minimum height.
-- Chat updates remain in an `aria-live="polite"` region.
-- Match percentage includes text explaining that it is not a screening result.
+- `/`
+- `/demo.html`
+- `/chat-demo.html`
+- `/operationinfo.html`
+- `/redirect.html?item=acom|promise|mobit|aiflu`
+- HTML, CSS, JavaScript, images, SVG, favicon, manifest, public Markdown, tests and audit scripts
+- Baseline commit: `6125abf`
 
-## Performance / SEO Review
-- No new remote assets added.
-- No new image assets or third-party scripts added.
-- Cache query strings updated to `diagnosis-flow-14`.
+# Major Findings Before Changes
 
-## Final Review
-- P0: none found.
-- P1: none found.
-- P2: ranking weights and match-percentage wording should be reviewed against production performance after release.
+| Severity | Type | Baseline location | Evidence | Resolution |
+| --- | --- | --- | --- | --- |
+| Critical | Old brand asset | `images/mordalhead.png` | Unused image contained an old brand and design-tool identifiers. | Deleted from the public repository. |
+| Critical | Old favicon | `images/icon.png`; legacy HTML head | Old visual identity was still referenced by favicon markup. | Deleted and replaced with original `favicon.svg`. |
+| High | Public implementation history | Previous review Markdown | Public files named reference projects, local paths and import history. | Replaced with anonymized, evidence-based reports. |
+| High | Unrelated executable code | `assets/js/script.js:721` onward | A separate housing questionnaire and server-template remnants were bundled. | Removed the whole unused legacy runtime. |
+| High | Unverified custom image set | former hero, modal and independent claim images | Multiple unused or provenance-unclear images remained in public assets. | Removed rather than renamed or metadata-stripped. |
+| Medium | Third-party libraries | legacy HTML/CSS/JS | jQuery, slider, animation, icon-font and WordPress remnants were present without current use. | Removed; current runtime has no package dependency. |
+| Medium | Broken/duplicate assets | legacy CSS and images | Baseline static scan found broken references, duplicate logos and unused files. | Consolidated to 15 audited runtime/public text files and 10 used images; zero broken references. |
+| Medium | Reference-like UI system | former first view, chat and cards | Image-led first view, social-message styling, cloud background and stacked accent cards formed a broad visual system. | Rebuilt layout, tokens, components and responsive behavior independently. |
 
-## Release Check
-- Affiliate links, redirect paths, PR wording, GTM, and existing official/affiliate images were preserved.
-- No TODO/FIXME/placeholder markers were found in the changed production files.
-- Rollback point before this change: commit `47823c0`.
-- Final ad wording review is still required by the user.
-- Human review should confirm the ranking weights, match-percentage wording, and product comparison statements.
+# Implemented Changes
 
-## Requested FV Image Match Check
-- 375px FV checked in the in-app browser:
-  - Requested FV visual is displayed at the top of the modal.
-  - Clickable HTML buttons remain below the image.
-  - No horizontal scroll observed.
-  - Console error logs were empty.
+- `index.html`: clean semantic entry, diagnosis and results shell; required metadata and GTM retained.
+- `css/app.css`: new color, spacing, typography, radius, border, shadow, form, card, breakpoint, focus and motion rules.
+- `js/app.js`: preserved questions and answers, experienced-only branch, correction, analysis state, fixed ranking and final recommendation.
+- `operationinfo.html`: removed unused external UI libraries while retaining operator details, PR disclosure and notes.
+- `redirect.html`, `js/redirect.js`: retained affiliate mapping and tracking parameters without former UI libraries.
+- `demo.html`, `chat-demo.html`: lightweight aliases that retain query and hash values.
+- `favicon.svg`, `site.webmanifest`: new project-owned browser identity layer.
+- `package.json`, `scripts/site-audit.mjs`, `tests/site.test.mjs`: dependency-free static validation and regression checks.
 
-## Operator Image / Name Check
-- 375px local preview checked in the in-app browser.
-- After selecting `はじめて`, chat avatar resolved to `assets/img/money-loan-navi-operator.png`.
-- Chat display name showed `マネーローンナビオペレーター`.
-- No horizontal scroll observed.
-- Console error logs were empty.
+# Removed or Replaced Assets
 
-## Result LPO Reference Check
-- 375px beginner flow checked through final result:
-  - `絞り込み検索結果 4件` displayed.
-  - `診断結果に近いカードローン` displayed.
-  - Four cards displayed in beginner order: プロミス / SMBCモビット / アコム / アイフル.
-  - CTA text displayed as `公式サイトで申込条件を確認する`.
-  - Old extra recommendation section was hidden.
-  - No horizontal scroll observed.
-  - Console error logs were empty.
-- 320px beginner flow checked through final result:
-  - Four cards displayed.
-  - No horizontal scroll observed.
-  - Console error logs were empty.
-- 320px FV checked in the in-app browser:
-  - Modal remains inside the viewport.
-  - No horizontal scroll observed.
-  - Console error logs were empty.
+| Old group | Replacement/use | Reason |
+| --- | --- | --- |
+| `assets/css/`, legacy root CSS and copied library CSS | `css/app.css` | Independent design system; no unused vendor CSS. |
+| `assets/js/`, legacy root JS and copied libraries | `js/app.js`, `js/redirect.js` | Independent behavior; unrelated and dead code removed. |
+| Former old-brand favicon and hero/modal assets | `favicon.svg`, semantic HTML/CSS entry, retained approved advisor image | Old identity and provenance-unclear assets removed. |
+| Duplicate logos, crowns, rank art, loading art and unused claim images | CSS text and standard components | Removed unused or source-unclear visuals instead of disguising them. |
+| Former social background and image-led first view | Neutral canvas and structured entry choices | Independent composition and responsive behavior. |
 
-## Automatic Result / Typing Check
-- Final speed choice now proceeds directly without a separate result button.
-- Operator typing indicator is shown during the response delay.
-- Final sequence is `ご希望条件に近いサービスを確認しています。` followed by `あなたにぴったりのカードローンサービスが見つかりました。`, then the result list.
-- 375px beginner flow completed in the in-app browser:
-  - Result button count: 0.
-  - Typing indicator appeared immediately after the last selection.
-  - Four result cards appeared automatically.
-  - No horizontal overflow observed.
-  - Console error logs were empty.
+Retained product banners and review images were not edited or replaced, in accordance with the owner's constraint.
 
-## Requested Question Flow Check
-- Question flow changed to the requested nine-step structure.
-- The first question supports multiple selections and retains a dedicated next action.
-- Questions two through nine continue on selection; the ninth answer triggers the final message and automatic results.
-- Result summary labels now match the new nine answers.
-- At 375px, the first six concern choices use a compact two-column layout with 48px minimum tap targets.
-- Completed the requested beginner answer path at 375px:
-  - `金利が高くないか / 21〜30万円 / 1時間以内 / 口座振込 / まだ決めていない / 余裕があるときに返したい / 20〜29歳 / 121〜300万円 / 公務員`.
-  - Final recommendation introduction displayed exactly as requested.
-  - Four result cards displayed automatically in the preserved beginner order.
-  - New answer values appeared in the result summary.
-- 320px and 375px checks found no horizontal overflow.
-- Console error logs were empty.
+# External Communication
 
-## Distinct Color Palette Check
-- Removed the light-blue / lime pairing from the interactive UI and introduced teal / coral / gold roles.
-- The first-view image remains unchanged; only its surrounding UI and divider use the new palette.
-- Official affiliate banners and product images were not edited.
-- Checked the entry, chat, and result states at 375px; all new color roles rendered as intended.
-- Checked 320px and 1280px result layouts; no horizontal overflow was found.
-- Core text contrast ratios meet WCAG AA for normal text: white/teal 6.30, white/coral 4.67, ink/gold 8.36.
-- Console error logs were empty.
+## Direct Source Before
 
-## Seven-Question Ranking Check
-- Diagnosis length reduced from nine questions to seven.
-- Borrowing style and repayment pace were removed.
-- Ranking now changes using the entry experience choice, primary priority, desired timing, and borrowing method.
-- Result cards now explain three answer-linked reasons and show a comparison match percentage.
-- Match percentage includes a visible note that it is not a screening result.
-- Amount, age, occupation, and income are not used to imply approval eligibility.
-- Completed a 375px beginner speed-priority flow:
-  - answers: `融資スピード / 21〜30万円 / 1時間以内 / 口座振込 / 20〜29歳 / 公務員 / 121〜300万円`
-  - order: `プロミス 94% / アコム 85% / SMBCモビット 82% / アイフル 80%`
-  - each result card displayed three answer-linked reasons
-- Completed a 320px beginner privacy-priority flow:
-  - order: `SMBCモビット 94% / プロミス 93% / アコム 80% / アイフル 80%`
-  - no horizontal overflow was found
-- Checked the result layout at 1280px; match headings were not clipped.
-- All four result CTAs retained their existing `redirect.html?item=...` destinations.
-- All four PR notes and official banner paths remained present.
-- Console error logs were empty for both ranking flows.
-- P0: none found.
-- P1: none found.
+The baseline directly referenced GTM, the affiliate redirect service, external JavaScript/CDN libraries, an icon-font service and WordPress resources.
 
-## Friendly Green Palette Check
-- Replaced deep teal surfaces with medium leaf green and pale yellow-green.
-- Coral remains limited to progress, ranking emphasis, and primary CTAs.
-- Official affiliate banners and product images were not edited.
-- Entry and first-question chat states were visually checked at 375px.
-- Contrast ratios: white/leaf green 4.76, ink/yellow-green 8.64, ink/surface 11.02.
-- Checked 320 / 768 / 1280px with no horizontal overflow.
-- Console error logs were empty.
+## Direct Source After
 
-## Result Card Spacing Check
-- Increased the shared recommendation-section top margin to 30px for all four product cards.
-- Official product banners were not edited.
-- At 375px, the measured gap from each product header bottom to the recommendation heading top was 17px for プロミス / アコム / SMBCモビット / アイフル.
-- No horizontal overflow or console errors were found.
+- `admin2-a11y.github.io`: canonical and Open Graph URLs
+- `www.googletagmanager.com`: required GTM container
+- `ac.rextjapan-finance.com`: required affiliate handoff URLs
+- `www.w3.org`: SVG namespace only; not a network dependency
 
-## Full Banner Display Check
-- Removed the forced 4:3 crop from all four result-card banners.
-- Banner source files were not edited or replaced.
-- At 375px, all four source images reported `300 x 250` natural dimensions and a `1.2` aspect ratio.
-- All four rendered images reported the same `1.2` aspect ratio with `object-fit: contain` and `aspect-ratio: auto`.
-- No horizontal overflow or console errors were found.
+## Runtime DOM Injected by GTM
 
-## Reference Result Card Format Check
-- Applied the shared reference-format structure to all four generated result cards.
-- Match scores and answer-linked reasons remain present.
-- Official banner files were not edited or replaced.
-- Completed the seven-question beginner speed-priority flow at 320px and 375px.
-- Verified four ranked cards, four match scores, 12 answer-linked reasons, 20 specification cells, four review blocks, four timers, four CTAs, and four PR notes.
-- All four banner sources loaded at `300 x 250` with `object-fit: contain`.
-- Added a result-only mobile width override so the reference-format cards use more of the 320-414px viewport.
-- Checked 320 / 375 / 390 / 414 / 768 / 1280px without horizontal overflow.
-- CTA height remained at least 54px across the checked widths.
-- Console error logs were empty.
-- P0: none found.
-- P1: none found.
+Observed after the final change:
 
-## Reference First-View Color / Edge Check
-- Sampled the supplied reference image and matched the first-view colors exactly:
-  - page background: `#DBFEFF`
-  - experienced option: `#A9DCFB`
-  - experienced shadow: `#608C96`
-  - beginner option: `#B7F98F`
-  - beginner shadow: `#47733D`
-  - lead text: `#76746D`
-- Removed the coral separator below the first-view image.
-- Cropped the source image's black top-edge pixels at render time without editing the image file.
-- Made the active entry modal and document background opaque aqua so the underlying header, footer, and dark overlay cannot show through.
-- Removed competing wrapper corner radii and aligned the hero image to both viewport edges on mobile.
-- Checked 320 / 375 / 390 / 414 / 768 / 1280px without horizontal overflow.
-- Console error logs were empty.
-- P0: none found.
-- P1: none found.
+- `www.googletagmanager.com`
+- `analytics.tiktok.com`
+- `connect.facebook.net`
+- `static.ads-twitter.com`
+- `analytics.twitter.com`
+- `t.co`
+- `tag.eisa.mercari.com`
+- `googleads.g.doubleclick.net`
+- `ac.admanager-adops.com`
+- `d.line-cdn.net`
 
-## Operator Speech Bubble Check
-- Replaced the oversized double-triangle tail with a single 10px integrated tail.
-- Added a subtle border and shadow so the bubble reads as one surface without a detached arrow.
-- Kept a 10-12px gap between the operator image and bubble content; the tail occupies that gap without overlapping the image.
-- Changed the operator information column to flexible width so it remains beside the avatar at the 768px breakpoint instead of wrapping below it.
-- Checked 320 / 375 / 390 / 414 / 768 / 1280px with the avatar and bubble on the same row and no horizontal overflow.
-- Console error logs were empty.
-- P0: none found.
-- P1: none found.
+These are not imported by application code; they are created by the retained GTM configuration. Because no approved-domain list was provided, they remain an explicit owner-confirmation item. Two injected resources were observed with `http://` URLs and should be reviewed in GTM for secure equivalents.
 
-## LINE Green Palette Check
-- Applied LINE green `#06C755` as the primary interface color.
-- Sampled the supplied reference image and used `#85E249` for user-answer bubbles.
-- Recolored entry choices, progress, operator accents, option states, form actions, result headings, recommendation panels, timers, CTAs, and footer.
-- Replaced the previous coral/orange emphasis colors with LINE green and dark green.
-- Used pale mint `#F3FBF5` for the page background and extended it through the full viewport to prevent dark gaps below short chat states.
-- Official affiliate banners and the custom first-view image were not edited.
-- Completed the seven-question beginner flow and verified all four result cards use the new palette.
-- Checked 320 / 375 / 390 / 414 / 768 / 1280px without horizontal overflow; CTA height remained at least 54px.
-- Console error logs were empty.
-- P0: none found.
-- P1: none found.
+# Validation Results
 
-## Chat Auto-Scroll Check
-- Auto-scroll now follows the newest typing indicator, operator message, user response, and answer options instead of targeting the bottom edge of the entire chat container.
-- The destination is calculated from `visualViewport.height` on supported mobile browsers, with top and bottom safe spacing.
-- Repeated delayed messages share one pending scroll request, preventing older animation calls from overriding the latest target.
-- Content already fully visible in the viewport does not trigger unnecessary movement.
-- `prefers-reduced-motion` changes animated scrolling to immediate scrolling.
-- P0: none found.
-- P1: none found.
+| Check | Result |
+| --- | --- |
+| Static build/audit | PASS: 15 runtime/public text files, 10 images, 0 broken references, 0 unused images, 0 source maps |
+| JavaScript syntax | PASS: `js/app.js`, `js/redirect.js` |
+| Unit/regression tests | PASS: 7/7 |
+| Whitespace/conflict scan | PASS |
+| Type check | Not applicable: no TypeScript |
+| Dedicated integration test | Not present |
+| Browser E2E | PASS: completed manually in the in-app browser |
 
-## Question Option Timing Check
-- Operator messages retain the existing typing pause to preserve the conversational feel.
-- Answer options now appear 0.18 seconds after the question text instead of waiting through another full message interval plus the former option delay.
-- The first two-message introduction reaches its options in about 2.28 seconds; subsequent single-message questions reach theirs in about 1.23 seconds.
-- Final-result preparation timing remains unchanged.
-- P0: none found.
-- P1: none found.
+`npm` is not installed in the workspace shell. The package scripts' underlying Node commands were run directly. An initial `pnpm` attempt was affected by its own registry metadata check; no dependency installation is needed by this project.
 
-## Age Range Check
-- Age choices are now `〜19歳`, `20〜29歳`, `30〜39歳`, `40〜49歳`, `50〜59歳`, and `60歳以上`.
-- Each age range writes a distinct value to the diagnosis parameter.
-- At 320px, all six choices fit in a 172px option panel, auto-scroll keeps the panel visible, and no horizontal overflow occurs.
-- Selecting `40〜49歳` recorded `q05a43` and displayed the selected range correctly.
-- Console error logs were empty.
-- P0: none found.
-- P1: none found.
+# Browser Check
 
-## Result Analysis Animation Check
-- Added a short analysis state between the final operator message and automatic result display.
-- Status text progresses through condition organization, service comparison, candidate selection, and completion.
-- The animation uses the existing LINE-green palette and respects `prefers-reduced-motion`.
-- Auto-scroll accounts for the fixed footer height and leaves 12px of additional clearance.
-- No extra CTA was introduced; results continue automatically after completion.
-- At 320px, the 151px analysis bubble remained fully visible with a measured 12px gap above the fixed footer and no horizontal overflow.
-- Console error logs were empty through the complete flow.
-- P0: none found.
-- P1: none found.
+- Widths: 320, 375, 390, 414, 768, 1280 and 1440px
+- Horizontal overflow: none at all checked widths
+- Entry buttons: both routes start correctly
+- Experienced route: multiple choice appears; next is disabled until selection
+- Beginner route: skips the experience-details question
+- Correction: prior answer can be reopened and later turns are rebuilt
+- Auto-scroll and typing/analysis states: present
+- Result order: SMBC Mobit, Aiful, Promise for both routes
+- Final recommendation: full SMBC Mobit card appears after No.3
+- Images: all retained runtime images loaded with non-zero intrinsic size after lazy-load scrolling
+- Legacy aliases: query and hash preserved when forwarding to `/`
+- Redirect: live browser check reached the intended SMBC Mobit destination
+- Operator page: direct mobile load successful
+- Keyboard: focus outline measured at 3px with 3px offset
+- Tap areas: question controls 52px or greater; restart/footer links 44px
+- Console: 0 warnings/errors in the final local entry check
 
-## Cloud Chat Background Check
-- Added `images/chat-sky-clouds-v1.webp` as a custom low-contrast chat background.
-- The central reading area is mostly clear blue; soft clouds remain concentrated near the lower and side edges.
-- The image is 768x1218 and 6.9 KB in WebP format.
-- The first-view artwork and official lender banners were not edited.
-- Verified the active chat at 320px, 390px, and 1280px with no horizontal overflow.
-- The background remains viewport-fixed while the chat content scrolls, and the chat wrapper stays transparent.
-- Console error logs were empty.
-- P0: none found.
-- P1: none found.
+# Iterative Audits
 
-## Dark Answer / Option Card Check
-- Operator question bubbles remain white against the sky background.
-- User responses use `#1B211E` with white text and a matching speech-bubble tail.
-- Option panels and selectable cards use dark charcoal surfaces with white labels and green interaction accents.
-- Replaced the remaining orange radio markers with light-green markers.
-- Result lender cards and official banners were not changed.
-- Verified at 320px and 390px with no horizontal overflow; console error logs were empty.
-- P0: none found.
-- P1: none found.
+## Audit 1: Static Search
 
-## Entry Answer LINE Color Check
-- The initial experience answer uses LINE light green `#85E249` and dark text.
-- Its speech-bubble tail uses the same green, while later answers remain charcoal.
-- P0: none found.
-- P1: none found.
+- Scanned runtime HTML/CSS/JS/JSON/SVG and public Markdown.
+- Removed old-brand assets, obsolete reference notes, copied libraries and unrelated code.
+- Final automated scan: 0 broken references, 0 unused images, 0 source maps, no obsolete runtime directory.
+- Product/service names that remain are used in ranking content, redirect mapping or required operator disclosure.
 
-## Dark Operator Frame Check
-- Operator names use near-black text.
-- Avatar rings, white bubble outlines, and bubble-tail outlines use charcoal for a consistent frame.
-- The question-bubble fill remains white.
-- P0: none found.
-- P1: none found.
+## Audit 2: Asset and Delivery
 
-## Blue Experienced Entry Option Check
-- The first-view `経験がある` option uses `#A9DCFB` with a `#608C96` lower shadow and dark text.
-- The neighboring `はじめて` option remains LINE light green.
-- Verified the 390x844 first view with no horizontal overflow.
-- P0: none found.
-- P1: none found.
+- Inspected all 10 retained images for dimensions, format, EXIF and metadata keys.
+- EXIF entry count: zero for every retained image.
+- One retained official Acom banner contains Adobe/XMP metadata; it was not altered because official affiliate assets must not be edited.
+- Confirmed intrinsic dimensions in markup for all product and review images.
+- Confirmed favicon and manifest references.
+- Collected final GTM-injected origins and separated them from direct application imports.
 
-## Light Question Option Card Check
-- Question options use white cards with dark text on a pale-green panel.
-- Option markers and interaction states remain LINE green.
-- User answer bubbles remain charcoal and are unaffected by this change.
-- Verified at 390x844 with no horizontal overflow.
-- P0: none found.
-- P1: none found.
+## Audit 3: Display, Operation and Similarity
 
-## Entry Subtitle Wrapping Check
-- Entry-option subtitles use fixed breakpoint sizes instead of growing with the viewport.
-- The full experienced-user subtitle is kept on one line to prevent a final-character orphan.
-- Verified at 320px, 390px, and 541px; each subtitle remained one line with no horizontal overflow.
-- P0: none found.
-- P1: none found.
+- Completed both diagnosis branches and all result generation.
+- Checked disabled, selected, correction, typing, analysis, result, expanded-details, focus and lazy-image states.
+- Checked mobile, tablet and desktop widths.
+- Confirmed former image-led first view, social bubble tails, read-status treatment, cloud background, copied color system and overlapping rank-card decoration are absent.
 
-## Agent Terminology Check
-- The entry lead and first chat greeting now use agent-led guidance language.
-- Product-specific wording inside official lender content was preserved.
-- Verified the entry and chat start at 390px with no horizontal overflow.
-- P0: none found.
-- P1: none found.
+## Independent Final Audit
 
-## Navigator Identity Check
-- Entry and opening chat copy were restored from agent-led wording to diagnosis wording.
-- The navigator label is now `マネーローンナビ` without the operator suffix.
-- The supplied robot image is used for the circular navigator avatar.
-- Verified the entry and chat start at 390px with no horizontal overflow.
-- P0: none found.
-- P1: none found.
+- Baseline asset/code audit found the critical old-brand, unused-code and public-history issues listed above.
+- Independent design audit judged the rebuilt UI a conditional pass and identified image provenance and two responsive/image presentation concerns.
+- The responsive copy and review-image presentation concerns were corrected before release review.
+- A separate final reviewer found no P0/P1 implementation defect, confirmed the questions, fixed ranking, four redirect identifiers, GTM and PR disclosures, and returned `CONDITIONAL PASS` only for asset/GTM approval and post-deployment smoke testing.
 
-## Light Chat Frame Cleanup Check
-- User answers use LINE light green instead of charcoal.
-- Operator labels, avatar frames, question-bubble outlines, and bubble tails use the green palette with no remaining charcoal frame styling.
-- Verified at 390px with no horizontal overflow.
-- P0: none found.
-- P1: none found.
+# Unresolved Items
 
-## Experience-Branch Lender Question Check
-- Experience users receive a multi-select prior-lender question before the existing priority question.
-- Beginner users skip the new question and continue directly into the existing flow.
-- The selected prior lenders appear in the result summary only when the experience route is used.
-- Completed the experience route at 390px: selected `アコム、プロミス` appeared in the result summary, and progress changed from `あと7問` to `あと6問` after the branch question.
-- Verified the beginner route begins with the priority question, displays `あと6問`, and has no horizontal overflow.
-- P0: none found.
-- P1: none found.
+## P0
 
-## Mobile Header and Navigator Frame Check
-- The navigator name and robot avatar frame use near-black styling for both experience routes.
-- The mobile header logo is constrained to `min(150px, 42vw)` and the header padding is reduced.
-- The mobile progress bar is 18px high and the chat content begins at a 60px top offset.
-- The fixed mobile footer is compressed while retaining the `運営会社` link and copyright text.
-- P0: none found.
-- P1: none found.
+- None.
 
-## Design / CVR Review - Prior-Lender Selection
-- The multiselect now uses a calm white and blue-gray base instead of stacked mint and gray surfaces.
-- Green is reserved for checkbox emphasis, selected cards, and the enabled next-step CTA.
-- Equal-width cards improve scanning, and the final long option spans the full row.
-- P0: none found.
-- P1: none found.
+## P1
 
-## Fixed Ranking / Latest Card Review
-- All routes use the fixed order: No.1 SMBCモビット, No.2 アイフル, No.3 プロミス.
-- The result lead explicitly identifies SMBCモビット as the recommendation.
-- The V4 card files and supporting images match the latest 2026-07-15 versions from the supplied project folder.
-- Legacy cards are hidden when the V4 cards are available; redirect and disclosure contracts are preserved.
-- Completed both experienced and beginner flows with contrasting answers; both produced the fixed three-card order.
-- Verified 320/375/390/414/768/1280px with no horizontal overflow, all card images loaded, details toggled, and CTA links retained `redirect.html?item=...`.
-- P0: none found.
-- P1: none found.
+- Owner must confirm rights/provenance for the site logo and advisor image.
+- Owner must confirm the retained banners, review images and convenience-store logos are approved for this deployment.
+- Owner must approve the GTM downstream domain list and review the two injected insecure URLs.
+- Public deployment must be checked after the final commit reaches GitHub Pages.
 
-## Final Mobit Recommendation Review
-- The result now presents No.1 through No.3 first, followed by the V4 orange final-recommendation introduction and a repeated full SMBCモビット card.
-- The earlier recommendation block before the ranking was removed to avoid duplicate emphasis before the comparison.
-- Verified the final Mobit section at 320/375/390/414/768/1280px with no horizontal overflow; its CTA remains `redirect.html?item=mobit`.
-- P0: none found.
-- P1: none found.
+## P2
 
-## Final Recommendation Alignment Check
-- The `おすすめ` label, orange heading, and supporting copy are centered independently of the lender-card body.
-- Verified at 320/375/390/414/768/1280px with no horizontal overflow.
-- P0: none found.
-- P1: none found.
+- Product conditions and the product summaries on the operator page require owner freshness/advertising review.
+- The official Acom banner retains its supplied XMP metadata; source approval should be documented rather than stripping it.
+- No automated browser-test framework exists; browser E2E evidence is manual.
+
+# Final Decision Basis
+
+The code and UI meet the technical remediation requirements: suspected legacy material was removed, the application was independently rebuilt, required business behavior was preserved, all available tests pass, and responsive/browser checks pass. A full PASS is not issued because the requested allowlists were left blank, retained asset provenance cannot be proven from the repository, and GTM creates third-party requests whose contractual approval must be confirmed by the owner.

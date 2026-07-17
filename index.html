@@ -1,906 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="assets/libs/rangeslider/rangeslider.css" rel="stylesheet" type="text/css" />
-  <link href="assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="assets/css/three-dots.css">
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="preload" as="image" href="images/chat-sky-clouds-v1.webp">
-  <link rel="stylesheet" href="assets/scss/style_add.css?v=diagnosis-flow-46">
-  
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/result-cards-v2.css?v=20260715" />
-  <script src="assets/libs/jquery-3.6.1.min.js"></script>
-  <script src="assets/libs/rangeslider/rangeslider.min.js"></script>
-  <script src="assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-  <script src="assets/js/script.js?v=diagnosis-flow-46"></script>
-  <script src="js/query-keeper.js?v=diagnosis-flow-46"></script>
-  <script defer src="js/result-cards-v2.js?v=20260715"></script>
-  
-  <script>
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-TQHV5GQ5');
-  </script>
-  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176b5b">
   <title>あなたに合うキャッシングサービスは？ | マネーローンナビ</title>
-  <meta name="description" content="年齢、職業、年収、他社借入金額などの希望条件をもとに、比較しやすいキャッシングサービス候補を整理します。">
+  <meta name="description" content="希望条件をもとに、比較しやすいキャッシングサービス候補を整理します。">
+  <link rel="canonical" href="https://admin2-a11y.github.io/money-loan-navi-demo/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="あなたに合うキャッシングサービスは？ | マネーローンナビ">
+  <meta property="og:description" content="希望条件をもとに、比較しやすいキャッシングサービス候補を整理します。">
+  <meta property="og:url" content="https://admin2-a11y.github.io/money-loan-navi-demo/">
+  <meta property="og:image" content="https://admin2-a11y.github.io/money-loan-navi-demo/images/money-loan-navi-logo.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="css/app.css?v=independent-ui-2">
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TQHV5GQ5');
+  </script>
 </head>
-
 <body>
-<div class="select_modal active">
-    <div class="select_modal_body active">
-        <header>
-            <img src="assets/img/money-loan-navi-logo.png?v=1" alt="マネーローンナビ" class="first-modal-logo" width="260" decoding="async">
-        </header>
-        <div class="select_modal_inner">
-            <div class="first-modal-hero" aria-hidden="true">
-                <img src="assets/img/first-view-status-hero.png" alt="" class="first-modal-hero__image" decoding="async">
-            </div>
-            <h1 class="select_modal_title visually-hidden">現在のご状況をお選びください</h1>
-            <p class="select_modal_lead">回答に合わせて最適な診断に切り替えます</p>
-            <button type="button" class="button select_modal_btn2 first-modal__option-btn first-modal__option-btn--experienced" data-itemid="experience_yes" data-next="q01" onclick="window.startDiagnosis && window.startDiagnosis('experience_yes')">
-                <strong>経験がある</strong>
-                <span>カードローンを使ったことがある・使っている</span>
-            </button>
-            <button type="button" class="button select_modal_btn1 first-modal__option-btn first-modal__option-btn--beginner" data-itemid="experience_no" data-next="q01" onclick="window.startDiagnosis && window.startDiagnosis('experience_no')">
-                <strong>はじめて</strong>
-                <span>カードローンを使ったことがない</span>
-            </button>
-                    </div>
-    </div>
-    <div class="select_modal_load">
-        <p> ご希望条件に近いサービスを確認しています<br>
-            <br><img src="images/loading.gif" alt="Loading" class="load" data-eio="l" width="50" height="50" decoding="async">
-        </p>
-    </div>
-</div>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQHV5GQ5" height="0" width="0" class="tracking-frame" title="Google Tag Manager"></iframe></noscript>
 
-<script>
-    $(function() {
-        var btn1 = $('.select_modal_btn1'),
-            btn2 = $('.select_modal_btn2'),
-            container = $('.select_modal'),
-            container_body = $('.select_modal_body'),
-            container_load = $('.select_modal_load'),
-            param = location.search;
-
-        if (!param.match('select_modal=2')) {
-            container.addClass('active');
-        }
-
-        btn1.on('click', function() {
-            container.removeClass('active');
-            container_body.removeClass('active');
-            // container_load.addClass('active');
-            // setTimeout(function() {
-            //     location.replace("beginner.php" + param);
-            // }, 3000);
-        });
-        btn2.on('click', function() {
-            container.removeClass('active');
-            container_body.removeClass('active');
-            // container_load.addClass('active');
-            // setTimeout(function() {
-            //     if (param) {
-            //         location.replace(location.search + "&select_modal=2");
-            //     } else {
-            //         location.replace(location.search + "?select_modal=2");
-            //     }
-            // }, 3000);
-        });
-
-        // $(document).on('click', function(e) {
-        //     // モーダル外をクリックした場合のみモーダルを閉じる
-        //     if (!$(e.target).closest('.select_modal_body').length && !$(e.target).hasClass('select_modal')) {
-        //         container.removeClass('active');
-        //     }
-        // });
-
-        // モーダル内のボタンをクリックしてもモーダルを閉じない
-        $('.first-modal__option-btn').on('click', function(e) {
-            e.stopPropagation(); // イベントのバブリングを防ぐ
-});
-
-    });
-</script>
-<script>
-  window.startDiagnosis = function(route) {
-    if (document.body.classList.contains('diagnosis-started')) return;
-    document.body.classList.add('diagnosis-started');
-    document.body.classList.add('green');
-    document.body.classList.add('first-modal-checked');
-
-    document.querySelectorAll('.select_modal, .select_modal_body').forEach(function(element) {
-      element.classList.remove('active');
-      element.style.display = 'none';
-    });
-
-    var results = document.getElementById('results');
-    if (results) {
-      var name = 'diagnosis_start';
-      var value = '開始';
-      if (!results.querySelector('input[name="' + name + '"]')) {
-        var input = document.createElement('input');
-        input.type = 'text';
-        input.name = name;
-        input.value = value;
-        results.appendChild(input);
-      }
-    }
-
-    var start = function() {
-      if (typeof window.getNext === 'function') {
-        window.getNext('q01');
-      }
-    };
-    start();
-    setTimeout(start, 100);
-  };
-</script>
-  
-  <h4 class="pr-link">本ページにはPRリンクが含まれています</h4>
-  <header>
-    <div class="head-center">
-      <span class="logo"><img src="assets/img/money-loan-navi-logo.png?v=1" alt="マネーローンナビ" decoding="async"></span>
-    </div>
-    <div id="progress-bar" class="progress-bar" role="status" aria-live="polite">
-      <div class="progress-bar__fill"></div>
-      <span class="progress-bar__label">あと7問</span>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-brand" href="./" aria-label="マネーローンナビ トップ">
+        <img src="images/money-loan-navi-logo.png" width="1080" height="221" alt="マネーローンナビ">
+      </a>
+      <p class="pr-label">本ページにはPRリンクが含まれています</p>
     </div>
   </header>
-  <div id="space" style="background:red;" data-size="0"></div>
-  <main role="main" class="contents_wrapper">
-    <div id="chats" aria-live="polite" aria-relevant="additions">
-    </div>
-    <div id="inline-result" class="main" style="display:none;">
-      <h2 class="visually-hidden">ご希望条件に近いキャッシングサービス</h2>
-      <section class="result-overview" aria-labelledby="result-overview-title">
-        <div class="result-overview__heading" id="result-overview-title">
-          おすすめランキング <span>3件</span>
+
+  <main id="app" class="app-shell">
+    <section id="entry" class="entry" aria-labelledby="entry-title">
+      <div class="entry__intro">
+        <p class="section-kicker">かんたん比較ガイド</p>
+        <h1 id="entry-title">現在のご状況を<br>お選びください</h1>
+        <p class="entry__lead"><span>回答に合わせて</span><span>最適な診断に切り替えます</span></p>
+        <div class="guide-chip">
+          <img src="images/money-loan-navi-bot.webp" width="512" height="512" alt="">
+          <p><strong>マネーローンナビ</strong><span>ご希望条件を順番に伺います</span></p>
         </div>
-        <p class="result-overview__notice">当サイトのおすすめ順で3社を表示しています。</p>
-        <dl class="result-overview__chips">
-          <div><dt>利用状況</dt><dd data-summary-field="card_loan_experience">選択内容を反映</dd></div>
-          <div data-experience-lenders hidden><dt>利用経験</dt><dd data-summary-field="q00">選択内容を反映</dd></div>
-          <div><dt>重視点</dt><dd data-summary-field="q01">選択内容を反映</dd></div>
-          <div><dt>希望額</dt><dd data-summary-field="q02">選択内容を反映</dd></div>
-          <div><dt>希望時期</dt><dd data-summary-field="q03">選択内容を反映</dd></div>
-          <div><dt>借り方</dt><dd data-summary-field="q04">選択内容を反映</dd></div>
-          <div><dt>年齢</dt><dd data-summary-field="q05">選択内容を反映</dd></div>
-          <div><dt>職業</dt><dd data-summary-field="q06">選択内容を反映</dd></div>
-          <div><dt>年収</dt><dd data-summary-field="q07">選択内容を反映</dd></div>
-        </dl>
-        <a href="#chats" class="result-overview__change">条件を確認する</a>
-        <p class="result-overview__meta">比較対象: SMBCモビット / アイフル / プロミス</p>
+      </div>
+
+      <div class="entry__choices" role="group" aria-label="カードローンの利用経験">
+        <button class="entry-choice entry-choice--experienced" type="button" data-experience="experience_yes">
+          <span class="entry-choice__number" aria-hidden="true">01</span>
+          <span class="entry-choice__copy"><strong>経験がある</strong><small>カードローンを使ったことがある・使っている</small></span>
+          <span class="entry-choice__arrow" aria-hidden="true">&#8594;</span>
+        </button>
+        <button class="entry-choice entry-choice--beginner" type="button" data-experience="experience_no">
+          <span class="entry-choice__number" aria-hidden="true">02</span>
+          <span class="entry-choice__copy"><strong>はじめて</strong><small>カードローンを使ったことがない</small></span>
+          <span class="entry-choice__arrow" aria-hidden="true">&#8594;</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="diagnosis" class="diagnosis" aria-labelledby="diagnosis-title" hidden>
+      <div class="diagnosis-header">
+        <div>
+          <p class="section-kicker">条件を確認中</p>
+          <h1 id="diagnosis-title">あなたに合うサービスを整理します</h1>
+        </div>
+        <div class="progress" role="status" aria-live="polite">
+          <div class="progress__meta"><span id="progress-step">1 / 7</span><span id="progress-label">あと6問</span></div>
+          <div class="progress__track" aria-hidden="true"><span id="progress-fill"></span></div>
+        </div>
+      </div>
+
+      <div class="conversation-wrap">
+        <div id="conversation" class="conversation" aria-live="polite" aria-relevant="additions"></div>
+        <div id="question-panel" class="question-panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="results" class="results" aria-labelledby="results-title" hidden>
+      <header class="results-header">
+        <p class="section-kicker">診断結果</p>
+        <h1 id="results-title"><span class="results-title__line">ご希望条件に近い</span><span class="results-title__line">カードローン</span></h1>
+        <p>当サイトのおすすめ順で3社を表示しています。</p>
+      </header>
+
+      <section class="answer-summary" aria-labelledby="summary-title">
+        <div class="answer-summary__head">
+          <h2 id="summary-title">今回のご希望条件</h2>
+          <button type="button" id="restart-diagnosis" class="text-button">最初から変更</button>
+        </div>
+        <dl id="answer-summary-list" class="answer-summary__list"></dl>
       </section>
-      <h2 class="result-section-heading">おすすめカードローンランキング</h2>
-      <div data-v4-result-cards></div>
-      <div class="topbox topboxNew case">
-    
-            <div style="text-align: center;"><img src="images/rank1_catch.png" alt="ランキング1位の注目ポイント" decoding="async" loading="lazy"></div>
-        <div class="text">
-        
-        <div class="rank-title is-flex is-align-center">
-            <h3 class="crown">
-                <a target="_blank" href="redirect.html?item=acom">アコム</a>
-            </h3>
-        </div>
-        <div class="subcatch"><img src="images/hitokoto_point__acom.png" alt="アコムのおすすめポイント" decoding="async" loading="lazy"></div>
-    </div>
-    
-    <div class="basic is-flex is-align-start reco_item">
-        
-        <div class="img reco">
-            <a target="_blank" href="redirect.html?item=acom">
-                <img src="images/banner_acom2.jpg" alt="アコム" decoding="async" loading="lazy">
-            </a>
-        </div>
-        
-        <table class="info reco_table">
-            <tr>
-                <th colspan="2">融資時間</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle" colspan="2">
-                    <span>最短20分<span class="caution">※2</span></span>
-                </td>
-            </tr>
-            <tr>
-                <th>実質年率</th>
-                <th>限度額</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>2.4%～17.9%</span>
-                </td>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最大800万円</span>
-                </td>
-            </tr>
-            <tr>
-                <th>審査時間</th>
-                <th>利用可能コンビニ</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最短20分<span class="caution">※2</span></span>
-                </td>
-                <td class="iconset">
-                    <div class="is-flex is-align-center is-justify-center">
-                        <div>
-                            <img src="images/convini.webp" width="200px" alt="コンビニATMのイメージ" decoding="async" loading="lazy">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    
-    <details class="points">
-        <summary>
-            <div class="points_header is-flex is-align-center is-justfy-center">
-                <p>ここがオススメ</p>
-            </div>
-            <div class="points_content">
-                <ul>
-                    <li><span>最短20分で審査結果を確認</span></li>
-                    <li class="point-sub">最短20分で審査結果がわかる！<br>21時までの申込で当日中の利用も検討可能<br>土日祝も<span>24時間申込受付</span><br>たった3秒でわかる借入診断あり</li>
-                    <li><span>無利息期間がお得！</span></li>
-                    <li class="point-sub">初めての方限定！契約日翌日から<span>30日間利息が0円</span>！</li>
-                    <li><span>周囲への連絡面に配慮した手続き</span></li>
-                    <li class="point-sub">勤務先への電話確認が原則不要とされる手続きも確認できます。<br>来店不要でWebから申し込みを進められます。</li>
-                    <li><span>大手銀行グループで安心</span></li>
-                    <li class="point-sub">三菱UFJフィナンシャル・グループだから安心！<br>利用者数は<span>190万人</span>！<br>※営業貸付金残高を有する口座数。DATA BOOK（2026年3月期第1四半期決算）から引用</li>
-                    <li><span>カードレスも選べる！</span></li>
-                    <li class="point-sub">希望があればカードレスで契約できるから気づかれない！</li>
-                    <li><span>返済額は毎月1,000円～</span></li>
-                    <li class="point-sub">返済額は月々1,000円～でOK<br>コンビニATMで全国どこでも返済可能！</li>
-                </ul>
-                <p class="reco_disclaimer" style="font-size:75%;color:#999;">※借入時間等についてはお申し込み内容や状況などによって変わります。<br>※特典やサービスについては条件がございます。<br>※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-    
-    <details class="kuchikomi">
-        <summary>
-            <div class="kuchikomi_header is-flex is-align-center is-justfy-center">
-                <p>リアルな体験談</p>
-            </div>
-            <div class="kuchikomi_content">
-                <ul>
-                    <li style="margin-left:0;padding-left:0;"> <img src="images/kuchikomi_acom1.png" alt="アコムの口コミ" decoding="async" loading="lazy"></li>
-                </ul>
-                <p style="font-size:75%;color:#999;">※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
 
-    
-    <div class="transition pc">
-        <a target="_blank" href="redirect.html?item=acom"> 詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="transition mobile">
-                    <span>まず比較したい方に確認しやすい候補</span>
-                        <a target="_blank" href="redirect.html?item=acom"> 詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="remarksbox" style="padding-top: 10px;">
-        <p style="font-size:75%;color:#999;">【PR】Sponsored by アコム株式会社<br />
-            ※1 金融機関により異なります。<br />
-            ※2 お申込時間や審査によりご希望に添えない場合がございます。<br />
-            ※ お勤め先への在籍確認の電話は一切ございません。<br />
-            ※ 20歳以上の安定した収入と返済能力を有する方が対象です。<br />
-            ※収入証明書は50万円まで原則不要<br />
-            ※ アコムでのご契約がはじめてのお客さまはご契約の翌日から30日間金利0円。<br />
-            ※ 一例であり、結果を保証するものではありません。</p>
+      <section aria-labelledby="ranking-title">
+        <div class="section-heading">
+          <p>比較結果</p>
+          <h2 id="ranking-title"><span class="ranking-title__line">おすすめカードローン</span><span class="ranking-title__line">ランキング</span></h2>
+        </div>
+        <div id="lender-list" class="lender-list"></div>
+      </section>
 
-    </div>
-</div><div class="topbox topboxNew case">
-        <div class="text">
-        
-        <div class="rank-title is-flex is-align-center">
-            <h3 class="crown2">
-                <a target="_blank" href="redirect.html?item=mobit">SMBCモビット</a>
-            </h3>
+      <section id="final-recommendation" class="final-recommendation" aria-labelledby="final-title">
+        <div class="final-recommendation__intro">
+          <p class="section-kicker">あなたへのおすすめ</p>
+          <h2 id="final-title">即日で借りたいなら<br>このカードローン</h2>
+          <p>すぐにお金が必要だけど周りにバレたくないし<br>できればおトクに借りたい…！<br>そんな方にはこちらのカードローンがおすすめです！</p>
         </div>
-        <div class="subcatch"><img src="images/hitokoto_point__mobit.png" alt="SMBCモビットのおすすめポイント" decoding="async" loading="lazy"></div>
-    </div>
-    
-    <div class="basic is-flex is-align-start reco_item">
-        
-        <div class="img reco">
-            <a target="_blank" href="redirect.html?item=mobit">
-                <img src="images/banner_mobit.jpg" alt="SMBCモビット" decoding="async" loading="lazy">
-            </a>
-        </div>
-        
-        <table class="info reco_table">
-            <tr>
-                <th colspan="2">融資時間</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle" colspan="2">
-                    <span>最短15分※</span>
-                </td>
-            </tr>
-            <tr>
-                <th>実質年率</th>
-                <th>限度額</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isCircle">
-                    <span>3.0％～18.0％</span>
-                </td>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最大800万円</span>
-                </td>
-            </tr>
-            <tr>
-                <th>審査時間</th>
-                <th>利用可能コンビニ</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>10秒簡易審査※</span>
-                </td>
-                <td class="iconset">
-                    <div class="is-flex is-align-center is-justify-center">
-                        <div>
-                            <img src="images/convini.webp" width="200px" alt="コンビニATMのイメージ" decoding="async" loading="lazy">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    
-    <details class="points">
-        <summary>
-            <div class="points_header is-flex is-align-center is-justfy-center">
-                <p><i class="fas fa-circle"></i>ここがおすすめ</p>
-            </div>
-            <div class="points_content">
-                <ul>
-                    <li><span>最短15分で審査完了！</span></li>
-                    <li class="point-sub">申込から最短15分で審査が完了するから、急な出費にも即対応！</li>
-                    <li><span>振り込みは最短3分！</span></li>
-                    <li class="point-sub">ご契約後、最短3分で口座に振り込まれる！</li>
-                    <li><span>原則職場への電話はなし！</span></li>
-                    <li class="point-sub">面倒な電話確認や郵送物はないから、誰にもバレなくて安心！</li>
-                    <li><span>返済でTポイントが貯まる！</span></li>
-                    <li class="point-sub">返済の利息分でTポイントが貯まるからお得！</li>
-                </ul>
-                <p class="reco_disclaimer" style="font-size:75%;color:#999;">※借入時間等についてはお申し込み内容や状況などによって変わります。<br>※特典やサービスについては条件がございます。<br>※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-    
-    <details class="kuchikomi">
-        <summary>
-            <div class="kuchikomi_header is-flex is-align-center is-justfy-center">
-                <p>リアルな体験談</p>
-            </div>
-            <div class="kuchikomi_content">
-                <ul>
-                    <li style="margin-left:0; padding-left:0;"> <img src="images/kuchikomi_mobit1.png" alt="SMBCモビットの口コミ" decoding="async" loading="lazy"></li>
-                </ul>
-                <p style="font-size:75%;color:#999;">※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-    
-    <div class="transition pc">
-        <a target="_blank" href="redirect.html?item=mobit">詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="transition mobile">
-                    <span>条件に近いサービスを簡易チェック</span>
-                        <a target="_blank" href="redirect.html?item=mobit"> 詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="remarksbox" style="padding-top: 10px;">
-        <p style="font-size:75%; color:#999;"> 【PR】Sponsored by 三井住友カード株式会社<br />
-            ※他社ご利用の方でも審査可能ですが、お客様のご状況によってご利用いただけない場合もございます。<br /> ※申込の曜日、時間帯によっては翌日以降の取扱となる場合があります。 </p>
-    </div>
-</div><div class="topbox topboxNew case">
-        <div class="text">
-        
-        <div class="rank-title is-flex is-align-center">
-            <h3 class="crown3">
-                <a target="_blank" href="redirect.html?item=promise">プロミス</a>
-            </h3>
-        </div>
-        <div class="subcatch"><img src="images/hitokoto_point__promise.png" alt="プロミスのおすすめポイント" decoding="async" loading="lazy"></div>
-    </div>
-    
-    <div class="basic is-flex is-align-start reco_item">
-        
-        <div class="img reco">
-            <a target="_blank" href="redirect.html?item=promise">
-                <img src="images/banner_promise.jpg" alt="プロミス" decoding="async" loading="lazy">
-            </a>
-        </div>
-        
-        <table class="info reco_table">
-            <tr>
-                <th colspan="2">融資時間</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle" colspan="2">
-                    <span>最短3分</span>
-                </td>
-            </tr>
-            <tr>
-                <th>実質年率</th>
-                <th>限度額</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>2.5％~18.0％</span>
-                </td>
-                <td class="icon01_small isCircle">
-                    <span>最大800万円</span>
-                </td>
-            </tr>
-            <tr>
-                <th>審査時間</th>
-                <th>利用可能コンビニ</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最短3分</span>
-                </td>
-                <td class="iconset">
-                    <div class="is-flex is-align-center is-justify-center">
-                        <div>
-                            <img src="images/convini.webp" width="200px" alt="コンビニATMのイメージ" decoding="async" loading="lazy">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    
-    <details class="points">
-        <summary>
-            <div class="points_header is-flex is-align-center is-justfy-center">
-                <p> <i class="fas fa-circle"></i>ここがおすすめ</p>
-            </div>
-            <div class="points_content">
-                <ul>
-                    <li><span>即日OK！最短3分で審査完了</span></li>
-                    <li class="point-sub">30日間無利息サービスを利用できる場合があります。</li>
-                    <li><span>周りに内緒で借入可能</span></li>
-                    <li class="point-sub">希望額50万円以下なら収入証明書が不要な場合があります。<br>スマホと本人確認書類で手続きできる場合があります。<br>カードレスにも対応しています。</li>
-                    <li><span>返済額は毎月1,000円～</span></li>
-                    <li class="point-sub">月々の返済は1,000円～でOK<br>コンビニATMで全国どこでも返済可能！</li>
-                </ul>
-                <p class="reco_disclaimer" style="font-size:75%;color:#999;">※借入時間等についてはお申し込み内容や状況などによって変わります。<br>※特典やサービスについては条件がございます。<br>※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-    
-    <details class="kuchikomi">
-        <summary>
-            <div class="kuchikomi_header is-flex is-align-center is-justfy-center">
-                <p>リアルな体験談</p>
-            </div>
-            <div class="kuchikomi_content">
-                <ul>
-                    <li style="margin-left:0; padding-left:0;"> <img src="images/kuchikomi_promise1.png" alt="プロミスの口コミ" decoding="async" loading="lazy"></li>
-                </ul>
-                <p style="font-size:75%;color:#999;">※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-    
-    <div class="transition pc">
-        <a target="_blank" href="redirect.html?item=promise">詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="transition mobile">
-                    <span>条件に近いサービスを簡易チェック</span>
-                        <a target="_blank" href="redirect.html?item=promise"> 詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="remarksbox" style="padding-top: 10px;">
-        <p style="font-size:75%; color:#999;"> 【PR】Sponsored by SMBCコンシューマーファイナンス株式会社<br />
-            ※お申込時間や審査によりご希望に添えない場合がございます。<br /> ※他社ご利用の方でも審査可能ですが、お客様のご状況によってご利用いただけない場合もございます。<br />
-            ※無利息期間30日を適用する場合は、メールアドレス登録とWeb明細利用の登録が必要です。 </p>
-    </div>
-</div><div class="topbox topboxNew case">
-        <div class="text">
-        
-        <div class="rank-title is-flex is-align-center">
-            <h3 class="crown4">
-                <a target="_blank" href="redirect.html?item=aiflu">アイフル</a>
-            </h3>
-        </div>
-        <div class="subcatch"><img src="images/hitokoto_point__aiflu.png" alt="アイフルのおすすめポイント" decoding="async" loading="lazy"></div>
-    </div>
-    
-    <div class="basic is-flex is-align-start reco_item">
-        
-        <div class="img reco">
-            <a target="_blank" href="redirect.html?item=aiflu">
-                <img src="images/banner_aiful.webp" alt="アイフル" decoding="async" loading="lazy">
-            </a>
-        </div>
-        
-        <table class="info reco_table">
-            <tr>
-                <th colspan="2">融資時間</th>
-            </tr>
-            <tr>
-                <td class="icon01_small  isDoubleCircle" colspan="2">
-                    <span>最短14分<span class="caution">※2</span></span>
-                </td>
-            </tr>
-            <tr>
-                <th>実質年率</th>
-                <th>限度額</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isCircle">
-                    <span>3.0%〜18.0%</span>
-                </td>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最大800万円<span class="caution">※1</span></span>
-                </td>
-            </tr>
-            <tr>
-                <th>審査時間</th>
-                <th>利用可能コンビニ</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最短14分<span class="caution">※2</span></span>
-                </td>
-                <td class="iconset">
-                    <div class="is-flex is-align-center is-justify-center">
-                        <span>
-                            <img src="images/convini.webp" width="200px" alt="コンビニATMのイメージ" decoding="async" loading="lazy">
-                            <span class="caution">※3</span>
-                        </span>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    
-    <details class="points">
-        <summary>
-            <div class="points_header is-flex is-align-center is-justfy-center">
-                <p><i class="fas fa-circle"></i>ここがおすすめ</p>
-            </div>
-            <div class="points_content">
-                <ul>
-                    <li><span>最短14分で審査結果を確認</span><span class="caution">※2</span></li>
-                    <li class="point-sub">申込から実際に借りるまで最短14分</li>
-                    <li><span>24時間365日、すぐに振込みされる！</span></li>
-                    <li class="point-sub">申込も最短5分で完了！</li>
-                    <li><span>無利息サービスを利用できる期間あり</span></li>
-                    <li class="point-sub">初めて借入の方は30日間利息0円！</li>
-                    <li><span>借入が可能か事前に1秒診断できる</span><span class="caution">※4</span></li>
-                    <li class="point-sub">年齢や年収などを入力すれば、借入可能か事前に知ることができる！審査不安な方におすすめ！</li>
-                </ul>
-                <p class="reco_disclaimer" style="font-size:75%;color:#999;">※借入時間等についてはお申し込み内容や状況などによって変わります。</p>
-            </div>
+        <div id="final-lender"></div>
+      </section>
+    </section>
 
-        </summary>
-    </details>
-    
-    <details class="kuchikomi">
-        <summary>
-            <div class="kuchikomi_header is-flex is-align-center is-justfy-center">
-                <p>リアルな体験談</p>
-            </div>
-
-            <div class="kuchikomi_content">
-                <ul>
-                    <li style="margin-left:0;padding-left:0;"> <img src="images/kuchikomi_aiful1.png" alt="アイフルの口コミ" decoding="async" loading="lazy"></li>
-                </ul>
-                <p style="font-size:75%;color:#999;">※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-
-    
-    <div class="transition pc">
-        <a target="_blank" href="redirect.html?item=aiflu">詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="transition mobile">
-                    <span>Web完結の手続きを比較できます</span>
-                        <a target="_blank" href="redirect.html?item=aiflu"> 詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="remarksbox" style="padding-top: 10px;">
-        <p style="font-size:75%; color:#999;"> 【PR】Sponsored by アイフル株式会社<br />
-            ※1 ご利用限度額50万円超、または他社を含めた借り入れ金額が100万円超の場合は源泉徴収票など収入を証明するものが必要です。<br>
-            ※2 お申込み時間や審査状況によりご希望にそえない場合があります。<br>
-            ※3 提携ATM設置店のみ<br>
-            ※4 診断結果は、入力いただいた情報に基づく簡易なものとなります。実際の審査では、当社規定によりご希望にそえない場合もございます。<br>
-            ※5 申込内容に不備があれば電話確認<br>
-            ※6 WEB契約時、「カードレス」「口座振替（自動引落）」を選択された場合<br>
-            ※7 口座振替登録を選択された金融機関でお客様の取引時確認が完了していること、その保存がされている場合に限ります。<br>
-        </p>
-    </div>
-</div><section class="result-extra-section">
-    <div class="inner">
-        <div class="optimal_recommend">
-            <div style="text-align: center;">
-                <img src="images/result/title_kuchikomi.png" alt="口コミ" decoding="async" loading="lazy">
-            </div>
-            <span class="optimal_ttl">今すぐお金が必要…！ <br> けど周りにはバレたくない…！ <br>
-            </span>
-            <sapn
-                style="font-size: large; text-align: center; display: block; width: 100%; padding-bottom: 1em;">
-                そんな方にはこちらのカードローンがオススメです。 </sapn>
-            <div class="topbox topboxNew case">
-    
-            <div style="text-align: center;"><img src="images/rank1_catch.png" alt="ランキング1位の注目ポイント" decoding="async" loading="lazy"></div>
-        <div class="text">
-        
-        <div class="rank-title is-flex is-align-center">
-            <h3 class="crown">
-                <a target="_blank" href="redirect.html?item=acom">アコム</a>
-            </h3>
-        </div>
-        <div class="subcatch"><img src="images/hitokoto_point__acom.png" alt="アコムのおすすめポイント" decoding="async" loading="lazy"></div>
-    </div>
-    
-    <div class="basic is-flex is-align-start reco_item">
-        
-        <div class="img reco">
-            <a target="_blank" href="redirect.html?item=acom">
-                <img src="images/banner_acom2.jpg" alt="アコム" decoding="async" loading="lazy">
-            </a>
-        </div>
-        
-        <table class="info reco_table">
-            <tr>
-                <th colspan="2">融資時間</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle" colspan="2">
-                    <span>最短20分<span class="caution">※2</span></span>
-                </td>
-            </tr>
-            <tr>
-                <th>実質年率</th>
-                <th>限度額</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>2.4%～17.9%</span>
-                </td>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最大800万円</span>
-                </td>
-            </tr>
-            <tr>
-                <th>審査時間</th>
-                <th>利用可能コンビニ</th>
-            </tr>
-            <tr>
-                <td class="icon01_small isDoubleCircle">
-                    <span>最短20分<span class="caution">※2</span></span>
-                </td>
-                <td class="iconset">
-                    <div class="is-flex is-align-center is-justify-center">
-                        <div>
-                            <img src="images/convini.webp" width="200px" alt="コンビニATMのイメージ" decoding="async" loading="lazy">
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    
-    <details class="points">
-        <summary>
-            <div class="points_header is-flex is-align-center is-justfy-center">
-                <p>ここがオススメ</p>
-            </div>
-            <div class="points_content">
-                <ul>
-                    <li><span>最短20分で審査結果を確認</span></li>
-                    <li class="point-sub">最短20分で審査結果がわかる！<br>21時までの申込で当日中の利用も検討可能<br>土日祝も<span>24時間申込受付</span><br>たった3秒でわかる借入診断あり</li>
-                    <li><span>無利息期間がお得！</span></li>
-                    <li class="point-sub">初めての方限定！契約日翌日から<span>30日間利息が0円</span>！</li>
-                    <li><span>周囲への連絡面に配慮した手続き</span></li>
-                    <li class="point-sub">勤務先への電話確認が原則不要とされる手続きも確認できます。<br>来店不要でWebから申し込みを進められます。</li>
-                    <li><span>大手銀行グループで安心</span></li>
-                    <li class="point-sub">三菱UFJフィナンシャル・グループだから安心！<br>利用者数は<span>190万人</span>！<br>※営業貸付金残高を有する口座数。DATA BOOK（2026年3月期第1四半期決算）から引用</li>
-                    <li><span>カードレスも選べる！</span></li>
-                    <li class="point-sub">希望があればカードレスで契約できるから気づかれない！</li>
-                    <li><span>返済額は毎月1,000円～</span></li>
-                    <li class="point-sub">返済額は月々1,000円～でOK<br>コンビニATMで全国どこでも返済可能！</li>
-                </ul>
-                <p class="reco_disclaimer" style="font-size:75%;color:#999;">※借入時間等についてはお申し込み内容や状況などによって変わります。<br>※特典やサービスについては条件がございます。<br>※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-    
-    <details class="kuchikomi">
-        <summary>
-            <div class="kuchikomi_header is-flex is-align-center is-justfy-center">
-                <p>リアルな体験談</p>
-            </div>
-            <div class="kuchikomi_content">
-                <ul>
-                    <li style="margin-left:0;padding-left:0;"> <img src="images/kuchikomi_acom1.png" alt="アコムの口コミ" decoding="async" loading="lazy"></li>
-                </ul>
-                <p style="font-size:75%;color:#999;">※一例であり、結果を保証するものではありません。</p>
-            </div>
-        </summary>
-    </details>
-
-    
-    <div class="transition pc">
-        <a target="_blank" href="redirect.html?item=acom"> 詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="transition mobile">
-                    <span>まず比較したい方に確認しやすい候補</span>
-                        <a target="_blank" href="redirect.html?item=acom"> 詳細はこちら<i
-                class="fas fa-arrow-circle-right"></i></a>
-    </div>
-    <div class="remarksbox" style="padding-top: 10px;">
-        <p style="font-size:75%;color:#999;">【PR】Sponsored by アコム株式会社<br />
-            ※1 金融機関により異なります。<br />
-            ※2 お申込時間や審査によりご希望に添えない場合がございます。<br />
-            ※ お勤め先への在籍確認の電話は一切ございません。<br />
-            ※ 20歳以上の安定した収入と返済能力を有する方が対象です。<br />
-            ※収入証明書は50万円まで原則不要<br />
-            ※ アコムでのご契約がはじめてのお客さまはご契約の翌日から30日間金利0円。<br />
-            ※ 一例であり、結果を保証するものではありません。</p>
-
-    </div>
-</div>        </div>
-    </div>
-</section>
-    </div>
+    <form id="diagnosis-data" hidden>
+      <input type="hidden" name="parameter" id="parameter" value="">
+    </form>
   </main>
-  <footer>
-    <div class="container">
-      <a href="operationinfo.html" target="_blank" rel="noopener">運営会社</a>
-      <br>
-      Copyright © マネーローンナビ All Rights Reserved.
-    </div>
+
+  <footer class="site-footer">
+    <a href="operationinfo.html">運営会社</a>
+    <p>Copyright &copy; マネーローンナビ All Rights Reserved.</p>
   </footer>
-  <div id="restraint_toucher"></div>
-  <div class="modal modal_restraint" id="modal_restraint" role="dialog" aria-modal="true" aria-label="入力に戻る確認">
-    <div class="modal_wrapper">
-      <div class="modal_container">
-        <button type="button" class="modal_close modal_restraint_close modal_close_icon" aria-label="閉じる">
-          <img src="assets/img/icon_close.svg" alt="" decoding="async" loading="lazy">
-        </button>
-        <p class="modal-message">診断結果の確認まであと少しです。</p>
-        <button type="button" class="btn modal_close">入力に戻る</button>
-      </div>
-    </div>
-  </div>
-  <div class="modal modal_final" id="modal_final" role="dialog" aria-modal="true" aria-label="診断終了確認">
-    <div class="modal_wrapper">
-      <div class="modal_container">
-        <button type="button" class="modal_close modal_restraint_close modal_close_icon" aria-label="閉じる">
-          <img src="assets/img/icon_close.svg" alt="" decoding="async" loading="lazy">
-        </button>
-        <div class="modal_final_contents" id="modal_final_contents">
 
-          <div class="chat_item chat_admin">
-            <div class="chat_admin_img"></div>
-            <div class="chat_admin_info">
-              <div class="chat_admin_text">
-                <div class="dot-flashing"></div>
-                <span class="late-open">現在、算定中ですが、結果を見ずにやめてしまいますか…？</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <button type="button" class="btn modal_close">入力に戻る</button>
-      </div>
-    </div>
-  </div>
-  <form id="form" action="" method="post" style="display:none;">
-    <div id="results">
-      <input type="text" name="ad" value="undefined">
-      <input type="text" name="type" value="undefined">
-      <input type="text" name="parameter" id="parameter" value="">
-    </div>
-    <input type="hidden" name="_csrf_token_645a83a41868941e4692aa31e7235f2"
-      value="e4e3931209921b77571d06467484d1ec31c46898">
-  </form>
-  <div id="address_list" style="display:none;"></div>
-  <div id="scroll_bar" style="display:none;"></div>
-          <link rel="stylesheet" href="css/popup.css">
-                        <div id="popup-overlay">
-            <div class="popup-content">
-                <button class="popup-close">✖</button>
-                <img src="images/banner_acom2.png" alt="アコム" decoding="async" loading="lazy">
-                <a href="redirect.html?item=acom" target="_blank" class="c-button">詳細</a>
-            </div>
-        </div>
-        <script>
-            // **PHPからページタイプをJSに渡す**
-            const pageType = "index";
-        </script>
-        <script>
-            $(document).ready(function() {
-                let isPopupConfirmed = false;
-                let isWindowFocused = true;
-
-                function showPopup() {
-                    if (!$('#inline-result').is(':visible')) return;
-                    $('#popup-overlay').fadeIn();
-                    isPopupConfirmed = false;
-                }
-
-                // ✅ **index.php の場合: 戻るボタンを押したときにポップアップを表示**
-                if (pageType === 'index') {
-                    $(window).on('popstate', function() {
-                        showPopup();
-                        history.pushState(null, null, location.href);
-                    });
-                }
-
-                // ✅ **それ以外のページ: フォーカスが外れて戻ったときにポップアップを表示**
-                // if (pageType === 'other') {
-                $(window).on('blur', function() {
-                    isWindowFocused = false; // ウィンドウのフォーカスが外れた
-                });
-
-                $(window).on('focus', function() {
-                    if (!isWindowFocused && !isPopupConfirmed) {
-                        showPopup(); // ウィンドウのフォーカスが戻ったらポップアップ表示
-                        isWindowFocused = true;
-                    }
-                });
-                // }
-
-                // ✅ **閉じるボタンをクリックすると閉じる**
-                $('.popup-close').click(function() {
-                    $('#popup-overlay').fadeOut();
-                    isPopupConfirmed = true;
-                });
-
-                // ✅ **背景部分をクリックすると閉じる**
-                $('#popup-overlay').click(function(event) {
-                    if (event.target === this) {
-                        $('#popup-overlay').fadeOut();
-                        isPopupConfirmed = true;
-                    }
-                });
-
-                // ✅ **index.phpの場合、初回ロード時に履歴を追加**
-                if (pageType === 'index') {
-                    history.pushState(null, null, location.href);
-                }
-            });
-        </script>
-        <script src="js/demo-chat-fix.js?v=diagnosis-flow-46"></script>
-  
+  <script src="js/app.js?v=independent-ui-2" defer></script>
 </body>
-
 </html>
-
