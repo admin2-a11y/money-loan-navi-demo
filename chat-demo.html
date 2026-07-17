@@ -3,15 +3,557 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, follow">
-  <title>マネーローンナビ</title>
-  <link rel="canonical" href="https://admin2-a11y.github.io/money-loan-navi-demo/">
-  <script>
-    const destination = new URL("./", window.location.href);
-    destination.search = window.location.search;
-    destination.hash = window.location.hash;
-    window.location.replace(destination);
-  </script>
+  <title>あなたに合うキャッシングサービスは？ | マネーローンナビ</title>
+  <meta name="description" content="年齢、職業、年収、他社借入金額などの希望条件をもとに、比較しやすいキャッシングサービス候補を整理します。">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #edf6fd;
+      color: #102033;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff;
+      border-bottom: 1px solid #dbeaf6;
+    }
+
+    .header__top {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header img {
+      width: clamp(220px, 58vw, 320px);
+      height: auto;
+    }
+
+    .progress {
+      height: 24px;
+      background: #cceeff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress__fill {
+      width: 0;
+      height: 100%;
+      background: #35aee2;
+      transition: width 220ms ease;
+    }
+
+    .progress__label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .shell {
+      width: min(760px, 100%);
+      margin: 0 auto;
+      min-height: calc(100vh - 86px);
+      padding: 14px 12px 96px;
+    }
+
+    .chat {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .intro-card {
+      background: #fff;
+      border: 1px solid #d8eaf6;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 3px 14px rgba(21, 73, 110, 0.08);
+    }
+
+    .intro-card h1 {
+      margin: 0 0 8px;
+      color: #0d5f94;
+      font-size: clamp(24px, 6vw, 34px);
+      line-height: 1.35;
+    }
+
+    .intro-card p {
+      margin: 0;
+      color: #40586b;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .message {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr);
+      column-gap: 10px;
+      align-items: end;
+      max-width: 94%;
+    }
+
+    .message--user {
+      align-self: flex-end;
+      display: block;
+      max-width: 86%;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #cddfed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1679b0;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .bubble {
+      width: fit-content;
+      max-width: 100%;
+      padding: 13px 15px;
+      border-radius: 12px;
+      line-height: 1.65;
+      font-size: 15px;
+      box-shadow: 0 2px 10px rgba(21, 73, 110, 0.08);
+      overflow-wrap: anywhere;
+    }
+
+    .message--bot .bubble {
+      background: #fff;
+      border-bottom-left-radius: 4px;
+    }
+
+    .message--user .bubble {
+      margin-left: auto;
+      background: #d9f7ff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .typing {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      height: 23px;
+    }
+
+    .typing span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #7aa9c4;
+      animation: blink 900ms infinite ease-in-out;
+    }
+
+    .typing span:nth-child(2) {
+      animation-delay: 120ms;
+    }
+
+    .typing span:nth-child(3) {
+      animation-delay: 240ms;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: .25; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(-2px); }
+    }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-left: 48px;
+      max-width: calc(100% - 48px);
+    }
+
+    .choice {
+      min-height: 54px;
+      border: 1px solid #1597d0;
+      background: #fff;
+      color: #073653;
+      border-radius: 8px;
+      padding: 10px 9px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(21, 73, 110, 0.06);
+    }
+
+    .choice:hover,
+    .choice[aria-pressed="true"] {
+      background: #dcf7ff;
+      border-color: #057fb3;
+    }
+
+    .choice-submit {
+      grid-column: 1 / -1;
+      min-height: 54px;
+      border: 0;
+      background: #1287bc;
+      color: #fff;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .choice-submit:disabled {
+      background: #9db7c7;
+      cursor: default;
+    }
+
+    .results {
+      display: none;
+      margin-top: 18px;
+      margin-left: 0;
+    }
+
+    .results__title {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .result-card {
+      background: #fff;
+      border: 1px solid #e4d080;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 13px;
+      box-shadow: 0 3px 12px rgba(21, 73, 110, 0.08);
+    }
+
+    .result-card h3 {
+      margin: 0 0 10px;
+      color: #0d5f94;
+      font-size: 20px;
+    }
+
+    .result-card img {
+      display: block;
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      margin: 0 auto 10px;
+      border-radius: 6px;
+    }
+
+    .result-card p {
+      margin: 0 0 12px;
+      color: #26384a;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .result-card a {
+      display: block;
+      min-height: 48px;
+      padding: 13px 12px;
+      background: #f05a24;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: 900;
+    }
+
+    .restart {
+      width: 100%;
+      height: 46px;
+      margin: 4px 0 18px;
+      border: 1px solid #b5d6e8;
+      background: #fff;
+      color: #14506f;
+      border-radius: 7px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    @media (max-width: 540px) {
+      .shell {
+        padding-inline: 10px;
+      }
+
+      .choices {
+        grid-template-columns: 1fr;
+      }
+
+      .message--user,
+      .message {
+        max-width: 98%;
+      }
+    }
+  </style>
 </head>
-<body><p><a href="./">マネーローンナビを開く</a></p></body>
+<body>
+  <header class="header">
+    <div class="header__top">
+      <img src="assets/img/money-loan-navi-logo.png?v=1" alt="マネーローンナビ">
+    </div>
+    <div class="progress" id="progress">
+      <div class="progress__fill" id="progressFill"></div>
+      <div class="progress__label" id="progressLabel">準備中</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="intro-card" aria-labelledby="diagnosisTitle">
+      <h1 id="diagnosisTitle">あなたに合うキャッシングサービスは？</h1>
+      <p>ご希望条件をもとに、比較しやすい候補を整理します。</p>
+    </section>
+    <section class="chat" id="chat" aria-live="polite"></section>
+    <section class="results" id="results">
+      <h2 class="results__title">ご希望条件に近いキャッシングサービス</h2>
+      <article class="result-card">
+        <h3>アコム</h3>
+        <img src="images/banner_acom2.jpg" alt="アコム">
+        <p>はじめて利用時の無利息期間やWeb申込のしやすさを比較したい方が確認しやすい候補です。</p>
+        <a href="redirect.html?item=acom" target="_blank" rel="noopener">詳細を確認する</a>
+      </article>
+      <article class="result-card">
+        <h3>SMBCモビット</h3>
+        <img src="images/banner_mobit.jpg" alt="SMBCモビット">
+        <p>Web完結の手続きや周囲への連絡面を重視する方が比較しやすい候補です。</p>
+        <a href="redirect.html?item=mobit" target="_blank" rel="noopener">詳細を確認する</a>
+      </article>
+      <article class="result-card">
+        <h3>プロミス</h3>
+        <img src="images/banner_promise.jpg" alt="プロミス">
+        <p>申込から契約までの流れや無利息期間を比較したい方が確認しやすい候補です。</p>
+        <a href="redirect.html?item=promise" target="_blank" rel="noopener">詳細を確認する</a>
+      </article>
+      <article class="result-card">
+        <h3>アイフル</h3>
+        <img src="images/banner_aiful.webp" alt="アイフル">
+        <p>Web契約やカードレス利用を比較したい方が確認しやすい候補です。</p>
+        <a href="redirect.html?item=aiflu" target="_blank" rel="noopener">詳細を確認する</a>
+      </article>
+      <button class="restart" type="button" id="restart">条件を変えてもう一度診断する</button>
+    </section>
+  </main>
+
+  <script>
+    const questions = {
+      q01: {
+        next: "q02",
+        messages: [
+          "こんにちは、マネーローンナビです。",
+          "ご希望条件から、比較しやすいキャッシングサービス候補を整理します。",
+          "まず、年齢を教えてください。"
+        ],
+        options: [["20〜29歳", "age20"], ["30〜39歳", "age30"], ["40〜49歳", "age40"], ["50〜59歳", "age50"], ["60歳以上", "age60"]]
+      },
+      q02: { next: "q03", messages: ["職業を教えてください。"], options: [["会社員", "jobEmployee"], ["公務員", "jobPublic"], ["自営業", "jobSelf"], ["パート・アルバイト", "jobPart"], ["主婦・主夫", "jobHousehold"], ["学生", "jobStudent"], ["その他", "jobOther"]] },
+      q03: { next: "q04", messages: ["本人の年収に近いものを選んでください。"], options: [["100万円未満", "incomeUnder100"], ["100〜199万円", "income100"], ["200〜299万円", "income200"], ["300〜499万円", "income300"], ["500万円以上", "income500"]] },
+      q04: { next: "q05", messages: ["他社借入金額に近いものを選んでください。"], options: [["なし", "debtNone"], ["1〜49万円", "debt1"], ["50〜99万円", "debt50"], ["100万円以上", "debt100"]] },
+      q05: { next: "q06", messages: ["希望借入額に近いものを選んでください。"], options: [["5万円以下", "amount5"], ["10万円前後", "amount10"], ["30万円前後", "amount30"], ["50万円以上", "amount50"]] },
+      q06: { next: "last", type: "final", messages: ["希望スピードを教えてください。"], options: [["今日中", "speedToday"], ["近日中", "speedSoon"], ["急がない", "speedLater"]] }
+    };
+
+    const chat = document.getElementById("chat");
+    const results = document.getElementById("results");
+    const progress = document.getElementById("progress");
+    const progressFill = document.getElementById("progressFill");
+    const progressLabel = document.getElementById("progressLabel");
+    const restart = document.getElementById("restart");
+    const state = { answers: [], busy: false };
+
+    window.addEventListener("DOMContentLoaded", () => ask("q01"));
+    restart.addEventListener("click", () => location.reload());
+
+    function wait(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    function scrollBottom() {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    }
+
+    function typingBubble() {
+      const row = document.createElement("div");
+      row.className = "message message--bot";
+      row.innerHTML = '<div class="avatar">ナビ</div><div class="bubble"><div class="typing"><span></span><span></span><span></span></div></div>';
+      chat.appendChild(row);
+      scrollBottom();
+      return row;
+    }
+
+    async function bot(text) {
+      const typing = typingBubble();
+      await wait(Math.min(850, 320 + text.length * 16));
+      typing.remove();
+      const row = document.createElement("div");
+      row.className = "message message--bot";
+      row.innerHTML = '<div class="avatar">ナビ</div><div class="bubble"></div>';
+      row.querySelector(".bubble").textContent = text;
+      chat.appendChild(row);
+      scrollBottom();
+    }
+
+    function user(text) {
+      const row = document.createElement("div");
+      row.className = "message message--user";
+      row.innerHTML = '<div class="bubble"></div>';
+      row.querySelector(".bubble").textContent = text;
+      chat.appendChild(row);
+      scrollBottom();
+    }
+
+    function updateProgress(id) {
+      if (id === "last") {
+        progress.style.display = "none";
+        return;
+      }
+      const number = Number(id.replace("q", ""));
+      const total = 6;
+      const current = Math.min(number, total);
+      progressFill.style.width = `${(current / total) * 100}%`;
+      const remaining = Math.max(0, total - current);
+      progressLabel.textContent = remaining > 0 ? `あと${remaining}問` : "ラスト";
+    }
+
+    async function ask(id) {
+      if (state.busy) return;
+      state.busy = true;
+      updateProgress(id);
+      removeChoices();
+      const step = questions[id];
+      for (const message of step.messages) {
+        await bot(message);
+      }
+      showChoices(id, step);
+      state.busy = false;
+    }
+
+    function showChoices(id, step) {
+      const wrap = document.createElement("div");
+      wrap.className = "choices";
+
+      if (step.type === "multi") {
+        const selected = new Set();
+        step.options.forEach(([label, code]) => {
+          const button = choiceButton(label);
+          button.addEventListener("click", () => {
+            if (selected.has(code)) {
+              selected.delete(code);
+              button.setAttribute("aria-pressed", "false");
+            } else {
+              selected.add(code);
+              button.setAttribute("aria-pressed", "true");
+            }
+            submit.disabled = selected.size === 0;
+          });
+          wrap.appendChild(button);
+        });
+
+        const submit = document.createElement("button");
+        submit.className = "choice-submit";
+        submit.type = "button";
+        submit.textContent = "この内容で進む";
+        submit.disabled = true;
+        submit.addEventListener("click", () => {
+          const picked = step.options.filter(([, code]) => selected.has(code));
+          answer(id, picked.map(([label]) => label).join("、"), picked.map(([, code]) => code).join(""), nextFor(id, step.next));
+        });
+        wrap.appendChild(submit);
+      } else if (step.type === "final") {
+        let picked = null;
+        const buttons = [];
+        step.options.forEach(([label, code]) => {
+          const button = choiceButton(label);
+          button.addEventListener("click", () => {
+            picked = { label, code };
+            buttons.forEach((item) => item.setAttribute("aria-pressed", "false"));
+            button.setAttribute("aria-pressed", "true");
+            submit.disabled = false;
+          });
+          buttons.push(button);
+          wrap.appendChild(button);
+        });
+        const submit = document.createElement("button");
+        submit.className = "choice-submit";
+        submit.type = "button";
+        submit.textContent = "この条件で診断結果を見る";
+        submit.disabled = true;
+        submit.addEventListener("click", () => {
+          if (!picked) return;
+          answer(id, picked.label, picked.code, step.next);
+        });
+        wrap.appendChild(submit);
+      } else {
+        step.options.forEach(([label, code]) => {
+          const button = choiceButton(label);
+          button.addEventListener("click", () => answer(id, label, code, nextFor(id, step.next)));
+          wrap.appendChild(button);
+        });
+      }
+
+      chat.appendChild(wrap);
+      scrollBottom();
+    }
+
+    function choiceButton(label) {
+      const button = document.createElement("button");
+      button.className = "choice";
+      button.type = "button";
+      button.textContent = label;
+      button.setAttribute("aria-pressed", "false");
+      return button;
+    }
+
+    function removeChoices() {
+      document.querySelectorAll(".choices").forEach((element) => element.remove());
+    }
+
+    function nextFor(id, fallback) {
+      return fallback;
+    }
+
+    async function answer(id, label, code, next) {
+      if (state.busy) return;
+      removeChoices();
+      state.answers.push({ id, label, code });
+      user(label);
+      if (next === "last") {
+        await finish();
+      } else {
+        await wait(260);
+        ask(next);
+      }
+    }
+
+    async function finish() {
+      state.busy = true;
+      updateProgress("last");
+      await bot("ありがとうございます。回答を確認しました。");
+      await bot("ご希望条件に近いサービスを確認しています。");
+      await bot("比較しやすい候補を整理しました。詳細ページで条件を確認できます。");
+      results.style.display = "block";
+      results.scrollIntoView({ behavior: "smooth", block: "start" });
+      state.busy = false;
+    }
+  </script>
+</body>
 </html>
+
