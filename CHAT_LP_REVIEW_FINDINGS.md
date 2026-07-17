@@ -111,7 +111,7 @@ These are not imported by application code; they are created by the retained GTM
 - Operator page: direct mobile load successful
 - Keyboard: focus outline measured at 3px with 3px offset
 - Tap areas: question controls 52px or greater; restart/footer links 44px
-- Console: 0 errors in the final public entry and result checks
+- Console: 0 warnings/errors in the final local entry check
 
 # Iterative Audits
 
@@ -143,15 +143,7 @@ These are not imported by application code; they are created by the retained GTM
 - Baseline asset/code audit found the critical old-brand, unused-code and public-history issues listed above.
 - Independent design audit judged the rebuilt UI a conditional pass and identified image provenance and two responsive/image presentation concerns.
 - The responsive copy and review-image presentation concerns were corrected before release review.
-- A separate final reviewer found no P0/P1 implementation defect, confirmed the questions, fixed ranking, four redirect identifiers, GTM and PR disclosures, and returned `CONDITIONAL PASS` for asset/GTM approval.
-
-## Release Check
-
-- Commit `3f45bdb` was pushed to `main` and served by GitHub Pages.
-- Public smoke URL: `https://admin2-a11y.github.io/money-loan-navi-demo/?v=3f45bdb`
-- Completed the beginner route on the public site at a mobile viewport.
-- Confirmed SMBC Mobit, Aiful and Promise in positions No.1 through No.3, followed by the full SMBC Mobit recommendation.
-- Confirmed no horizontal overflow and no console errors on the public entry and result views.
+- A separate final reviewer found no P0/P1 implementation defect, confirmed the questions, fixed ranking, four redirect identifiers, GTM and PR disclosures, and returned `CONDITIONAL PASS` only for asset/GTM approval and post-deployment smoke testing.
 
 # Unresolved Items
 
@@ -164,6 +156,7 @@ These are not imported by application code; they are created by the retained GTM
 - Owner must confirm rights/provenance for the site logo and advisor image.
 - Owner must confirm the retained banners, review images and convenience-store logos are approved for this deployment.
 - Owner must approve the GTM downstream domain list and review the two injected insecure URLs.
+- Public deployment must be checked after the final commit reaches GitHub Pages.
 
 ## P2
 

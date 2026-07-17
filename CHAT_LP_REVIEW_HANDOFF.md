@@ -97,8 +97,5 @@ This is a dependency-free static site. There is no TypeScript compiler or separa
 ## Release
 
 - Baseline before this work: `6125abf`
-- Independent rebuild commit: `3f45bdb`
-- Public URL verified at mobile width: `https://admin2-a11y.github.io/money-loan-navi-demo/?v=3f45bdb`
-- Public smoke test completed through the beginner route; ranking and final recommendation matched the fixed specification with no console error or horizontal overflow.
 - Rollback: redeploy the baseline commit or revert the new audit commit.
 - Do not publish the local `audit-evidence` screenshots; they are implementation evidence only.
