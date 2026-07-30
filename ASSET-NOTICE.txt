@@ -1,0 +1,28 @@
+Money Loan Navi delivery asset notice
+Date: 2026-07-30
+
+Independently authored for this delivery
+- css/site.css
+- js/site.js
+- js/redirect.js
+- favicon.svg
+- HTML structure and UI components in this package
+
+Client/project-provided brand assets
+- images/money-loan-navi-logo.png
+- images/money-loan-navi-bot.webp
+
+Official affiliate materials retained without editing
+- images/banner_acom.jpg
+- images/banner_mobit.jpg
+- images/banner_aiful.jpg
+- images/banner_aiful-9min.webp
+- images/banner_promise.jpg
+- images/convenience-store-logos-360.webp
+- images/review-mobit-v2.png
+- images/review-aiful-v2.png
+- images/review-promise-v2.png
+
+The official affiliate materials are not original site artwork. Their delivery
+and publication require confirmation that the client is authorized to use them.
+This notice records the technical asset classification and does not grant rights.

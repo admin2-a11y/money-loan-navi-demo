@@ -1,0 +1,28 @@
+[data-mln-lender-card-root] {
+  --mln-product-accent: #1769aa;
+  --mln-product-soft: #eef7ff;
+  --mln-product-line: #9cc9ee;
+  --mln-product-cta: #ff672c;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+body.beginner [data-mln-lender-card-root] {
+  --mln-product-accent: #16856b;
+  --mln-product-soft: #effce7;
+  --mln-product-line: #a8dc7f;
+}
+
+@media (max-width: 600px) {
+  [data-mln-lender-card-root] {
+    width: calc(100% + 8px);
+    margin-inline: -4px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  [data-mln-lender-card-root] {
+    width: calc(100% + 24px);
+    margin-inline: -12px;
+  }
+}
